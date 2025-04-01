@@ -1,0 +1,15 @@
+{
+  "name": "@qpoint-io/proto",
+  "version": "1.0.0",
+  "description": "Protocol Buffers definitions for Qpoint products",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qpoint-io/proto.git"
+  },
+  "devDependencies": {
+    "@bufbuild/protoc-gen-es": "^2.2.5"
+  },
+  "dependencies": {
+    "@bufbuild/protobuf": "^2.2.5"
+  }
+}

@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package eventstore.v1;
+
+import "qpoint/type/v1/request.proto";
+
+service EventStoreService {
+  rpc Ping(PingRequest) returns (PingResponse) {}
+
+  rpc Ingest(stream IngestRequest) returns (IngestResponse) {}
+}
+
+message PingRequest {}
+
+message PingResponse {
+  string org_id = 1;
+}
+
+message IngestRequest {
+  message Record {
+    oneof record {
+      qpoint.type.v1.Request request = 1;
+    }
+  }
+
+  repeated Record records = 1;
+}
+
+message IngestResponse {
+  int32 accepted_count = 1;
+}

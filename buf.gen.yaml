@@ -1,0 +1,26 @@
+version: v2
+inputs:
+  - directory: proto
+managed:
+  enabled: true
+  override:
+    - file_option: go_package_prefix
+      value: github.com/qpoint-io/proto/gen/go
+  disable:
+    - file_option: go_package_prefix
+      module: buf.build/bufbuild/protovalidate
+plugins:
+  # Go
+  - local: protoc-gen-go
+    out: gen/go
+    opt:
+      - paths=source_relative
+      - default_api_level=API_OPAQUE
+  - local: protoc-gen-connect-go
+    out: gen/go
+    opt: paths=source_relative
+  # JavaScript
+  - local: protoc-gen-es
+    out: gen/ts
+    include_imports: true
+    opt: target=ts

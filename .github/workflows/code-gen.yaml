@@ -1,0 +1,23 @@
+name: Code Generation
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  code-gen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run code generation
+        run: |
+          make
+      - name: Check for uncommitted changes
+        run: |
+          if [[ -n $(git status --porcelain) ]]; then
+            echo "Uncommitted changes found:"
+            git status -sb
+            exit 1
+          fi

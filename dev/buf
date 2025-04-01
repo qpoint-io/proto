@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -eu
+
+cd "$(dirname "$0")/.."
+docker build -f Dockerfile.dev -t qpoint-buf .
+docker run \
+    --rm \
+    -u "$(id -u):$(id -g)" \
+    -v "$(pwd):/app" \
+    -i qpoint-buf \
+    buf "$@"

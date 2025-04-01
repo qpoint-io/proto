@@ -1,0 +1,18 @@
+FROM bufbuild/buf:1 AS buf
+FROM golang:1.24-alpine AS go
+
+RUN go install -mod=readonly google.golang.org/protobuf/cmd/protoc-gen-go@v1.36.6
+RUN go install -mod=readonly connectrpc.com/connect/cmd/protoc-gen-connect-go@v1.18.1
+
+FROM node:18-alpine AS node
+
+COPY --from=go /go/bin/protoc-gen-go /usr/local/bin/protoc-gen-go
+COPY --from=go /go/bin/protoc-gen-connect-go /usr/local/bin/protoc-gen-connect-go
+COPY --from=buf /usr/local/bin/buf /usr/local/bin/buf
+
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm install
+RUN mkdir /npm && mv node_modules /npm/
+ENV BUF_CACHE_DIR=/tmp/buf
+ENV PATH="/npm/node_modules/.bin:$PATH"
