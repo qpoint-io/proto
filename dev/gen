@@ -3,5 +3,7 @@
 set -eu
 cd "$(dirname "$0")/.."
 
-rm -r gen
+if [[ -e gen ]]; then
+    rm -r gen
+fi
 dev/buf generate .
