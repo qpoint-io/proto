@@ -27,7 +27,6 @@ type Request struct {
 	xxx_hidden_Timestamp       *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=timestamp,proto3"`
 	xxx_hidden_Direction       string                 `protobuf:"bytes,2,opt,name=direction,proto3"`
 	xxx_hidden_ConnectionId    string                 `protobuf:"bytes,3,opt,name=connection_id,json=connectionId,proto3"`
-	xxx_hidden_OrgId           string                 `protobuf:"bytes,4,opt,name=org_id,json=orgId,proto3"`
 	xxx_hidden_EndpointId      string                 `protobuf:"bytes,5,opt,name=endpoint_id,json=endpointId,proto3"`
 	xxx_hidden_VendorId        string                 `protobuf:"bytes,6,opt,name=vendor_id,json=vendorId,proto3"`
 	xxx_hidden_RequestId       string                 `protobuf:"bytes,7,opt,name=request_id,json=requestId,proto3"`
@@ -92,13 +91,6 @@ func (x *Request) GetDirection() string {
 func (x *Request) GetConnectionId() string {
 	if x != nil {
 		return x.xxx_hidden_ConnectionId
-	}
-	return ""
-}
-
-func (x *Request) GetOrgId() string {
-	if x != nil {
-		return x.xxx_hidden_OrgId
 	}
 	return ""
 }
@@ -241,10 +233,6 @@ func (x *Request) SetConnectionId(v string) {
 	x.xxx_hidden_ConnectionId = v
 }
 
-func (x *Request) SetOrgId(v string) {
-	x.xxx_hidden_OrgId = v
-}
-
 func (x *Request) SetEndpointId(v string) {
 	x.xxx_hidden_EndpointId = v
 }
@@ -334,7 +322,6 @@ type Request_builder struct {
 	Timestamp     *timestamppb.Timestamp
 	Direction     string
 	ConnectionId  string
-	OrgId         string
 	EndpointId    string
 	VendorId      string
 	RequestId     string
@@ -363,7 +350,6 @@ func (b0 Request_builder) Build() *Request {
 	x.xxx_hidden_Timestamp = b.Timestamp
 	x.xxx_hidden_Direction = b.Direction
 	x.xxx_hidden_ConnectionId = b.ConnectionId
-	x.xxx_hidden_OrgId = b.OrgId
 	x.xxx_hidden_EndpointId = b.EndpointId
 	x.xxx_hidden_VendorId = b.VendorId
 	x.xxx_hidden_RequestId = b.RequestId
@@ -389,12 +375,11 @@ var File_qpoint_type_v1_request_proto protoreflect.FileDescriptor
 
 const file_qpoint_type_v1_request_proto_rawDesc = "" +
 	"\n" +
-	"\x1cqpoint/type/v1/request.proto\x12\x0eqpoint.type.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe7\x05\n" +
+	"\x1cqpoint/type/v1/request.proto\x12\x0eqpoint.type.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xce\x05\n" +
 	"\aRequest\x12@\n" +
 	"\ttimestamp\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\ttimestamp\x12$\n" +
 	"\tdirection\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tdirection\x12+\n" +
-	"\rconnection_id\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\fconnectionId\x12\x1d\n" +
-	"\x06org_id\x18\x04 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x05orgId\x12\x1f\n" +
+	"\rconnection_id\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\fconnectionId\x12\x1f\n" +
 	"\vendpoint_id\x18\x05 \x01(\tR\n" +
 	"endpointId\x12\x1b\n" +
 	"\tvendor_id\x18\x06 \x01(\tR\bvendorId\x12%\n" +
@@ -416,7 +401,7 @@ const file_qpoint_type_v1_request_proto_rawDesc = "" +
 	"\x0fauth_token_type\x18\x14 \x01(\tR\rauthTokenType\x12%\n" +
 	"\x0ebytes_received\x18\x15 \x01(\x04R\rbytesReceived\x12\x1d\n" +
 	"\n" +
-	"bytes_sent\x18\x16 \x01(\x04R\tbytesSentB\xb5\x01\n" +
+	"bytes_sent\x18\x16 \x01(\x04R\tbytesSentJ\x04\b\x04\x10\x05B\xb5\x01\n" +
 	"\x12com.qpoint.type.v1B\fRequestProtoP\x01Z7github.com/qpoint-io/proto/gen/go/qpoint/type/v1;typev1\xa2\x02\x03QTX\xaa\x02\x0eQpoint.Type.V1\xca\x02\x0eQpoint\\Type\\V1\xe2\x02\x1aQpoint\\Type\\V1\\GPBMetadata\xea\x02\x10Qpoint::Type::V1b\x06proto3"
 
 var file_qpoint_type_v1_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
