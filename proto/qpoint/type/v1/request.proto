@@ -6,28 +6,30 @@ import "buf/validate/validate.proto";
 import "google/protobuf/timestamp.proto";
 
 message Request {
-  reserved 4;
-
-  google.protobuf.Timestamp timestamp = 1 [(buf.validate.field).required = true];
-  string direction = 2 [(buf.validate.field).required = true];
-  string connection_id = 3 [(buf.validate.field).required = true];
+  string id = 1 [(buf.validate.field).required = true];
+  google.protobuf.Timestamp timestamp = 2 [(buf.validate.field).required = true];
+  string direction = 3 [(buf.validate.field).required = true];
+  string connection_id = 4 [(buf.validate.field).required = true];
   string endpoint_id = 5;
   string vendor_id = 6;
-  string request_id = 7 [(buf.validate.field).required = true];
-  string url = 8;
-  string path = 9;
-  string method = 10;
-  uint32 status = 11;
-  uint64 duration = 12;
-  string content_type = 13;
-  string category = 14;
-  string agent = 15;
-  repeated string tags = 16;
-  string auth_token_mask = 17;
-  // auth_token_hash is a SHA-256 hash of the auth token. The length is 32 bytes (64 characters).
-  string auth_token_hash = 18;
-  string auth_token_source = 19;
-  string auth_token_type = 20;
-  uint64 bytes_received = 21;
-  uint64 bytes_sent = 22;
+  string url = 7;
+  string path = 8;
+  string method = 9;
+  uint32 status = 10;
+  uint64 duration = 11;
+  string content_type = 12;
+  string category = 13;
+  string agent = 14;
+  repeated string tags = 15;
+  uint64 bytes_received = 16;
+  uint64 bytes_sent = 17;
+
+  message AuthToken {
+    string mask = 1;
+    // hash is a 32-byte SHA-256 hash of the auth token.
+    string hash = 2;
+    string source = 3;
+    string type = 4;
+  }
+  AuthToken auth_token = 18;
 }

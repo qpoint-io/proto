@@ -13,24 +13,29 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file qpoint/type/v1/request.proto.
  */
 export const file_qpoint_type_v1_request: GenFile = /*@__PURE__*/
-  fileDesc("ChxxcG9pbnQvdHlwZS92MS9yZXF1ZXN0LnByb3RvEg5xcG9pbnQudHlwZS52MSLoAwoHUmVxdWVzdBI1Cgl0aW1lc3RhbXAYASABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wQga6SAPIAQESGQoJZGlyZWN0aW9uGAIgASgJQga6SAPIAQESHQoNY29ubmVjdGlvbl9pZBgDIAEoCUIGukgDyAEBEhMKC2VuZHBvaW50X2lkGAUgASgJEhEKCXZlbmRvcl9pZBgGIAEoCRIaCgpyZXF1ZXN0X2lkGAcgASgJQga6SAPIAQESCwoDdXJsGAggASgJEgwKBHBhdGgYCSABKAkSDgoGbWV0aG9kGAogASgJEg4KBnN0YXR1cxgLIAEoDRIQCghkdXJhdGlvbhgMIAEoBBIUCgxjb250ZW50X3R5cGUYDSABKAkSEAoIY2F0ZWdvcnkYDiABKAkSDQoFYWdlbnQYDyABKAkSDAoEdGFncxgQIAMoCRIXCg9hdXRoX3Rva2VuX21hc2sYESABKAkSFwoPYXV0aF90b2tlbl9oYXNoGBIgASgJEhkKEWF1dGhfdG9rZW5fc291cmNlGBMgASgJEhcKD2F1dGhfdG9rZW5fdHlwZRgUIAEoCRIWCg5ieXRlc19yZWNlaXZlZBgVIAEoBBISCgpieXRlc19zZW50GBYgASgESgQIBBAFQrUBChJjb20ucXBvaW50LnR5cGUudjFCDFJlcXVlc3RQcm90b1ABWjdnaXRodWIuY29tL3Fwb2ludC1pby9wcm90by9nZW4vZ28vcXBvaW50L3R5cGUvdjE7dHlwZXYxogIDUVRYqgIOUXBvaW50LlR5cGUuVjHKAg5RcG9pbnRcVHlwZVxWMeICGlFwb2ludFxUeXBlXFYxXEdQQk1ldGFkYXRh6gIQUXBvaW50OjpUeXBlOjpWMWIGcHJvdG8z", [file_buf_validate_validate, file_google_protobuf_timestamp]);
+  fileDesc("ChxxcG9pbnQvdHlwZS92MS9yZXF1ZXN0LnByb3RvEg5xcG9pbnQudHlwZS52MSLyAwoHUmVxdWVzdBISCgJpZBgBIAEoCUIGukgDyAEBEjUKCXRpbWVzdGFtcBgCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBCBrpIA8gBARIZCglkaXJlY3Rpb24YAyABKAlCBrpIA8gBARIdCg1jb25uZWN0aW9uX2lkGAQgASgJQga6SAPIAQESEwoLZW5kcG9pbnRfaWQYBSABKAkSEQoJdmVuZG9yX2lkGAYgASgJEgsKA3VybBgHIAEoCRIMCgRwYXRoGAggASgJEg4KBm1ldGhvZBgJIAEoCRIOCgZzdGF0dXMYCiABKA0SEAoIZHVyYXRpb24YCyABKAQSFAoMY29udGVudF90eXBlGAwgASgJEhAKCGNhdGVnb3J5GA0gASgJEg0KBWFnZW50GA4gASgJEgwKBHRhZ3MYDyADKAkSFgoOYnl0ZXNfcmVjZWl2ZWQYECABKAQSEgoKYnl0ZXNfc2VudBgRIAEoBBI1CgphdXRoX3Rva2VuGBIgASgLMiEucXBvaW50LnR5cGUudjEuUmVxdWVzdC5BdXRoVG9rZW4aRQoJQXV0aFRva2VuEgwKBG1hc2sYASABKAkSDAoEaGFzaBgCIAEoCRIOCgZzb3VyY2UYAyABKAkSDAoEdHlwZRgEIAEoCUK1AQoSY29tLnFwb2ludC50eXBlLnYxQgxSZXF1ZXN0UHJvdG9QAVo3Z2l0aHViLmNvbS9xcG9pbnQtaW8vcHJvdG8vZ2VuL2dvL3Fwb2ludC90eXBlL3YxO3R5cGV2MaICA1FUWKoCDlFwb2ludC5UeXBlLlYxygIOUXBvaW50XFR5cGVcVjHiAhpRcG9pbnRcVHlwZVxWMVxHUEJNZXRhZGF0YeoCEFFwb2ludDo6VHlwZTo6VjFiBnByb3RvMw", [file_buf_validate_validate, file_google_protobuf_timestamp]);
 
 /**
  * @generated from message qpoint.type.v1.Request
  */
 export type Request = Message<"qpoint.type.v1.Request"> & {
   /**
-   * @generated from field: google.protobuf.Timestamp timestamp = 1;
+   * @generated from field: string id = 1;
+   */
+  id: string;
+
+  /**
+   * @generated from field: google.protobuf.Timestamp timestamp = 2;
    */
   timestamp?: Timestamp;
 
   /**
-   * @generated from field: string direction = 2;
+   * @generated from field: string direction = 3;
    */
   direction: string;
 
   /**
-   * @generated from field: string connection_id = 3;
+   * @generated from field: string connection_id = 4;
    */
   connectionId: string;
 
@@ -45,86 +50,64 @@ export type Request = Message<"qpoint.type.v1.Request"> & {
   vendorId: string;
 
   /**
-   * @generated from field: string request_id = 7;
-   */
-  requestId: string;
-
-  /**
-   * @generated from field: string url = 8;
+   * @generated from field: string url = 7;
    */
   url: string;
 
   /**
-   * @generated from field: string path = 9;
+   * @generated from field: string path = 8;
    */
   path: string;
 
   /**
-   * @generated from field: string method = 10;
+   * @generated from field: string method = 9;
    */
   method: string;
 
   /**
-   * @generated from field: uint32 status = 11;
+   * @generated from field: uint32 status = 10;
    */
   status: number;
 
   /**
-   * @generated from field: uint64 duration = 12;
+   * @generated from field: uint64 duration = 11;
    */
   duration: bigint;
 
   /**
-   * @generated from field: string content_type = 13;
+   * @generated from field: string content_type = 12;
    */
   contentType: string;
 
   /**
-   * @generated from field: string category = 14;
+   * @generated from field: string category = 13;
    */
   category: string;
 
   /**
-   * @generated from field: string agent = 15;
+   * @generated from field: string agent = 14;
    */
   agent: string;
 
   /**
-   * @generated from field: repeated string tags = 16;
+   * @generated from field: repeated string tags = 15;
    */
   tags: string[];
 
   /**
-   * @generated from field: string auth_token_mask = 17;
-   */
-  authTokenMask: string;
-
-  /**
-   * auth_token_hash is a SHA-256 hash of the auth token. The length is 32 bytes (64 characters).
-   *
-   * @generated from field: string auth_token_hash = 18;
-   */
-  authTokenHash: string;
-
-  /**
-   * @generated from field: string auth_token_source = 19;
-   */
-  authTokenSource: string;
-
-  /**
-   * @generated from field: string auth_token_type = 20;
-   */
-  authTokenType: string;
-
-  /**
-   * @generated from field: uint64 bytes_received = 21;
+   * @generated from field: uint64 bytes_received = 16;
    */
   bytesReceived: bigint;
 
   /**
-   * @generated from field: uint64 bytes_sent = 22;
+   * @generated from field: uint64 bytes_sent = 17;
    */
   bytesSent: bigint;
+
+  /**
+   * @generated from field: qpoint.type.v1.Request.AuthToken auth_token = 18;
+   */
+  authToken?: Request_AuthToken;
 };
 
 /**
@@ -133,4 +116,38 @@ export type Request = Message<"qpoint.type.v1.Request"> & {
  */
 export const RequestSchema: GenMessage<Request> = /*@__PURE__*/
   messageDesc(file_qpoint_type_v1_request, 0);
+
+/**
+ * @generated from message qpoint.type.v1.Request.AuthToken
+ */
+export type Request_AuthToken = Message<"qpoint.type.v1.Request.AuthToken"> & {
+  /**
+   * @generated from field: string mask = 1;
+   */
+  mask: string;
+
+  /**
+   * hash is a 32-byte SHA-256 hash of the auth token.
+   *
+   * @generated from field: string hash = 2;
+   */
+  hash: string;
+
+  /**
+   * @generated from field: string source = 3;
+   */
+  source: string;
+
+  /**
+   * @generated from field: string type = 4;
+   */
+  type: string;
+};
+
+/**
+ * Describes the message qpoint.type.v1.Request.AuthToken.
+ * Use `create(Request_AuthTokenSchema)` to create a new message.
+ */
+export const Request_AuthTokenSchema: GenMessage<Request_AuthToken> = /*@__PURE__*/
+  messageDesc(file_qpoint_type_v1_request, 0, 0);
 
