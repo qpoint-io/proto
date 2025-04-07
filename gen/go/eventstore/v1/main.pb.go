@@ -122,10 +122,10 @@ func (b0 PingResponse_builder) Build() *PingResponse {
 }
 
 type IngestRequest struct {
-	state              protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_Records *[]*IngestRequest_Record `protobuf:"bytes,1,rep,name=records,proto3"`
-	unknownFields      protoimpl.UnknownFields
-	sizeCache          protoimpl.SizeCache
+	state             protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Events *[]*IngestRequest_Event `protobuf:"bytes,1,rep,name=events,proto3"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *IngestRequest) Reset() {
@@ -153,30 +153,30 @@ func (x *IngestRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *IngestRequest) GetRecords() []*IngestRequest_Record {
+func (x *IngestRequest) GetEvents() []*IngestRequest_Event {
 	if x != nil {
-		if x.xxx_hidden_Records != nil {
-			return *x.xxx_hidden_Records
+		if x.xxx_hidden_Events != nil {
+			return *x.xxx_hidden_Events
 		}
 	}
 	return nil
 }
 
-func (x *IngestRequest) SetRecords(v []*IngestRequest_Record) {
-	x.xxx_hidden_Records = &v
+func (x *IngestRequest) SetEvents(v []*IngestRequest_Event) {
+	x.xxx_hidden_Events = &v
 }
 
 type IngestRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Records []*IngestRequest_Record
+	Events []*IngestRequest_Event
 }
 
 func (b0 IngestRequest_builder) Build() *IngestRequest {
 	m0 := &IngestRequest{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.xxx_hidden_Records = &b.Records
+	x.xxx_hidden_Events = &b.Events
 	return m0
 }
 
@@ -237,27 +237,27 @@ func (b0 IngestResponse_builder) Build() *IngestResponse {
 	return m0
 }
 
-type IngestRequest_Record struct {
-	state             protoimpl.MessageState        `protogen:"opaque.v1"`
-	xxx_hidden_Record isIngestRequest_Record_Record `protobuf_oneof:"record"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
+type IngestRequest_Event struct {
+	state            protoimpl.MessageState      `protogen:"opaque.v1"`
+	xxx_hidden_Event isIngestRequest_Event_Event `protobuf_oneof:"event"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
-func (x *IngestRequest_Record) Reset() {
-	*x = IngestRequest_Record{}
+func (x *IngestRequest_Event) Reset() {
+	*x = IngestRequest_Event{}
 	mi := &file_eventstore_v1_main_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *IngestRequest_Record) String() string {
+func (x *IngestRequest_Event) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*IngestRequest_Record) ProtoMessage() {}
+func (*IngestRequest_Event) ProtoMessage() {}
 
-func (x *IngestRequest_Record) ProtoReflect() protoreflect.Message {
+func (x *IngestRequest_Event) ProtoReflect() protoreflect.Message {
 	mi := &file_eventstore_v1_main_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -269,84 +269,198 @@ func (x *IngestRequest_Record) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *IngestRequest_Record) GetRequest() *v1.Request {
+func (x *IngestRequest_Event) GetRequest() *v1.Request {
 	if x != nil {
-		if x, ok := x.xxx_hidden_Record.(*ingestRequest_Record_Request); ok {
+		if x, ok := x.xxx_hidden_Event.(*ingestRequest_Event_Request); ok {
 			return x.Request
 		}
 	}
 	return nil
 }
 
-func (x *IngestRequest_Record) SetRequest(v *v1.Request) {
+func (x *IngestRequest_Event) GetIssue() *v1.Issue {
+	if x != nil {
+		if x, ok := x.xxx_hidden_Event.(*ingestRequest_Event_Issue); ok {
+			return x.Issue
+		}
+	}
+	return nil
+}
+
+func (x *IngestRequest_Event) GetArtifact() *v1.Artifact {
+	if x != nil {
+		if x, ok := x.xxx_hidden_Event.(*ingestRequest_Event_Artifact); ok {
+			return x.Artifact
+		}
+	}
+	return nil
+}
+
+func (x *IngestRequest_Event) GetPiiEntity() *v1.PIIEntity {
+	if x != nil {
+		if x, ok := x.xxx_hidden_Event.(*ingestRequest_Event_PiiEntity); ok {
+			return x.PiiEntity
+		}
+	}
+	return nil
+}
+
+func (x *IngestRequest_Event) SetRequest(v *v1.Request) {
 	if v == nil {
-		x.xxx_hidden_Record = nil
+		x.xxx_hidden_Event = nil
 		return
 	}
-	x.xxx_hidden_Record = &ingestRequest_Record_Request{v}
+	x.xxx_hidden_Event = &ingestRequest_Event_Request{v}
 }
 
-func (x *IngestRequest_Record) HasRecord() bool {
+func (x *IngestRequest_Event) SetIssue(v *v1.Issue) {
+	if v == nil {
+		x.xxx_hidden_Event = nil
+		return
+	}
+	x.xxx_hidden_Event = &ingestRequest_Event_Issue{v}
+}
+
+func (x *IngestRequest_Event) SetArtifact(v *v1.Artifact) {
+	if v == nil {
+		x.xxx_hidden_Event = nil
+		return
+	}
+	x.xxx_hidden_Event = &ingestRequest_Event_Artifact{v}
+}
+
+func (x *IngestRequest_Event) SetPiiEntity(v *v1.PIIEntity) {
+	if v == nil {
+		x.xxx_hidden_Event = nil
+		return
+	}
+	x.xxx_hidden_Event = &ingestRequest_Event_PiiEntity{v}
+}
+
+func (x *IngestRequest_Event) HasEvent() bool {
 	if x == nil {
 		return false
 	}
-	return x.xxx_hidden_Record != nil
+	return x.xxx_hidden_Event != nil
 }
 
-func (x *IngestRequest_Record) HasRequest() bool {
+func (x *IngestRequest_Event) HasRequest() bool {
 	if x == nil {
 		return false
 	}
-	_, ok := x.xxx_hidden_Record.(*ingestRequest_Record_Request)
+	_, ok := x.xxx_hidden_Event.(*ingestRequest_Event_Request)
 	return ok
 }
 
-func (x *IngestRequest_Record) ClearRecord() {
-	x.xxx_hidden_Record = nil
-}
-
-func (x *IngestRequest_Record) ClearRequest() {
-	if _, ok := x.xxx_hidden_Record.(*ingestRequest_Record_Request); ok {
-		x.xxx_hidden_Record = nil
-	}
-}
-
-const IngestRequest_Record_Record_not_set_case case_IngestRequest_Record_Record = 0
-const IngestRequest_Record_Request_case case_IngestRequest_Record_Record = 1
-
-func (x *IngestRequest_Record) WhichRecord() case_IngestRequest_Record_Record {
+func (x *IngestRequest_Event) HasIssue() bool {
 	if x == nil {
-		return IngestRequest_Record_Record_not_set_case
+		return false
 	}
-	switch x.xxx_hidden_Record.(type) {
-	case *ingestRequest_Record_Request:
-		return IngestRequest_Record_Request_case
-	default:
-		return IngestRequest_Record_Record_not_set_case
+	_, ok := x.xxx_hidden_Event.(*ingestRequest_Event_Issue)
+	return ok
+}
+
+func (x *IngestRequest_Event) HasArtifact() bool {
+	if x == nil {
+		return false
+	}
+	_, ok := x.xxx_hidden_Event.(*ingestRequest_Event_Artifact)
+	return ok
+}
+
+func (x *IngestRequest_Event) HasPiiEntity() bool {
+	if x == nil {
+		return false
+	}
+	_, ok := x.xxx_hidden_Event.(*ingestRequest_Event_PiiEntity)
+	return ok
+}
+
+func (x *IngestRequest_Event) ClearEvent() {
+	x.xxx_hidden_Event = nil
+}
+
+func (x *IngestRequest_Event) ClearRequest() {
+	if _, ok := x.xxx_hidden_Event.(*ingestRequest_Event_Request); ok {
+		x.xxx_hidden_Event = nil
 	}
 }
 
-type IngestRequest_Record_builder struct {
+func (x *IngestRequest_Event) ClearIssue() {
+	if _, ok := x.xxx_hidden_Event.(*ingestRequest_Event_Issue); ok {
+		x.xxx_hidden_Event = nil
+	}
+}
+
+func (x *IngestRequest_Event) ClearArtifact() {
+	if _, ok := x.xxx_hidden_Event.(*ingestRequest_Event_Artifact); ok {
+		x.xxx_hidden_Event = nil
+	}
+}
+
+func (x *IngestRequest_Event) ClearPiiEntity() {
+	if _, ok := x.xxx_hidden_Event.(*ingestRequest_Event_PiiEntity); ok {
+		x.xxx_hidden_Event = nil
+	}
+}
+
+const IngestRequest_Event_Event_not_set_case case_IngestRequest_Event_Event = 0
+const IngestRequest_Event_Request_case case_IngestRequest_Event_Event = 1
+const IngestRequest_Event_Issue_case case_IngestRequest_Event_Event = 2
+const IngestRequest_Event_Artifact_case case_IngestRequest_Event_Event = 3
+const IngestRequest_Event_PiiEntity_case case_IngestRequest_Event_Event = 4
+
+func (x *IngestRequest_Event) WhichEvent() case_IngestRequest_Event_Event {
+	if x == nil {
+		return IngestRequest_Event_Event_not_set_case
+	}
+	switch x.xxx_hidden_Event.(type) {
+	case *ingestRequest_Event_Request:
+		return IngestRequest_Event_Request_case
+	case *ingestRequest_Event_Issue:
+		return IngestRequest_Event_Issue_case
+	case *ingestRequest_Event_Artifact:
+		return IngestRequest_Event_Artifact_case
+	case *ingestRequest_Event_PiiEntity:
+		return IngestRequest_Event_PiiEntity_case
+	default:
+		return IngestRequest_Event_Event_not_set_case
+	}
+}
+
+type IngestRequest_Event_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	// Fields of oneof xxx_hidden_Record:
-	Request *v1.Request
-	// -- end of xxx_hidden_Record
+	// Fields of oneof xxx_hidden_Event:
+	Request   *v1.Request
+	Issue     *v1.Issue
+	Artifact  *v1.Artifact
+	PiiEntity *v1.PIIEntity
+	// -- end of xxx_hidden_Event
 }
 
-func (b0 IngestRequest_Record_builder) Build() *IngestRequest_Record {
-	m0 := &IngestRequest_Record{}
+func (b0 IngestRequest_Event_builder) Build() *IngestRequest_Event {
+	m0 := &IngestRequest_Event{}
 	b, x := &b0, m0
 	_, _ = b, x
 	if b.Request != nil {
-		x.xxx_hidden_Record = &ingestRequest_Record_Request{b.Request}
+		x.xxx_hidden_Event = &ingestRequest_Event_Request{b.Request}
+	}
+	if b.Issue != nil {
+		x.xxx_hidden_Event = &ingestRequest_Event_Issue{b.Issue}
+	}
+	if b.Artifact != nil {
+		x.xxx_hidden_Event = &ingestRequest_Event_Artifact{b.Artifact}
+	}
+	if b.PiiEntity != nil {
+		x.xxx_hidden_Event = &ingestRequest_Event_PiiEntity{b.PiiEntity}
 	}
 	return m0
 }
 
-type case_IngestRequest_Record_Record protoreflect.FieldNumber
+type case_IngestRequest_Event_Event protoreflect.FieldNumber
 
-func (x case_IngestRequest_Record_Record) String() string {
+func (x case_IngestRequest_Event_Event) String() string {
 	md := file_eventstore_v1_main_proto_msgTypes[4].Descriptor()
 	if x == 0 {
 		return "not set"
@@ -354,29 +468,51 @@ func (x case_IngestRequest_Record_Record) String() string {
 	return protoimpl.X.MessageFieldStringOf(md, protoreflect.FieldNumber(x))
 }
 
-type isIngestRequest_Record_Record interface {
-	isIngestRequest_Record_Record()
+type isIngestRequest_Event_Event interface {
+	isIngestRequest_Event_Event()
 }
 
-type ingestRequest_Record_Request struct {
+type ingestRequest_Event_Request struct {
 	Request *v1.Request `protobuf:"bytes,1,opt,name=request,proto3,oneof"`
 }
 
-func (*ingestRequest_Record_Request) isIngestRequest_Record_Record() {}
+type ingestRequest_Event_Issue struct {
+	Issue *v1.Issue `protobuf:"bytes,2,opt,name=issue,proto3,oneof"`
+}
+
+type ingestRequest_Event_Artifact struct {
+	Artifact *v1.Artifact `protobuf:"bytes,3,opt,name=artifact,proto3,oneof"`
+}
+
+type ingestRequest_Event_PiiEntity struct {
+	PiiEntity *v1.PIIEntity `protobuf:"bytes,4,opt,name=pii_entity,json=piiEntity,proto3,oneof"`
+}
+
+func (*ingestRequest_Event_Request) isIngestRequest_Event_Event() {}
+
+func (*ingestRequest_Event_Issue) isIngestRequest_Event_Event() {}
+
+func (*ingestRequest_Event_Artifact) isIngestRequest_Event_Event() {}
+
+func (*ingestRequest_Event_PiiEntity) isIngestRequest_Event_Event() {}
 
 var File_eventstore_v1_main_proto protoreflect.FileDescriptor
 
 const file_eventstore_v1_main_proto_rawDesc = "" +
 	"\n" +
-	"\x18eventstore/v1/main.proto\x12\reventstore.v1\x1a\x1cqpoint/type/v1/request.proto\"\r\n" +
+	"\x18eventstore/v1/main.proto\x12\reventstore.v1\x1a\x1dqpoint/type/v1/artifact.proto\x1a\x1aqpoint/type/v1/issue.proto\x1a\x18qpoint/type/v1/pii.proto\x1a\x1cqpoint/type/v1/request.proto\"\r\n" +
 	"\vPingRequest\"%\n" +
 	"\fPingResponse\x12\x15\n" +
-	"\x06org_id\x18\x01 \x01(\tR\x05orgId\"\x97\x01\n" +
-	"\rIngestRequest\x12=\n" +
-	"\arecords\x18\x01 \x03(\v2#.eventstore.v1.IngestRequest.RecordR\arecords\x1aG\n" +
-	"\x06Record\x123\n" +
-	"\arequest\x18\x01 \x01(\v2\x17.qpoint.type.v1.RequestH\x00R\arequestB\b\n" +
-	"\x06record\"7\n" +
+	"\x06org_id\x18\x01 \x01(\tR\x05orgId\"\xb6\x02\n" +
+	"\rIngestRequest\x12:\n" +
+	"\x06events\x18\x01 \x03(\v2\".eventstore.v1.IngestRequest.EventR\x06events\x1a\xe8\x01\n" +
+	"\x05Event\x123\n" +
+	"\arequest\x18\x01 \x01(\v2\x17.qpoint.type.v1.RequestH\x00R\arequest\x12-\n" +
+	"\x05issue\x18\x02 \x01(\v2\x15.qpoint.type.v1.IssueH\x00R\x05issue\x126\n" +
+	"\bartifact\x18\x03 \x01(\v2\x18.qpoint.type.v1.ArtifactH\x00R\bartifact\x12:\n" +
+	"\n" +
+	"pii_entity\x18\x04 \x01(\v2\x19.qpoint.type.v1.PIIEntityH\x00R\tpiiEntityB\a\n" +
+	"\x05event\"7\n" +
 	"\x0eIngestResponse\x12%\n" +
 	"\x0eaccepted_count\x18\x01 \x01(\x05R\racceptedCount2\xa1\x01\n" +
 	"\x11EventStoreService\x12A\n" +
@@ -386,25 +522,31 @@ const file_eventstore_v1_main_proto_rawDesc = "" +
 
 var file_eventstore_v1_main_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_eventstore_v1_main_proto_goTypes = []any{
-	(*PingRequest)(nil),          // 0: eventstore.v1.PingRequest
-	(*PingResponse)(nil),         // 1: eventstore.v1.PingResponse
-	(*IngestRequest)(nil),        // 2: eventstore.v1.IngestRequest
-	(*IngestResponse)(nil),       // 3: eventstore.v1.IngestResponse
-	(*IngestRequest_Record)(nil), // 4: eventstore.v1.IngestRequest.Record
-	(*v1.Request)(nil),           // 5: qpoint.type.v1.Request
+	(*PingRequest)(nil),         // 0: eventstore.v1.PingRequest
+	(*PingResponse)(nil),        // 1: eventstore.v1.PingResponse
+	(*IngestRequest)(nil),       // 2: eventstore.v1.IngestRequest
+	(*IngestResponse)(nil),      // 3: eventstore.v1.IngestResponse
+	(*IngestRequest_Event)(nil), // 4: eventstore.v1.IngestRequest.Event
+	(*v1.Request)(nil),          // 5: qpoint.type.v1.Request
+	(*v1.Issue)(nil),            // 6: qpoint.type.v1.Issue
+	(*v1.Artifact)(nil),         // 7: qpoint.type.v1.Artifact
+	(*v1.PIIEntity)(nil),        // 8: qpoint.type.v1.PIIEntity
 }
 var file_eventstore_v1_main_proto_depIdxs = []int32{
-	4, // 0: eventstore.v1.IngestRequest.records:type_name -> eventstore.v1.IngestRequest.Record
-	5, // 1: eventstore.v1.IngestRequest.Record.request:type_name -> qpoint.type.v1.Request
-	0, // 2: eventstore.v1.EventStoreService.Ping:input_type -> eventstore.v1.PingRequest
-	2, // 3: eventstore.v1.EventStoreService.Ingest:input_type -> eventstore.v1.IngestRequest
-	1, // 4: eventstore.v1.EventStoreService.Ping:output_type -> eventstore.v1.PingResponse
-	3, // 5: eventstore.v1.EventStoreService.Ingest:output_type -> eventstore.v1.IngestResponse
-	4, // [4:6] is the sub-list for method output_type
-	2, // [2:4] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	4, // 0: eventstore.v1.IngestRequest.events:type_name -> eventstore.v1.IngestRequest.Event
+	5, // 1: eventstore.v1.IngestRequest.Event.request:type_name -> qpoint.type.v1.Request
+	6, // 2: eventstore.v1.IngestRequest.Event.issue:type_name -> qpoint.type.v1.Issue
+	7, // 3: eventstore.v1.IngestRequest.Event.artifact:type_name -> qpoint.type.v1.Artifact
+	8, // 4: eventstore.v1.IngestRequest.Event.pii_entity:type_name -> qpoint.type.v1.PIIEntity
+	0, // 5: eventstore.v1.EventStoreService.Ping:input_type -> eventstore.v1.PingRequest
+	2, // 6: eventstore.v1.EventStoreService.Ingest:input_type -> eventstore.v1.IngestRequest
+	1, // 7: eventstore.v1.EventStoreService.Ping:output_type -> eventstore.v1.PingResponse
+	3, // 8: eventstore.v1.EventStoreService.Ingest:output_type -> eventstore.v1.IngestResponse
+	7, // [7:9] is the sub-list for method output_type
+	5, // [5:7] is the sub-list for method input_type
+	5, // [5:5] is the sub-list for extension type_name
+	5, // [5:5] is the sub-list for extension extendee
+	0, // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_eventstore_v1_main_proto_init() }
@@ -413,7 +555,10 @@ func file_eventstore_v1_main_proto_init() {
 		return
 	}
 	file_eventstore_v1_main_proto_msgTypes[4].OneofWrappers = []any{
-		(*ingestRequest_Record_Request)(nil),
+		(*ingestRequest_Event_Request)(nil),
+		(*ingestRequest_Event_Issue)(nil),
+		(*ingestRequest_Event_Artifact)(nil),
+		(*ingestRequest_Event_PiiEntity)(nil),
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
