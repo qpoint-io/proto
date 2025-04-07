@@ -261,12 +261,12 @@ func (b0 Issue_builder) Build() *Issue {
 }
 
 type Issue_Trigger struct {
-	state                protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Plugin    string                 `protobuf:"bytes,1,opt,name=plugin,proto3"`
-	xxx_hidden_Condition string                 `protobuf:"bytes,2,opt,name=condition,proto3"`
-	xxx_hidden_Reason    string                 `protobuf:"bytes,3,opt,name=reason,proto3"`
-	unknownFields        protoimpl.UnknownFields
-	sizeCache            protoimpl.SizeCache
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Plugin      string                 `protobuf:"bytes,1,opt,name=plugin,proto3"`
+	xxx_hidden_Condition   string                 `protobuf:"bytes,2,opt,name=condition,proto3"`
+	xxx_hidden_Description string                 `protobuf:"bytes,3,opt,name=description,proto3"`
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *Issue_Trigger) Reset() {
@@ -308,9 +308,9 @@ func (x *Issue_Trigger) GetCondition() string {
 	return ""
 }
 
-func (x *Issue_Trigger) GetReason() string {
+func (x *Issue_Trigger) GetDescription() string {
 	if x != nil {
-		return x.xxx_hidden_Reason
+		return x.xxx_hidden_Description
 	}
 	return ""
 }
@@ -323,16 +323,16 @@ func (x *Issue_Trigger) SetCondition(v string) {
 	x.xxx_hidden_Condition = v
 }
 
-func (x *Issue_Trigger) SetReason(v string) {
-	x.xxx_hidden_Reason = v
+func (x *Issue_Trigger) SetDescription(v string) {
+	x.xxx_hidden_Description = v
 }
 
 type Issue_Trigger_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Plugin    string
-	Condition string
-	Reason    string
+	Plugin      string
+	Condition   string
+	Description string
 }
 
 func (b0 Issue_Trigger_builder) Build() *Issue_Trigger {
@@ -341,7 +341,7 @@ func (b0 Issue_Trigger_builder) Build() *Issue_Trigger {
 	_, _ = b, x
 	x.xxx_hidden_Plugin = b.Plugin
 	x.xxx_hidden_Condition = b.Condition
-	x.xxx_hidden_Reason = b.Reason
+	x.xxx_hidden_Description = b.Description
 	return m0
 }
 
@@ -349,7 +349,7 @@ var File_qpoint_type_v1_issue_proto protoreflect.FileDescriptor
 
 const file_qpoint_type_v1_issue_proto_rawDesc = "" +
 	"\n" +
-	"\x1aqpoint/type/v1/issue.proto\x12\x0eqpoint.type.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa5\x04\n" +
+	"\x1aqpoint/type/v1/issue.proto\x12\x0eqpoint.type.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xaf\x04\n" +
 	"\x05Issue\x12@\n" +
 	"\ttimestamp\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\ttimestamp\x12+\n" +
 	"\rconnection_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\fconnectionId\x12%\n" +
@@ -366,11 +366,11 @@ const file_qpoint_type_v1_issue_proto_rawDesc = "" +
 	" \x01(\tR\x06method\x12\x16\n" +
 	"\x06status\x18\v \x01(\rR\x06status\x12\x12\n" +
 	"\x04tags\x18\f \x03(\tR\x04tags\x129\n" +
-	"\btriggers\x18\r \x03(\v2\x1d.qpoint.type.v1.Issue.TriggerR\btriggers\x1ag\n" +
+	"\btriggers\x18\r \x03(\v2\x1d.qpoint.type.v1.Issue.TriggerR\btriggers\x1aq\n" +
 	"\aTrigger\x12\x1e\n" +
 	"\x06plugin\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x06plugin\x12$\n" +
-	"\tcondition\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tcondition\x12\x16\n" +
-	"\x06reason\x18\x03 \x01(\tR\x06reasonB\xb3\x01\n" +
+	"\tcondition\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tcondition\x12 \n" +
+	"\vdescription\x18\x03 \x01(\tR\vdescriptionB\xb3\x01\n" +
 	"\x12com.qpoint.type.v1B\n" +
 	"IssueProtoP\x01Z7github.com/qpoint-io/proto/gen/go/qpoint/type/v1;typev1\xa2\x02\x03QTX\xaa\x02\x0eQpoint.Type.V1\xca\x02\x0eQpoint\\Type\\V1\xe2\x02\x1aQpoint\\Type\\V1\\GPBMetadata\xea\x02\x10Qpoint::Type::V1b\x06proto3"
 

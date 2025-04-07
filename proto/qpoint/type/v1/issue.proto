@@ -22,7 +22,7 @@ message Issue {
   message Trigger {
     string plugin = 1 [(buf.validate.field).required = true];
     string condition = 2 [(buf.validate.field).required = true];
-    string reason = 3;
+    string description = 3;
   }
   repeated Trigger triggers = 13;
 }
