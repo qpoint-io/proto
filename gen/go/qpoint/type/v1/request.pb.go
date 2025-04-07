@@ -23,30 +23,27 @@ const (
 )
 
 type Request struct {
-	state                      protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Timestamp       *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=timestamp,proto3"`
-	xxx_hidden_Direction       string                 `protobuf:"bytes,2,opt,name=direction,proto3"`
-	xxx_hidden_ConnectionId    string                 `protobuf:"bytes,3,opt,name=connection_id,json=connectionId,proto3"`
-	xxx_hidden_EndpointId      string                 `protobuf:"bytes,5,opt,name=endpoint_id,json=endpointId,proto3"`
-	xxx_hidden_VendorId        string                 `protobuf:"bytes,6,opt,name=vendor_id,json=vendorId,proto3"`
-	xxx_hidden_RequestId       string                 `protobuf:"bytes,7,opt,name=request_id,json=requestId,proto3"`
-	xxx_hidden_Url             string                 `protobuf:"bytes,8,opt,name=url,proto3"`
-	xxx_hidden_Path            string                 `protobuf:"bytes,9,opt,name=path,proto3"`
-	xxx_hidden_Method          string                 `protobuf:"bytes,10,opt,name=method,proto3"`
-	xxx_hidden_Status          uint32                 `protobuf:"varint,11,opt,name=status,proto3"`
-	xxx_hidden_Duration        uint64                 `protobuf:"varint,12,opt,name=duration,proto3"`
-	xxx_hidden_ContentType     string                 `protobuf:"bytes,13,opt,name=content_type,json=contentType,proto3"`
-	xxx_hidden_Category        string                 `protobuf:"bytes,14,opt,name=category,proto3"`
-	xxx_hidden_Agent           string                 `protobuf:"bytes,15,opt,name=agent,proto3"`
-	xxx_hidden_Tags            []string               `protobuf:"bytes,16,rep,name=tags,proto3"`
-	xxx_hidden_AuthTokenMask   string                 `protobuf:"bytes,17,opt,name=auth_token_mask,json=authTokenMask,proto3"`
-	xxx_hidden_AuthTokenHash   string                 `protobuf:"bytes,18,opt,name=auth_token_hash,json=authTokenHash,proto3"`
-	xxx_hidden_AuthTokenSource string                 `protobuf:"bytes,19,opt,name=auth_token_source,json=authTokenSource,proto3"`
-	xxx_hidden_AuthTokenType   string                 `protobuf:"bytes,20,opt,name=auth_token_type,json=authTokenType,proto3"`
-	xxx_hidden_BytesReceived   uint64                 `protobuf:"varint,21,opt,name=bytes_received,json=bytesReceived,proto3"`
-	xxx_hidden_BytesSent       uint64                 `protobuf:"varint,22,opt,name=bytes_sent,json=bytesSent,proto3"`
-	unknownFields              protoimpl.UnknownFields
-	sizeCache                  protoimpl.SizeCache
+	state                    protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Timestamp     *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=timestamp,proto3"`
+	xxx_hidden_Direction     string                 `protobuf:"bytes,2,opt,name=direction,proto3"`
+	xxx_hidden_ConnectionId  string                 `protobuf:"bytes,3,opt,name=connection_id,json=connectionId,proto3"`
+	xxx_hidden_EndpointId    string                 `protobuf:"bytes,5,opt,name=endpoint_id,json=endpointId,proto3"`
+	xxx_hidden_VendorId      string                 `protobuf:"bytes,6,opt,name=vendor_id,json=vendorId,proto3"`
+	xxx_hidden_Id            string                 `protobuf:"bytes,7,opt,name=id,proto3"`
+	xxx_hidden_Url           string                 `protobuf:"bytes,8,opt,name=url,proto3"`
+	xxx_hidden_Path          string                 `protobuf:"bytes,9,opt,name=path,proto3"`
+	xxx_hidden_Method        string                 `protobuf:"bytes,10,opt,name=method,proto3"`
+	xxx_hidden_Status        uint32                 `protobuf:"varint,11,opt,name=status,proto3"`
+	xxx_hidden_Duration      uint64                 `protobuf:"varint,12,opt,name=duration,proto3"`
+	xxx_hidden_ContentType   string                 `protobuf:"bytes,13,opt,name=content_type,json=contentType,proto3"`
+	xxx_hidden_Category      string                 `protobuf:"bytes,14,opt,name=category,proto3"`
+	xxx_hidden_Agent         string                 `protobuf:"bytes,15,opt,name=agent,proto3"`
+	xxx_hidden_Tags          []string               `protobuf:"bytes,16,rep,name=tags,proto3"`
+	xxx_hidden_BytesReceived uint64                 `protobuf:"varint,21,opt,name=bytes_received,json=bytesReceived,proto3"`
+	xxx_hidden_BytesSent     uint64                 `protobuf:"varint,22,opt,name=bytes_sent,json=bytesSent,proto3"`
+	xxx_hidden_AuthToken     *Request_AuthToken     `protobuf:"bytes,23,opt,name=auth_token,json=authToken,proto3"`
+	unknownFields            protoimpl.UnknownFields
+	sizeCache                protoimpl.SizeCache
 }
 
 func (x *Request) Reset() {
@@ -109,9 +106,9 @@ func (x *Request) GetVendorId() string {
 	return ""
 }
 
-func (x *Request) GetRequestId() string {
+func (x *Request) GetId() string {
 	if x != nil {
-		return x.xxx_hidden_RequestId
+		return x.xxx_hidden_Id
 	}
 	return ""
 }
@@ -179,34 +176,6 @@ func (x *Request) GetTags() []string {
 	return nil
 }
 
-func (x *Request) GetAuthTokenMask() string {
-	if x != nil {
-		return x.xxx_hidden_AuthTokenMask
-	}
-	return ""
-}
-
-func (x *Request) GetAuthTokenHash() string {
-	if x != nil {
-		return x.xxx_hidden_AuthTokenHash
-	}
-	return ""
-}
-
-func (x *Request) GetAuthTokenSource() string {
-	if x != nil {
-		return x.xxx_hidden_AuthTokenSource
-	}
-	return ""
-}
-
-func (x *Request) GetAuthTokenType() string {
-	if x != nil {
-		return x.xxx_hidden_AuthTokenType
-	}
-	return ""
-}
-
 func (x *Request) GetBytesReceived() uint64 {
 	if x != nil {
 		return x.xxx_hidden_BytesReceived
@@ -219,6 +188,13 @@ func (x *Request) GetBytesSent() uint64 {
 		return x.xxx_hidden_BytesSent
 	}
 	return 0
+}
+
+func (x *Request) GetAuthToken() *Request_AuthToken {
+	if x != nil {
+		return x.xxx_hidden_AuthToken
+	}
+	return nil
 }
 
 func (x *Request) SetTimestamp(v *timestamppb.Timestamp) {
@@ -241,8 +217,8 @@ func (x *Request) SetVendorId(v string) {
 	x.xxx_hidden_VendorId = v
 }
 
-func (x *Request) SetRequestId(v string) {
-	x.xxx_hidden_RequestId = v
+func (x *Request) SetId(v string) {
+	x.xxx_hidden_Id = v
 }
 
 func (x *Request) SetUrl(v string) {
@@ -281,28 +257,16 @@ func (x *Request) SetTags(v []string) {
 	x.xxx_hidden_Tags = v
 }
 
-func (x *Request) SetAuthTokenMask(v string) {
-	x.xxx_hidden_AuthTokenMask = v
-}
-
-func (x *Request) SetAuthTokenHash(v string) {
-	x.xxx_hidden_AuthTokenHash = v
-}
-
-func (x *Request) SetAuthTokenSource(v string) {
-	x.xxx_hidden_AuthTokenSource = v
-}
-
-func (x *Request) SetAuthTokenType(v string) {
-	x.xxx_hidden_AuthTokenType = v
-}
-
 func (x *Request) SetBytesReceived(v uint64) {
 	x.xxx_hidden_BytesReceived = v
 }
 
 func (x *Request) SetBytesSent(v uint64) {
 	x.xxx_hidden_BytesSent = v
+}
+
+func (x *Request) SetAuthToken(v *Request_AuthToken) {
+	x.xxx_hidden_AuthToken = v
 }
 
 func (x *Request) HasTimestamp() bool {
@@ -312,8 +276,19 @@ func (x *Request) HasTimestamp() bool {
 	return x.xxx_hidden_Timestamp != nil
 }
 
+func (x *Request) HasAuthToken() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_AuthToken != nil
+}
+
 func (x *Request) ClearTimestamp() {
 	x.xxx_hidden_Timestamp = nil
+}
+
+func (x *Request) ClearAuthToken() {
+	x.xxx_hidden_AuthToken = nil
 }
 
 type Request_builder struct {
@@ -324,7 +299,7 @@ type Request_builder struct {
 	ConnectionId  string
 	EndpointId    string
 	VendorId      string
-	RequestId     string
+	Id            string
 	Url           string
 	Path          string
 	Method        string
@@ -334,13 +309,9 @@ type Request_builder struct {
 	Category      string
 	Agent         string
 	Tags          []string
-	AuthTokenMask string
-	// auth_token_hash is a SHA-256 hash of the auth token. The length is 32 bytes (64 characters).
-	AuthTokenHash   string
-	AuthTokenSource string
-	AuthTokenType   string
-	BytesReceived   uint64
-	BytesSent       uint64
+	BytesReceived uint64
+	BytesSent     uint64
+	AuthToken     *Request_AuthToken
 }
 
 func (b0 Request_builder) Build() *Request {
@@ -352,7 +323,7 @@ func (b0 Request_builder) Build() *Request {
 	x.xxx_hidden_ConnectionId = b.ConnectionId
 	x.xxx_hidden_EndpointId = b.EndpointId
 	x.xxx_hidden_VendorId = b.VendorId
-	x.xxx_hidden_RequestId = b.RequestId
+	x.xxx_hidden_Id = b.Id
 	x.xxx_hidden_Url = b.Url
 	x.xxx_hidden_Path = b.Path
 	x.xxx_hidden_Method = b.Method
@@ -362,12 +333,109 @@ func (b0 Request_builder) Build() *Request {
 	x.xxx_hidden_Category = b.Category
 	x.xxx_hidden_Agent = b.Agent
 	x.xxx_hidden_Tags = b.Tags
-	x.xxx_hidden_AuthTokenMask = b.AuthTokenMask
-	x.xxx_hidden_AuthTokenHash = b.AuthTokenHash
-	x.xxx_hidden_AuthTokenSource = b.AuthTokenSource
-	x.xxx_hidden_AuthTokenType = b.AuthTokenType
 	x.xxx_hidden_BytesReceived = b.BytesReceived
 	x.xxx_hidden_BytesSent = b.BytesSent
+	x.xxx_hidden_AuthToken = b.AuthToken
+	return m0
+}
+
+type Request_AuthToken struct {
+	state             protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Mask   string                 `protobuf:"bytes,1,opt,name=mask,proto3"`
+	xxx_hidden_Hash   string                 `protobuf:"bytes,2,opt,name=hash,proto3"`
+	xxx_hidden_Source string                 `protobuf:"bytes,3,opt,name=source,proto3"`
+	xxx_hidden_Type   string                 `protobuf:"bytes,4,opt,name=type,proto3"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
+}
+
+func (x *Request_AuthToken) Reset() {
+	*x = Request_AuthToken{}
+	mi := &file_qpoint_type_v1_request_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Request_AuthToken) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Request_AuthToken) ProtoMessage() {}
+
+func (x *Request_AuthToken) ProtoReflect() protoreflect.Message {
+	mi := &file_qpoint_type_v1_request_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *Request_AuthToken) GetMask() string {
+	if x != nil {
+		return x.xxx_hidden_Mask
+	}
+	return ""
+}
+
+func (x *Request_AuthToken) GetHash() string {
+	if x != nil {
+		return x.xxx_hidden_Hash
+	}
+	return ""
+}
+
+func (x *Request_AuthToken) GetSource() string {
+	if x != nil {
+		return x.xxx_hidden_Source
+	}
+	return ""
+}
+
+func (x *Request_AuthToken) GetType() string {
+	if x != nil {
+		return x.xxx_hidden_Type
+	}
+	return ""
+}
+
+func (x *Request_AuthToken) SetMask(v string) {
+	x.xxx_hidden_Mask = v
+}
+
+func (x *Request_AuthToken) SetHash(v string) {
+	x.xxx_hidden_Hash = v
+}
+
+func (x *Request_AuthToken) SetSource(v string) {
+	x.xxx_hidden_Source = v
+}
+
+func (x *Request_AuthToken) SetType(v string) {
+	x.xxx_hidden_Type = v
+}
+
+type Request_AuthToken_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	Mask string
+	// hash is a 32-byte SHA-256 hash of the auth token.
+	Hash   string
+	Source string
+	Type   string
+}
+
+func (b0 Request_AuthToken_builder) Build() *Request_AuthToken {
+	m0 := &Request_AuthToken{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.xxx_hidden_Mask = b.Mask
+	x.xxx_hidden_Hash = b.Hash
+	x.xxx_hidden_Source = b.Source
+	x.xxx_hidden_Type = b.Type
 	return m0
 }
 
@@ -375,16 +443,15 @@ var File_qpoint_type_v1_request_proto protoreflect.FileDescriptor
 
 const file_qpoint_type_v1_request_proto_rawDesc = "" +
 	"\n" +
-	"\x1cqpoint/type/v1/request.proto\x12\x0eqpoint.type.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xce\x05\n" +
+	"\x1cqpoint/type/v1/request.proto\x12\x0eqpoint.type.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc4\x05\n" +
 	"\aRequest\x12@\n" +
 	"\ttimestamp\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\ttimestamp\x12$\n" +
 	"\tdirection\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\tdirection\x12+\n" +
 	"\rconnection_id\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\fconnectionId\x12\x1f\n" +
 	"\vendpoint_id\x18\x05 \x01(\tR\n" +
 	"endpointId\x12\x1b\n" +
-	"\tvendor_id\x18\x06 \x01(\tR\bvendorId\x12%\n" +
-	"\n" +
-	"request_id\x18\a \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\trequestId\x12\x10\n" +
+	"\tvendor_id\x18\x06 \x01(\tR\bvendorId\x12\x16\n" +
+	"\x02id\x18\a \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12\x10\n" +
 	"\x03url\x18\b \x01(\tR\x03url\x12\x12\n" +
 	"\x04path\x18\t \x01(\tR\x04path\x12\x16\n" +
 	"\x06method\x18\n" +
@@ -394,28 +461,33 @@ const file_qpoint_type_v1_request_proto_rawDesc = "" +
 	"\fcontent_type\x18\r \x01(\tR\vcontentType\x12\x1a\n" +
 	"\bcategory\x18\x0e \x01(\tR\bcategory\x12\x14\n" +
 	"\x05agent\x18\x0f \x01(\tR\x05agent\x12\x12\n" +
-	"\x04tags\x18\x10 \x03(\tR\x04tags\x12&\n" +
-	"\x0fauth_token_mask\x18\x11 \x01(\tR\rauthTokenMask\x12&\n" +
-	"\x0fauth_token_hash\x18\x12 \x01(\tR\rauthTokenHash\x12*\n" +
-	"\x11auth_token_source\x18\x13 \x01(\tR\x0fauthTokenSource\x12&\n" +
-	"\x0fauth_token_type\x18\x14 \x01(\tR\rauthTokenType\x12%\n" +
+	"\x04tags\x18\x10 \x03(\tR\x04tags\x12%\n" +
 	"\x0ebytes_received\x18\x15 \x01(\x04R\rbytesReceived\x12\x1d\n" +
 	"\n" +
-	"bytes_sent\x18\x16 \x01(\x04R\tbytesSentJ\x04\b\x04\x10\x05B\xb5\x01\n" +
+	"bytes_sent\x18\x16 \x01(\x04R\tbytesSent\x12@\n" +
+	"\n" +
+	"auth_token\x18\x17 \x01(\v2!.qpoint.type.v1.Request.AuthTokenR\tauthToken\x1a_\n" +
+	"\tAuthToken\x12\x12\n" +
+	"\x04mask\x18\x01 \x01(\tR\x04mask\x12\x12\n" +
+	"\x04hash\x18\x02 \x01(\tR\x04hash\x12\x16\n" +
+	"\x06source\x18\x03 \x01(\tR\x06source\x12\x12\n" +
+	"\x04type\x18\x04 \x01(\tR\x04typeJ\x04\b\x04\x10\x05J\x04\b\x11\x10\x15B\xb5\x01\n" +
 	"\x12com.qpoint.type.v1B\fRequestProtoP\x01Z7github.com/qpoint-io/proto/gen/go/qpoint/type/v1;typev1\xa2\x02\x03QTX\xaa\x02\x0eQpoint.Type.V1\xca\x02\x0eQpoint\\Type\\V1\xe2\x02\x1aQpoint\\Type\\V1\\GPBMetadata\xea\x02\x10Qpoint::Type::V1b\x06proto3"
 
-var file_qpoint_type_v1_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_qpoint_type_v1_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_qpoint_type_v1_request_proto_goTypes = []any{
 	(*Request)(nil),               // 0: qpoint.type.v1.Request
-	(*timestamppb.Timestamp)(nil), // 1: google.protobuf.Timestamp
+	(*Request_AuthToken)(nil),     // 1: qpoint.type.v1.Request.AuthToken
+	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_qpoint_type_v1_request_proto_depIdxs = []int32{
-	1, // 0: qpoint.type.v1.Request.timestamp:type_name -> google.protobuf.Timestamp
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	2, // 0: qpoint.type.v1.Request.timestamp:type_name -> google.protobuf.Timestamp
+	1, // 1: qpoint.type.v1.Request.auth_token:type_name -> qpoint.type.v1.Request.AuthToken
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_qpoint_type_v1_request_proto_init() }
@@ -429,7 +501,7 @@ func file_qpoint_type_v1_request_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_qpoint_type_v1_request_proto_rawDesc), len(file_qpoint_type_v1_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
