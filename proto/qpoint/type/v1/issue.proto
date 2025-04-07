@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package qpoint.type.v1;
+
+import "buf/validate/validate.proto";
+import "google/protobuf/timestamp.proto";
+
+message Issue {
+  google.protobuf.Timestamp timestamp = 1 [(buf.validate.field).required = true];
+  string connection_id = 2 [(buf.validate.field).required = true];
+  string request_id = 3 [(buf.validate.field).required = true];
+  string direction = 4 [(buf.validate.field).required = true];
+  string endpoint_id = 5;
+  string vendor_id = 6;
+  string error = 7;
+  string url = 8;
+  string path = 9;
+  string method = 10;
+  uint32 status = 11;
+  repeated string tags = 12;
+
+  message Trigger {
+    string plugin = 1 [(buf.validate.field).required = true];
+    string condition = 2 [(buf.validate.field).required = true];
+    string reason = 3;
+  }
+  repeated Trigger triggers = 13;
+}

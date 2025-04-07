@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package qpoint.type.v1;
+
+import "buf/validate/validate.proto";
+import "google/protobuf/timestamp.proto";
+
+message PIIEntity {
+  google.protobuf.Timestamp timestamp = 1 [(buf.validate.field).required = true];
+  string connection_id = 2 [(buf.validate.field).required = true];
+  string request_id = 3 [(buf.validate.field).required = true];
+  string endpoint_id = 4;
+  string vendor_id = 5;
+  repeated string tags = 6;
+  string entity_type = 7;
+  float score = 8;
+  string source = 9;
+  string field_path = 10;
+  // value_hash is a SHA-256 hash of the value. The length is 32 bytes (64 characters).
+  string value_hash = 11;
+}
