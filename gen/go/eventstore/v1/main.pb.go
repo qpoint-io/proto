@@ -181,10 +181,11 @@ func (b0 IngestRequest_builder) Build() *IngestRequest {
 }
 
 type IngestResponse struct {
-	state                    protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_AcceptedCount int32                  `protobuf:"varint,1,opt,name=accepted_count,json=acceptedCount,proto3"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state                         protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_TotalAcceptedCount uint32                 `protobuf:"varint,1,opt,name=total_accepted_count,json=totalAcceptedCount,proto3"`
+	xxx_hidden_AcceptedCount      uint32                 `protobuf:"varint,2,opt,name=accepted_count,json=acceptedCount,proto3"`
+	unknownFields                 protoimpl.UnknownFields
+	sizeCache                     protoimpl.SizeCache
 }
 
 func (x *IngestResponse) Reset() {
@@ -212,27 +213,42 @@ func (x *IngestResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *IngestResponse) GetAcceptedCount() int32 {
+func (x *IngestResponse) GetTotalAcceptedCount() uint32 {
+	if x != nil {
+		return x.xxx_hidden_TotalAcceptedCount
+	}
+	return 0
+}
+
+func (x *IngestResponse) GetAcceptedCount() uint32 {
 	if x != nil {
 		return x.xxx_hidden_AcceptedCount
 	}
 	return 0
 }
 
-func (x *IngestResponse) SetAcceptedCount(v int32) {
+func (x *IngestResponse) SetTotalAcceptedCount(v uint32) {
+	x.xxx_hidden_TotalAcceptedCount = v
+}
+
+func (x *IngestResponse) SetAcceptedCount(v uint32) {
 	x.xxx_hidden_AcceptedCount = v
 }
 
 type IngestResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	AcceptedCount int32
+	// total_accepted_count is the total number of events accepted by the server since the beginning of the stream.
+	TotalAcceptedCount uint32
+	// accepted_count is the number of events accepted by the server since the last IngestResponse.
+	AcceptedCount uint32
 }
 
 func (b0 IngestResponse_builder) Build() *IngestResponse {
 	m0 := &IngestResponse{}
 	b, x := &b0, m0
 	_, _ = b, x
+	x.xxx_hidden_TotalAcceptedCount = b.TotalAcceptedCount
 	x.xxx_hidden_AcceptedCount = b.AcceptedCount
 	return m0
 }
@@ -512,12 +528,13 @@ const file_eventstore_v1_main_proto_rawDesc = "" +
 	"\bartifact\x18\x03 \x01(\v2\x18.qpoint.type.v1.ArtifactH\x00R\bartifact\x12:\n" +
 	"\n" +
 	"pii_entity\x18\x04 \x01(\v2\x19.qpoint.type.v1.PIIEntityH\x00R\tpiiEntityB\a\n" +
-	"\x05event\"7\n" +
-	"\x0eIngestResponse\x12%\n" +
-	"\x0eaccepted_count\x18\x01 \x01(\x05R\racceptedCount2\xa1\x01\n" +
+	"\x05event\"i\n" +
+	"\x0eIngestResponse\x120\n" +
+	"\x14total_accepted_count\x18\x01 \x01(\rR\x12totalAcceptedCount\x12%\n" +
+	"\x0eaccepted_count\x18\x02 \x01(\rR\racceptedCount2\xa3\x01\n" +
 	"\x11EventStoreService\x12A\n" +
-	"\x04Ping\x12\x1a.eventstore.v1.PingRequest\x1a\x1b.eventstore.v1.PingResponse\"\x00\x12I\n" +
-	"\x06Ingest\x12\x1c.eventstore.v1.IngestRequest\x1a\x1d.eventstore.v1.IngestResponse\"\x00(\x01B\xb1\x01\n" +
+	"\x04Ping\x12\x1a.eventstore.v1.PingRequest\x1a\x1b.eventstore.v1.PingResponse\"\x00\x12K\n" +
+	"\x06Ingest\x12\x1c.eventstore.v1.IngestRequest\x1a\x1d.eventstore.v1.IngestResponse\"\x00(\x010\x01B\xb1\x01\n" +
 	"\x11com.eventstore.v1B\tMainProtoP\x01Z<github.com/qpoint-io/proto/gen/go/eventstore/v1;eventstorev1\xa2\x02\x03EXX\xaa\x02\rEventstore.V1\xca\x02\rEventstore\\V1\xe2\x02\x19Eventstore\\V1\\GPBMetadata\xea\x02\x0eEventstore::V1b\x06proto3"
 
 var file_eventstore_v1_main_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
