@@ -43,7 +43,7 @@ const (
 // EventStoreServiceClient is a client for the eventstore.v1.EventStoreService service.
 type EventStoreServiceClient interface {
 	Ping(context.Context, *connect.Request[v1.PingRequest]) (*connect.Response[v1.PingResponse], error)
-	Ingest(context.Context) *connect.ClientStreamForClient[v1.IngestRequest, v1.IngestResponse]
+	Ingest(context.Context) *connect.BidiStreamForClient[v1.IngestRequest, v1.IngestResponse]
 }
 
 // NewEventStoreServiceClient constructs a client for the eventstore.v1.EventStoreService service.
@@ -84,14 +84,14 @@ func (c *eventStoreServiceClient) Ping(ctx context.Context, req *connect.Request
 }
 
 // Ingest calls eventstore.v1.EventStoreService.Ingest.
-func (c *eventStoreServiceClient) Ingest(ctx context.Context) *connect.ClientStreamForClient[v1.IngestRequest, v1.IngestResponse] {
-	return c.ingest.CallClientStream(ctx)
+func (c *eventStoreServiceClient) Ingest(ctx context.Context) *connect.BidiStreamForClient[v1.IngestRequest, v1.IngestResponse] {
+	return c.ingest.CallBidiStream(ctx)
 }
 
 // EventStoreServiceHandler is an implementation of the eventstore.v1.EventStoreService service.
 type EventStoreServiceHandler interface {
 	Ping(context.Context, *connect.Request[v1.PingRequest]) (*connect.Response[v1.PingResponse], error)
-	Ingest(context.Context, *connect.ClientStream[v1.IngestRequest]) (*connect.Response[v1.IngestResponse], error)
+	Ingest(context.Context, *connect.BidiStream[v1.IngestRequest, v1.IngestResponse]) error
 }
 
 // NewEventStoreServiceHandler builds an HTTP handler from the service implementation. It returns
@@ -107,7 +107,7 @@ func NewEventStoreServiceHandler(svc EventStoreServiceHandler, opts ...connect.H
 		connect.WithSchema(eventStoreServiceMethods.ByName("Ping")),
 		connect.WithHandlerOptions(opts...),
 	)
-	eventStoreServiceIngestHandler := connect.NewClientStreamHandler(
+	eventStoreServiceIngestHandler := connect.NewBidiStreamHandler(
 		EventStoreServiceIngestProcedure,
 		svc.Ingest,
 		connect.WithSchema(eventStoreServiceMethods.ByName("Ingest")),
@@ -132,6 +132,6 @@ func (UnimplementedEventStoreServiceHandler) Ping(context.Context, *connect.Requ
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("eventstore.v1.EventStoreService.Ping is not implemented"))
 }
 
-func (UnimplementedEventStoreServiceHandler) Ingest(context.Context, *connect.ClientStream[v1.IngestRequest]) (*connect.Response[v1.IngestResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("eventstore.v1.EventStoreService.Ingest is not implemented"))
+func (UnimplementedEventStoreServiceHandler) Ingest(context.Context, *connect.BidiStream[v1.IngestRequest, v1.IngestResponse]) error {
+	return connect.NewError(connect.CodeUnimplemented, errors.New("eventstore.v1.EventStoreService.Ingest is not implemented"))
 }

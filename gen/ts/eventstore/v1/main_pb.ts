@@ -18,7 +18,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file eventstore/v1/main.proto.
  */
 export const file_eventstore_v1_main: GenFile = /*@__PURE__*/
-  fileDesc("ChhldmVudHN0b3JlL3YxL21haW4ucHJvdG8SDWV2ZW50c3RvcmUudjEiDQoLUGluZ1JlcXVlc3QiHgoMUGluZ1Jlc3BvbnNlEg4KBm9yZ19pZBgBIAEoCSKJAgoNSW5nZXN0UmVxdWVzdBIyCgZldmVudHMYASADKAsyIi5ldmVudHN0b3JlLnYxLkluZ2VzdFJlcXVlc3QuRXZlbnQawwEKBUV2ZW50EioKB3JlcXVlc3QYASABKAsyFy5xcG9pbnQudHlwZS52MS5SZXF1ZXN0SAASJgoFaXNzdWUYAiABKAsyFS5xcG9pbnQudHlwZS52MS5Jc3N1ZUgAEiwKCGFydGlmYWN0GAMgASgLMhgucXBvaW50LnR5cGUudjEuQXJ0aWZhY3RIABIvCgpwaWlfZW50aXR5GAQgASgLMhkucXBvaW50LnR5cGUudjEuUElJRW50aXR5SABCBwoFZXZlbnQiKAoOSW5nZXN0UmVzcG9uc2USFgoOYWNjZXB0ZWRfY291bnQYASABKAUyoQEKEUV2ZW50U3RvcmVTZXJ2aWNlEkEKBFBpbmcSGi5ldmVudHN0b3JlLnYxLlBpbmdSZXF1ZXN0GhsuZXZlbnRzdG9yZS52MS5QaW5nUmVzcG9uc2UiABJJCgZJbmdlc3QSHC5ldmVudHN0b3JlLnYxLkluZ2VzdFJlcXVlc3QaHS5ldmVudHN0b3JlLnYxLkluZ2VzdFJlc3BvbnNlIgAoAUKxAQoRY29tLmV2ZW50c3RvcmUudjFCCU1haW5Qcm90b1ABWjxnaXRodWIuY29tL3Fwb2ludC1pby9wcm90by9nZW4vZ28vZXZlbnRzdG9yZS92MTtldmVudHN0b3JldjGiAgNFWFiqAg1FdmVudHN0b3JlLlYxygINRXZlbnRzdG9yZVxWMeICGUV2ZW50c3RvcmVcVjFcR1BCTWV0YWRhdGHqAg5FdmVudHN0b3JlOjpWMWIGcHJvdG8z", [file_qpoint_type_v1_artifact, file_qpoint_type_v1_issue, file_qpoint_type_v1_pii, file_qpoint_type_v1_request]);
+  fileDesc("ChhldmVudHN0b3JlL3YxL21haW4ucHJvdG8SDWV2ZW50c3RvcmUudjEiDQoLUGluZ1JlcXVlc3QiHgoMUGluZ1Jlc3BvbnNlEg4KBm9yZ19pZBgBIAEoCSKJAgoNSW5nZXN0UmVxdWVzdBIyCgZldmVudHMYASADKAsyIi5ldmVudHN0b3JlLnYxLkluZ2VzdFJlcXVlc3QuRXZlbnQawwEKBUV2ZW50EioKB3JlcXVlc3QYASABKAsyFy5xcG9pbnQudHlwZS52MS5SZXF1ZXN0SAASJgoFaXNzdWUYAiABKAsyFS5xcG9pbnQudHlwZS52MS5Jc3N1ZUgAEiwKCGFydGlmYWN0GAMgASgLMhgucXBvaW50LnR5cGUudjEuQXJ0aWZhY3RIABIvCgpwaWlfZW50aXR5GAQgASgLMhkucXBvaW50LnR5cGUudjEuUElJRW50aXR5SABCBwoFZXZlbnQiRgoOSW5nZXN0UmVzcG9uc2USHAoUdG90YWxfYWNjZXB0ZWRfY291bnQYASABKA0SFgoOYWNjZXB0ZWRfY291bnQYAiABKA0yowEKEUV2ZW50U3RvcmVTZXJ2aWNlEkEKBFBpbmcSGi5ldmVudHN0b3JlLnYxLlBpbmdSZXF1ZXN0GhsuZXZlbnRzdG9yZS52MS5QaW5nUmVzcG9uc2UiABJLCgZJbmdlc3QSHC5ldmVudHN0b3JlLnYxLkluZ2VzdFJlcXVlc3QaHS5ldmVudHN0b3JlLnYxLkluZ2VzdFJlc3BvbnNlIgAoATABQrEBChFjb20uZXZlbnRzdG9yZS52MUIJTWFpblByb3RvUAFaPGdpdGh1Yi5jb20vcXBvaW50LWlvL3Byb3RvL2dlbi9nby9ldmVudHN0b3JlL3YxO2V2ZW50c3RvcmV2MaICA0VYWKoCDUV2ZW50c3RvcmUuVjHKAg1FdmVudHN0b3JlXFYx4gIZRXZlbnRzdG9yZVxWMVxHUEJNZXRhZGF0YeoCDkV2ZW50c3RvcmU6OlYxYgZwcm90bzM", [file_qpoint_type_v1_artifact, file_qpoint_type_v1_issue, file_qpoint_type_v1_pii, file_qpoint_type_v1_request]);
 
 /**
  * @generated from message eventstore.v1.PingRequest
@@ -113,7 +113,16 @@ export const IngestRequest_EventSchema: GenMessage<IngestRequest_Event> = /*@__P
  */
 export type IngestResponse = Message<"eventstore.v1.IngestResponse"> & {
   /**
-   * @generated from field: int32 accepted_count = 1;
+   * total_accepted_count is the total number of events accepted by the server since the beginning of the stream.
+   *
+   * @generated from field: uint32 total_accepted_count = 1;
+   */
+  totalAcceptedCount: number;
+
+  /**
+   * accepted_count is the number of events accepted by the server since the last IngestResponse.
+   *
+   * @generated from field: uint32 accepted_count = 2;
    */
   acceptedCount: number;
 };
@@ -141,7 +150,7 @@ export const EventStoreService: GenService<{
    * @generated from rpc eventstore.v1.EventStoreService.Ingest
    */
   ingest: {
-    methodKind: "client_streaming";
+    methodKind: "bidi_streaming";
     input: typeof IngestRequestSchema;
     output: typeof IngestResponseSchema;
   },

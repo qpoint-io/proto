@@ -10,7 +10,7 @@ import "qpoint/type/v1/request.proto";
 service EventStoreService {
   rpc Ping(PingRequest) returns (PingResponse) {}
 
-  rpc Ingest(stream IngestRequest) returns (IngestResponse) {}
+  rpc Ingest(stream IngestRequest) returns (stream IngestResponse) {}
 }
 
 message PingRequest {}
@@ -33,5 +33,9 @@ message IngestRequest {
 }
 
 message IngestResponse {
-  int32 accepted_count = 1;
+  // total_accepted_count is the total number of events accepted by the server since the beginning of the stream.
+  uint32 total_accepted_count = 1;
+
+  // accepted_count is the number of events accepted by the server since the last IngestResponse.
+  uint32 accepted_count = 2;
 }
