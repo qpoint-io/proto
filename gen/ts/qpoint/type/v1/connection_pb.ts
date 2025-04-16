@@ -2,8 +2,8 @@
 // @generated from file qpoint/type/v1/connection.proto (package qpoint.type.v1, syntax proto3)
 /* eslint-disable */
 
-import type { GenEnum, GenFile, GenMessage } from "@bufbuild/protobuf/codegenv1";
-import { enumDesc, fileDesc, messageDesc } from "@bufbuild/protobuf/codegenv1";
+import type { GenFile, GenMessage } from "@bufbuild/protobuf/codegenv1";
+import { fileDesc, messageDesc } from "@bufbuild/protobuf/codegenv1";
 import { file_buf_validate_validate } from "../../../buf/validate/validate_pb";
 import type { Timestamp } from "@bufbuild/protobuf/wkt";
 import { file_google_protobuf_timestamp } from "@bufbuild/protobuf/wkt";
@@ -15,7 +15,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file qpoint/type/v1/connection.proto.
  */
 export const file_qpoint_type_v1_connection: GenFile = /*@__PURE__*/
-  fileDesc("Ch9xcG9pbnQvdHlwZS92MS9jb25uZWN0aW9uLnByb3RvEg5xcG9pbnQudHlwZS52MSKPBwoKQ29ubmVjdGlvbhISCgJpZBgBIAEoCUIGukgDyAEBEjUKCXRpbWVzdGFtcBgCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBCBrpIA8gBARIsCglkaXJlY3Rpb24YAyABKA4yGS5xcG9pbnQudHlwZS52MS5EaXJlY3Rpb24SGwoLZW5kcG9pbnRfaWQYBiABKAlCBrpIA8gBARIZCgl2ZW5kb3JfaWQYByABKAlCBrpIA8gBARIMCgRwYXJ0GAggASgNEhEKCWZpbmFsaXplZBgJIAEoCBIMCgR0YWdzGAogAygJEjcKD3NvY2tldF9wcm90b2NvbBgLIAEoDjIeLnFwb2ludC50eXBlLnYxLlNvY2tldFByb3RvY29sEi8KC2w3X3Byb3RvY29sGAwgASgOMhoucXBvaW50LnR5cGUudjEuTDdQcm90b2NvbBIvCgt0bHNfdmVyc2lvbhgNIAEoDjIaLnFwb2ludC50eXBlLnYxLlRsc1ZlcnNpb24SMQoGc3lzdGVtGA4gASgLMiEucXBvaW50LnR5cGUudjEuQ29ubmVjdGlvbi5TeXN0ZW0SMwoGc291cmNlGA8gASgLMiMucXBvaW50LnR5cGUudjEuQ29ubmVjdGlvbi5FbmRwb2ludBI4CgtkZXN0aW5hdGlvbhgQIAEoCzIjLnFwb2ludC50eXBlLnYxLkNvbm5lY3Rpb24uRW5kcG9pbnQSFgoOYnl0ZXNfcmVjZWl2ZWQYEyABKAQSEgoKYnl0ZXNfc2VudBgUIAEoBBpPCgZTeXN0ZW0SEAoIaG9zdG5hbWUYASABKAkSDAoEdXNlchgCIAEoCRINCgVhZ2VudBgDIAEoCRIWCg5hZ2VudF9pbnN0YW5jZRgEIAEoCRrmAQoIRW5kcG9pbnQSNgoEdHlwZRgBIAEoDjIoLnFwb2ludC50eXBlLnYxLkNvbm5lY3Rpb24uRW5kcG9pbnQuVHlwZRIoCgdhZGRyZXNzGAIgASgLMhcucXBvaW50LnR5cGUudjEuQWRkcmVzcxILCgNleGUYAyABKAkSLAoJY29udGFpbmVyGAQgASgLMhkucXBvaW50LnR5cGUudjEuQ29udGFpbmVyIj0KBFR5cGUSFAoQVFlQRV9VTlNQRUNJRklFRBAAEg4KClRZUEVfTE9DQUwQARIPCgtUWVBFX1JFTU9URRACQrgBChJjb20ucXBvaW50LnR5cGUudjFCD0Nvbm5lY3Rpb25Qcm90b1ABWjdnaXRodWIuY29tL3Fwb2ludC1pby9wcm90by9nZW4vZ28vcXBvaW50L3R5cGUvdjE7dHlwZXYxogIDUVRYqgIOUXBvaW50LlR5cGUuVjHKAg5RcG9pbnRcVHlwZVxWMeICGlFwb2ludFxUeXBlXFYxXEdQQk1ldGFkYXRh6gIQUXBvaW50OjpUeXBlOjpWMWIGcHJvdG8z", [file_buf_validate_validate, file_google_protobuf_timestamp, file_qpoint_type_v1_system]);
+  fileDesc("Ch9xcG9pbnQvdHlwZS92MS9jb25uZWN0aW9uLnByb3RvEg5xcG9pbnQudHlwZS52MSLuBwoKQ29ubmVjdGlvbhISCgJpZBgBIAEoCUIGukgDyAEBEjUKCXRpbWVzdGFtcBgCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBCBrpIA8gBARIsCglkaXJlY3Rpb24YAyABKA4yGS5xcG9pbnQudHlwZS52MS5EaXJlY3Rpb24SGwoLZW5kcG9pbnRfaWQYBiABKAlCBrpIA8gBARIZCgl2ZW5kb3JfaWQYByABKAlCBrpIA8gBARIMCgRwYXJ0GAggASgNEhEKCWZpbmFsaXplZBgJIAEoCBIMCgR0YWdzGAogAygJEjcKD3NvY2tldF9wcm90b2NvbBgLIAEoDjIeLnFwb2ludC50eXBlLnYxLlNvY2tldFByb3RvY29sEi8KC2w3X3Byb3RvY29sGAwgASgOMhoucXBvaW50LnR5cGUudjEuTDdQcm90b2NvbBIvCgt0bHNfdmVyc2lvbhgNIAEoDjIaLnFwb2ludC50eXBlLnYxLlRsc1ZlcnNpb24SMQoGc3lzdGVtGA4gASgLMiEucXBvaW50LnR5cGUudjEuQ29ubmVjdGlvbi5TeXN0ZW0SMwoGc291cmNlGA8gASgLMiMucXBvaW50LnR5cGUudjEuQ29ubmVjdGlvbi5FbmRwb2ludBI4CgtkZXN0aW5hdGlvbhgQIAEoCzIjLnFwb2ludC50eXBlLnYxLkNvbm5lY3Rpb24uRW5kcG9pbnQSFgoOYnl0ZXNfcmVjZWl2ZWQYEyABKAQSEgoKYnl0ZXNfc2VudBgUIAEoBBpBCgZTeXN0ZW0SEAoIaG9zdG5hbWUYASABKAkSDQoFYWdlbnQYAiABKAkSFgoOYWdlbnRfaW5zdGFuY2UYAyABKAka0wIKCEVuZHBvaW50EjoKBWxvY2FsGAEgASgLMikucXBvaW50LnR5cGUudjEuQ29ubmVjdGlvbi5FbmRwb2ludC5Mb2NhbEgAEjwKBnJlbW90ZRgCIAEoCzIqLnFwb2ludC50eXBlLnYxLkNvbm5lY3Rpb24uRW5kcG9pbnQuUmVtb3RlSAAajAEKBUxvY2FsEigKB2FkZHJlc3MYASABKAsyFy5xcG9pbnQudHlwZS52MS5BZGRyZXNzEhAKCGhvc3RuYW1lGAIgASgJEgsKA2V4ZRgDIAEoCRIMCgR1c2VyGAQgASgJEiwKCWNvbnRhaW5lchgFIAEoCzIZLnFwb2ludC50eXBlLnYxLkNvbnRhaW5lchoyCgZSZW1vdGUSKAoHYWRkcmVzcxgBIAEoCzIXLnFwb2ludC50eXBlLnYxLkFkZHJlc3NCCgoIZW5kcG9pbnRCuAEKEmNvbS5xcG9pbnQudHlwZS52MUIPQ29ubmVjdGlvblByb3RvUAFaN2dpdGh1Yi5jb20vcXBvaW50LWlvL3Byb3RvL2dlbi9nby9xcG9pbnQvdHlwZS92MTt0eXBldjGiAgNRVFiqAg5RcG9pbnQuVHlwZS5WMcoCDlFwb2ludFxUeXBlXFYx4gIaUXBvaW50XFR5cGVcVjFcR1BCTWV0YWRhdGHqAhBRcG9pbnQ6OlR5cGU6OlYxYgZwcm90bzM", [file_buf_validate_validate, file_google_protobuf_timestamp, file_qpoint_type_v1_system]);
 
 /**
  * @generated from message qpoint.type.v1.Connection
@@ -119,17 +119,12 @@ export type Connection_System = Message<"qpoint.type.v1.Connection.System"> & {
   hostname: string;
 
   /**
-   * @generated from field: string user = 2;
-   */
-  user: string;
-
-  /**
-   * @generated from field: string agent = 3;
+   * @generated from field: string agent = 2;
    */
   agent: string;
 
   /**
-   * @generated from field: string agent_instance = 4;
+   * @generated from field: string agent_instance = 3;
    */
   agentInstance: string;
 };
@@ -146,24 +141,21 @@ export const Connection_SystemSchema: GenMessage<Connection_System> = /*@__PURE_
  */
 export type Connection_Endpoint = Message<"qpoint.type.v1.Connection.Endpoint"> & {
   /**
-   * @generated from field: qpoint.type.v1.Connection.Endpoint.Type type = 1;
+   * @generated from oneof qpoint.type.v1.Connection.Endpoint.endpoint
    */
-  type: Connection_Endpoint_Type;
-
-  /**
-   * @generated from field: qpoint.type.v1.Address address = 2;
-   */
-  address?: Address;
-
-  /**
-   * @generated from field: string exe = 3;
-   */
-  exe: string;
-
-  /**
-   * @generated from field: qpoint.type.v1.Container container = 4;
-   */
-  container?: Container;
+  endpoint: {
+    /**
+     * @generated from field: qpoint.type.v1.Connection.Endpoint.Local local = 1;
+     */
+    value: Connection_Endpoint_Local;
+    case: "local";
+  } | {
+    /**
+     * @generated from field: qpoint.type.v1.Connection.Endpoint.Remote remote = 2;
+     */
+    value: Connection_Endpoint_Remote;
+    case: "remote";
+  } | { case: undefined; value?: undefined };
 };
 
 /**
@@ -174,28 +166,56 @@ export const Connection_EndpointSchema: GenMessage<Connection_Endpoint> = /*@__P
   messageDesc(file_qpoint_type_v1_connection, 0, 1);
 
 /**
- * @generated from enum qpoint.type.v1.Connection.Endpoint.Type
+ * @generated from message qpoint.type.v1.Connection.Endpoint.Local
  */
-export enum Connection_Endpoint_Type {
+export type Connection_Endpoint_Local = Message<"qpoint.type.v1.Connection.Endpoint.Local"> & {
   /**
-   * @generated from enum value: TYPE_UNSPECIFIED = 0;
+   * @generated from field: qpoint.type.v1.Address address = 1;
    */
-  UNSPECIFIED = 0,
+  address?: Address;
 
   /**
-   * @generated from enum value: TYPE_LOCAL = 1;
+   * @generated from field: string hostname = 2;
    */
-  LOCAL = 1,
+  hostname: string;
 
   /**
-   * @generated from enum value: TYPE_REMOTE = 2;
+   * @generated from field: string exe = 3;
    */
-  REMOTE = 2,
-}
+  exe: string;
+
+  /**
+   * @generated from field: string user = 4;
+   */
+  user: string;
+
+  /**
+   * @generated from field: qpoint.type.v1.Container container = 5;
+   */
+  container?: Container;
+};
 
 /**
- * Describes the enum qpoint.type.v1.Connection.Endpoint.Type.
+ * Describes the message qpoint.type.v1.Connection.Endpoint.Local.
+ * Use `create(Connection_Endpoint_LocalSchema)` to create a new message.
  */
-export const Connection_Endpoint_TypeSchema: GenEnum<Connection_Endpoint_Type> = /*@__PURE__*/
-  enumDesc(file_qpoint_type_v1_connection, 0, 1, 0);
+export const Connection_Endpoint_LocalSchema: GenMessage<Connection_Endpoint_Local> = /*@__PURE__*/
+  messageDesc(file_qpoint_type_v1_connection, 0, 1, 0);
+
+/**
+ * @generated from message qpoint.type.v1.Connection.Endpoint.Remote
+ */
+export type Connection_Endpoint_Remote = Message<"qpoint.type.v1.Connection.Endpoint.Remote"> & {
+  /**
+   * @generated from field: qpoint.type.v1.Address address = 1;
+   */
+  address?: Address;
+};
+
+/**
+ * Describes the message qpoint.type.v1.Connection.Endpoint.Remote.
+ * Use `create(Connection_Endpoint_RemoteSchema)` to create a new message.
+ */
+export const Connection_Endpoint_RemoteSchema: GenMessage<Connection_Endpoint_Remote> = /*@__PURE__*/
+  messageDesc(file_qpoint_type_v1_connection, 0, 1, 1);
 

@@ -22,22 +22,28 @@ message Connection {
 
   message System {
     string hostname = 1;
-    string user = 2;
-    string agent = 3;
-    string agent_instance = 4;
+    string agent = 2;
+    string agent_instance = 3;
   }
   System system = 14;
 
   message Endpoint {
-    enum Type {
-      TYPE_UNSPECIFIED = 0;
-      TYPE_LOCAL = 1;
-      TYPE_REMOTE = 2;
+    message Local {
+      Address address = 1;
+      string hostname = 2;
+      string exe = 3;
+      string user = 4;
+      Container container = 5;
     }
-    Type type = 1;
-    Address address = 2;
-    string exe = 3;
-    Container container = 4;
+
+    message Remote {
+      Address address = 1;
+    }
+
+    oneof endpoint {
+      Local local = 1;
+      Remote remote = 2;
+    }
   }
   Endpoint source = 15;
   Endpoint destination = 16;

@@ -22,50 +22,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type Connection_Endpoint_Type int32
-
-const (
-	Connection_Endpoint_TYPE_UNSPECIFIED Connection_Endpoint_Type = 0
-	Connection_Endpoint_TYPE_LOCAL       Connection_Endpoint_Type = 1
-	Connection_Endpoint_TYPE_REMOTE      Connection_Endpoint_Type = 2
-)
-
-// Enum value maps for Connection_Endpoint_Type.
-var (
-	Connection_Endpoint_Type_name = map[int32]string{
-		0: "TYPE_UNSPECIFIED",
-		1: "TYPE_LOCAL",
-		2: "TYPE_REMOTE",
-	}
-	Connection_Endpoint_Type_value = map[string]int32{
-		"TYPE_UNSPECIFIED": 0,
-		"TYPE_LOCAL":       1,
-		"TYPE_REMOTE":      2,
-	}
-)
-
-func (x Connection_Endpoint_Type) Enum() *Connection_Endpoint_Type {
-	p := new(Connection_Endpoint_Type)
-	*p = x
-	return p
-}
-
-func (x Connection_Endpoint_Type) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (Connection_Endpoint_Type) Descriptor() protoreflect.EnumDescriptor {
-	return file_qpoint_type_v1_connection_proto_enumTypes[0].Descriptor()
-}
-
-func (Connection_Endpoint_Type) Type() protoreflect.EnumType {
-	return &file_qpoint_type_v1_connection_proto_enumTypes[0]
-}
-
-func (x Connection_Endpoint_Type) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
 type Connection struct {
 	state                     protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Id             string                 `protobuf:"bytes,1,opt,name=id,proto3"`
@@ -380,9 +336,8 @@ func (b0 Connection_builder) Build() *Connection {
 type Connection_System struct {
 	state                    protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Hostname      string                 `protobuf:"bytes,1,opt,name=hostname,proto3"`
-	xxx_hidden_User          string                 `protobuf:"bytes,2,opt,name=user,proto3"`
-	xxx_hidden_Agent         string                 `protobuf:"bytes,3,opt,name=agent,proto3"`
-	xxx_hidden_AgentInstance string                 `protobuf:"bytes,4,opt,name=agent_instance,json=agentInstance,proto3"`
+	xxx_hidden_Agent         string                 `protobuf:"bytes,2,opt,name=agent,proto3"`
+	xxx_hidden_AgentInstance string                 `protobuf:"bytes,3,opt,name=agent_instance,json=agentInstance,proto3"`
 	unknownFields            protoimpl.UnknownFields
 	sizeCache                protoimpl.SizeCache
 }
@@ -419,13 +374,6 @@ func (x *Connection_System) GetHostname() string {
 	return ""
 }
 
-func (x *Connection_System) GetUser() string {
-	if x != nil {
-		return x.xxx_hidden_User
-	}
-	return ""
-}
-
 func (x *Connection_System) GetAgent() string {
 	if x != nil {
 		return x.xxx_hidden_Agent
@@ -444,10 +392,6 @@ func (x *Connection_System) SetHostname(v string) {
 	x.xxx_hidden_Hostname = v
 }
 
-func (x *Connection_System) SetUser(v string) {
-	x.xxx_hidden_User = v
-}
-
 func (x *Connection_System) SetAgent(v string) {
 	x.xxx_hidden_Agent = v
 }
@@ -460,7 +404,6 @@ type Connection_System_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	Hostname      string
-	User          string
 	Agent         string
 	AgentInstance string
 }
@@ -470,20 +413,16 @@ func (b0 Connection_System_builder) Build() *Connection_System {
 	b, x := &b0, m0
 	_, _ = b, x
 	x.xxx_hidden_Hostname = b.Hostname
-	x.xxx_hidden_User = b.User
 	x.xxx_hidden_Agent = b.Agent
 	x.xxx_hidden_AgentInstance = b.AgentInstance
 	return m0
 }
 
 type Connection_Endpoint struct {
-	state                protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_Type      Connection_Endpoint_Type `protobuf:"varint,1,opt,name=type,proto3,enum=qpoint.type.v1.Connection_Endpoint_Type"`
-	xxx_hidden_Address   *Address                 `protobuf:"bytes,2,opt,name=address,proto3"`
-	xxx_hidden_Exe       string                   `protobuf:"bytes,3,opt,name=exe,proto3"`
-	xxx_hidden_Container *Container               `protobuf:"bytes,4,opt,name=container,proto3"`
-	unknownFields        protoimpl.UnknownFields
-	sizeCache            protoimpl.SizeCache
+	state               protoimpl.MessageState         `protogen:"opaque.v1"`
+	xxx_hidden_Endpoint isConnection_Endpoint_Endpoint `protobuf_oneof:"endpoint"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
 }
 
 func (x *Connection_Endpoint) Reset() {
@@ -511,89 +450,345 @@ func (x *Connection_Endpoint) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *Connection_Endpoint) GetType() Connection_Endpoint_Type {
+func (x *Connection_Endpoint) GetLocal() *Connection_Endpoint_Local {
 	if x != nil {
-		return x.xxx_hidden_Type
-	}
-	return Connection_Endpoint_TYPE_UNSPECIFIED
-}
-
-func (x *Connection_Endpoint) GetAddress() *Address {
-	if x != nil {
-		return x.xxx_hidden_Address
+		if x, ok := x.xxx_hidden_Endpoint.(*connection_Endpoint_Local_); ok {
+			return x.Local
+		}
 	}
 	return nil
 }
 
-func (x *Connection_Endpoint) GetExe() string {
+func (x *Connection_Endpoint) GetRemote() *Connection_Endpoint_Remote {
 	if x != nil {
-		return x.xxx_hidden_Exe
-	}
-	return ""
-}
-
-func (x *Connection_Endpoint) GetContainer() *Container {
-	if x != nil {
-		return x.xxx_hidden_Container
+		if x, ok := x.xxx_hidden_Endpoint.(*connection_Endpoint_Remote_); ok {
+			return x.Remote
+		}
 	}
 	return nil
 }
 
-func (x *Connection_Endpoint) SetType(v Connection_Endpoint_Type) {
-	x.xxx_hidden_Type = v
+func (x *Connection_Endpoint) SetLocal(v *Connection_Endpoint_Local) {
+	if v == nil {
+		x.xxx_hidden_Endpoint = nil
+		return
+	}
+	x.xxx_hidden_Endpoint = &connection_Endpoint_Local_{v}
 }
 
-func (x *Connection_Endpoint) SetAddress(v *Address) {
-	x.xxx_hidden_Address = v
+func (x *Connection_Endpoint) SetRemote(v *Connection_Endpoint_Remote) {
+	if v == nil {
+		x.xxx_hidden_Endpoint = nil
+		return
+	}
+	x.xxx_hidden_Endpoint = &connection_Endpoint_Remote_{v}
 }
 
-func (x *Connection_Endpoint) SetExe(v string) {
-	x.xxx_hidden_Exe = v
-}
-
-func (x *Connection_Endpoint) SetContainer(v *Container) {
-	x.xxx_hidden_Container = v
-}
-
-func (x *Connection_Endpoint) HasAddress() bool {
+func (x *Connection_Endpoint) HasEndpoint() bool {
 	if x == nil {
 		return false
 	}
-	return x.xxx_hidden_Address != nil
+	return x.xxx_hidden_Endpoint != nil
 }
 
-func (x *Connection_Endpoint) HasContainer() bool {
+func (x *Connection_Endpoint) HasLocal() bool {
 	if x == nil {
 		return false
 	}
-	return x.xxx_hidden_Container != nil
+	_, ok := x.xxx_hidden_Endpoint.(*connection_Endpoint_Local_)
+	return ok
 }
 
-func (x *Connection_Endpoint) ClearAddress() {
-	x.xxx_hidden_Address = nil
+func (x *Connection_Endpoint) HasRemote() bool {
+	if x == nil {
+		return false
+	}
+	_, ok := x.xxx_hidden_Endpoint.(*connection_Endpoint_Remote_)
+	return ok
 }
 
-func (x *Connection_Endpoint) ClearContainer() {
-	x.xxx_hidden_Container = nil
+func (x *Connection_Endpoint) ClearEndpoint() {
+	x.xxx_hidden_Endpoint = nil
+}
+
+func (x *Connection_Endpoint) ClearLocal() {
+	if _, ok := x.xxx_hidden_Endpoint.(*connection_Endpoint_Local_); ok {
+		x.xxx_hidden_Endpoint = nil
+	}
+}
+
+func (x *Connection_Endpoint) ClearRemote() {
+	if _, ok := x.xxx_hidden_Endpoint.(*connection_Endpoint_Remote_); ok {
+		x.xxx_hidden_Endpoint = nil
+	}
+}
+
+const Connection_Endpoint_Endpoint_not_set_case case_Connection_Endpoint_Endpoint = 0
+const Connection_Endpoint_Local_case case_Connection_Endpoint_Endpoint = 1
+const Connection_Endpoint_Remote_case case_Connection_Endpoint_Endpoint = 2
+
+func (x *Connection_Endpoint) WhichEndpoint() case_Connection_Endpoint_Endpoint {
+	if x == nil {
+		return Connection_Endpoint_Endpoint_not_set_case
+	}
+	switch x.xxx_hidden_Endpoint.(type) {
+	case *connection_Endpoint_Local_:
+		return Connection_Endpoint_Local_case
+	case *connection_Endpoint_Remote_:
+		return Connection_Endpoint_Remote_case
+	default:
+		return Connection_Endpoint_Endpoint_not_set_case
+	}
 }
 
 type Connection_Endpoint_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Type      Connection_Endpoint_Type
-	Address   *Address
-	Exe       string
-	Container *Container
+	// Fields of oneof xxx_hidden_Endpoint:
+	Local  *Connection_Endpoint_Local
+	Remote *Connection_Endpoint_Remote
+	// -- end of xxx_hidden_Endpoint
 }
 
 func (b0 Connection_Endpoint_builder) Build() *Connection_Endpoint {
 	m0 := &Connection_Endpoint{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.xxx_hidden_Type = b.Type
+	if b.Local != nil {
+		x.xxx_hidden_Endpoint = &connection_Endpoint_Local_{b.Local}
+	}
+	if b.Remote != nil {
+		x.xxx_hidden_Endpoint = &connection_Endpoint_Remote_{b.Remote}
+	}
+	return m0
+}
+
+type case_Connection_Endpoint_Endpoint protoreflect.FieldNumber
+
+func (x case_Connection_Endpoint_Endpoint) String() string {
+	md := file_qpoint_type_v1_connection_proto_msgTypes[2].Descriptor()
+	if x == 0 {
+		return "not set"
+	}
+	return protoimpl.X.MessageFieldStringOf(md, protoreflect.FieldNumber(x))
+}
+
+type isConnection_Endpoint_Endpoint interface {
+	isConnection_Endpoint_Endpoint()
+}
+
+type connection_Endpoint_Local_ struct {
+	Local *Connection_Endpoint_Local `protobuf:"bytes,1,opt,name=local,proto3,oneof"`
+}
+
+type connection_Endpoint_Remote_ struct {
+	Remote *Connection_Endpoint_Remote `protobuf:"bytes,2,opt,name=remote,proto3,oneof"`
+}
+
+func (*connection_Endpoint_Local_) isConnection_Endpoint_Endpoint() {}
+
+func (*connection_Endpoint_Remote_) isConnection_Endpoint_Endpoint() {}
+
+type Connection_Endpoint_Local struct {
+	state                protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Address   *Address               `protobuf:"bytes,1,opt,name=address,proto3"`
+	xxx_hidden_Hostname  string                 `protobuf:"bytes,2,opt,name=hostname,proto3"`
+	xxx_hidden_Exe       string                 `protobuf:"bytes,3,opt,name=exe,proto3"`
+	xxx_hidden_User      string                 `protobuf:"bytes,4,opt,name=user,proto3"`
+	xxx_hidden_Container *Container             `protobuf:"bytes,5,opt,name=container,proto3"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
+}
+
+func (x *Connection_Endpoint_Local) Reset() {
+	*x = Connection_Endpoint_Local{}
+	mi := &file_qpoint_type_v1_connection_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Connection_Endpoint_Local) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Connection_Endpoint_Local) ProtoMessage() {}
+
+func (x *Connection_Endpoint_Local) ProtoReflect() protoreflect.Message {
+	mi := &file_qpoint_type_v1_connection_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *Connection_Endpoint_Local) GetAddress() *Address {
+	if x != nil {
+		return x.xxx_hidden_Address
+	}
+	return nil
+}
+
+func (x *Connection_Endpoint_Local) GetHostname() string {
+	if x != nil {
+		return x.xxx_hidden_Hostname
+	}
+	return ""
+}
+
+func (x *Connection_Endpoint_Local) GetExe() string {
+	if x != nil {
+		return x.xxx_hidden_Exe
+	}
+	return ""
+}
+
+func (x *Connection_Endpoint_Local) GetUser() string {
+	if x != nil {
+		return x.xxx_hidden_User
+	}
+	return ""
+}
+
+func (x *Connection_Endpoint_Local) GetContainer() *Container {
+	if x != nil {
+		return x.xxx_hidden_Container
+	}
+	return nil
+}
+
+func (x *Connection_Endpoint_Local) SetAddress(v *Address) {
+	x.xxx_hidden_Address = v
+}
+
+func (x *Connection_Endpoint_Local) SetHostname(v string) {
+	x.xxx_hidden_Hostname = v
+}
+
+func (x *Connection_Endpoint_Local) SetExe(v string) {
+	x.xxx_hidden_Exe = v
+}
+
+func (x *Connection_Endpoint_Local) SetUser(v string) {
+	x.xxx_hidden_User = v
+}
+
+func (x *Connection_Endpoint_Local) SetContainer(v *Container) {
+	x.xxx_hidden_Container = v
+}
+
+func (x *Connection_Endpoint_Local) HasAddress() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_Address != nil
+}
+
+func (x *Connection_Endpoint_Local) HasContainer() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_Container != nil
+}
+
+func (x *Connection_Endpoint_Local) ClearAddress() {
+	x.xxx_hidden_Address = nil
+}
+
+func (x *Connection_Endpoint_Local) ClearContainer() {
+	x.xxx_hidden_Container = nil
+}
+
+type Connection_Endpoint_Local_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	Address   *Address
+	Hostname  string
+	Exe       string
+	User      string
+	Container *Container
+}
+
+func (b0 Connection_Endpoint_Local_builder) Build() *Connection_Endpoint_Local {
+	m0 := &Connection_Endpoint_Local{}
+	b, x := &b0, m0
+	_, _ = b, x
 	x.xxx_hidden_Address = b.Address
+	x.xxx_hidden_Hostname = b.Hostname
 	x.xxx_hidden_Exe = b.Exe
+	x.xxx_hidden_User = b.User
 	x.xxx_hidden_Container = b.Container
+	return m0
+}
+
+type Connection_Endpoint_Remote struct {
+	state              protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Address *Address               `protobuf:"bytes,1,opt,name=address,proto3"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
+}
+
+func (x *Connection_Endpoint_Remote) Reset() {
+	*x = Connection_Endpoint_Remote{}
+	mi := &file_qpoint_type_v1_connection_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Connection_Endpoint_Remote) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Connection_Endpoint_Remote) ProtoMessage() {}
+
+func (x *Connection_Endpoint_Remote) ProtoReflect() protoreflect.Message {
+	mi := &file_qpoint_type_v1_connection_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *Connection_Endpoint_Remote) GetAddress() *Address {
+	if x != nil {
+		return x.xxx_hidden_Address
+	}
+	return nil
+}
+
+func (x *Connection_Endpoint_Remote) SetAddress(v *Address) {
+	x.xxx_hidden_Address = v
+}
+
+func (x *Connection_Endpoint_Remote) HasAddress() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_Address != nil
+}
+
+func (x *Connection_Endpoint_Remote) ClearAddress() {
+	x.xxx_hidden_Address = nil
+}
+
+type Connection_Endpoint_Remote_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	Address *Address
+}
+
+func (b0 Connection_Endpoint_Remote_builder) Build() *Connection_Endpoint_Remote {
+	m0 := &Connection_Endpoint_Remote{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.xxx_hidden_Address = b.Address
 	return m0
 }
 
@@ -601,7 +796,7 @@ var File_qpoint_type_v1_connection_proto protoreflect.FileDescriptor
 
 const file_qpoint_type_v1_connection_proto_rawDesc = "" +
 	"\n" +
-	"\x1fqpoint/type/v1/connection.proto\x12\x0eqpoint.type.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bqpoint/type/v1/system.proto\"\xfa\b\n" +
+	"\x1fqpoint/type/v1/connection.proto\x12\x0eqpoint.type.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bqpoint/type/v1/system.proto\"\xf5\t\n" +
 	"\n" +
 	"Connection\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12@\n" +
@@ -624,56 +819,60 @@ const file_qpoint_type_v1_connection_proto_rawDesc = "" +
 	"\vdestination\x18\x10 \x01(\v2#.qpoint.type.v1.Connection.EndpointR\vdestination\x12%\n" +
 	"\x0ebytes_received\x18\x13 \x01(\x04R\rbytesReceived\x12\x1d\n" +
 	"\n" +
-	"bytes_sent\x18\x14 \x01(\x04R\tbytesSent\x1au\n" +
+	"bytes_sent\x18\x14 \x01(\x04R\tbytesSent\x1aa\n" +
 	"\x06System\x12\x1a\n" +
-	"\bhostname\x18\x01 \x01(\tR\bhostname\x12\x12\n" +
-	"\x04user\x18\x02 \x01(\tR\x04user\x12\x14\n" +
-	"\x05agent\x18\x03 \x01(\tR\x05agent\x12%\n" +
-	"\x0eagent_instance\x18\x04 \x01(\tR\ragentInstance\x1a\x85\x02\n" +
-	"\bEndpoint\x12<\n" +
-	"\x04type\x18\x01 \x01(\x0e2(.qpoint.type.v1.Connection.Endpoint.TypeR\x04type\x121\n" +
-	"\aaddress\x18\x02 \x01(\v2\x17.qpoint.type.v1.AddressR\aaddress\x12\x10\n" +
-	"\x03exe\x18\x03 \x01(\tR\x03exe\x127\n" +
-	"\tcontainer\x18\x04 \x01(\v2\x19.qpoint.type.v1.ContainerR\tcontainer\"=\n" +
-	"\x04Type\x12\x14\n" +
-	"\x10TYPE_UNSPECIFIED\x10\x00\x12\x0e\n" +
+	"\bhostname\x18\x01 \x01(\tR\bhostname\x12\x14\n" +
+	"\x05agent\x18\x02 \x01(\tR\x05agent\x12%\n" +
+	"\x0eagent_instance\x18\x03 \x01(\tR\ragentInstance\x1a\x94\x03\n" +
+	"\bEndpoint\x12A\n" +
+	"\x05local\x18\x01 \x01(\v2).qpoint.type.v1.Connection.Endpoint.LocalH\x00R\x05local\x12D\n" +
+	"\x06remote\x18\x02 \x01(\v2*.qpoint.type.v1.Connection.Endpoint.RemoteH\x00R\x06remote\x1a\xb5\x01\n" +
+	"\x05Local\x121\n" +
+	"\aaddress\x18\x01 \x01(\v2\x17.qpoint.type.v1.AddressR\aaddress\x12\x1a\n" +
+	"\bhostname\x18\x02 \x01(\tR\bhostname\x12\x10\n" +
+	"\x03exe\x18\x03 \x01(\tR\x03exe\x12\x12\n" +
+	"\x04user\x18\x04 \x01(\tR\x04user\x127\n" +
+	"\tcontainer\x18\x05 \x01(\v2\x19.qpoint.type.v1.ContainerR\tcontainer\x1a;\n" +
+	"\x06Remote\x121\n" +
+	"\aaddress\x18\x01 \x01(\v2\x17.qpoint.type.v1.AddressR\aaddressB\n" +
 	"\n" +
-	"TYPE_LOCAL\x10\x01\x12\x0f\n" +
-	"\vTYPE_REMOTE\x10\x02B\xb8\x01\n" +
+	"\bendpointB\xb8\x01\n" +
 	"\x12com.qpoint.type.v1B\x0fConnectionProtoP\x01Z7github.com/qpoint-io/proto/gen/go/qpoint/type/v1;typev1\xa2\x02\x03QTX\xaa\x02\x0eQpoint.Type.V1\xca\x02\x0eQpoint\\Type\\V1\xe2\x02\x1aQpoint\\Type\\V1\\GPBMetadata\xea\x02\x10Qpoint::Type::V1b\x06proto3"
 
-var file_qpoint_type_v1_connection_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_qpoint_type_v1_connection_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_qpoint_type_v1_connection_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_qpoint_type_v1_connection_proto_goTypes = []any{
-	(Connection_Endpoint_Type)(0), // 0: qpoint.type.v1.Connection.Endpoint.Type
-	(*Connection)(nil),            // 1: qpoint.type.v1.Connection
-	(*Connection_System)(nil),     // 2: qpoint.type.v1.Connection.System
-	(*Connection_Endpoint)(nil),   // 3: qpoint.type.v1.Connection.Endpoint
-	(*timestamppb.Timestamp)(nil), // 4: google.protobuf.Timestamp
-	(Direction)(0),                // 5: qpoint.type.v1.Direction
-	(SocketProtocol)(0),           // 6: qpoint.type.v1.SocketProtocol
-	(L7Protocol)(0),               // 7: qpoint.type.v1.L7Protocol
-	(TlsVersion)(0),               // 8: qpoint.type.v1.TlsVersion
-	(*Address)(nil),               // 9: qpoint.type.v1.Address
-	(*Container)(nil),             // 10: qpoint.type.v1.Container
+	(*Connection)(nil),                 // 0: qpoint.type.v1.Connection
+	(*Connection_System)(nil),          // 1: qpoint.type.v1.Connection.System
+	(*Connection_Endpoint)(nil),        // 2: qpoint.type.v1.Connection.Endpoint
+	(*Connection_Endpoint_Local)(nil),  // 3: qpoint.type.v1.Connection.Endpoint.Local
+	(*Connection_Endpoint_Remote)(nil), // 4: qpoint.type.v1.Connection.Endpoint.Remote
+	(*timestamppb.Timestamp)(nil),      // 5: google.protobuf.Timestamp
+	(Direction)(0),                     // 6: qpoint.type.v1.Direction
+	(SocketProtocol)(0),                // 7: qpoint.type.v1.SocketProtocol
+	(L7Protocol)(0),                    // 8: qpoint.type.v1.L7Protocol
+	(TlsVersion)(0),                    // 9: qpoint.type.v1.TlsVersion
+	(*Address)(nil),                    // 10: qpoint.type.v1.Address
+	(*Container)(nil),                  // 11: qpoint.type.v1.Container
 }
 var file_qpoint_type_v1_connection_proto_depIdxs = []int32{
-	4,  // 0: qpoint.type.v1.Connection.timestamp:type_name -> google.protobuf.Timestamp
-	5,  // 1: qpoint.type.v1.Connection.direction:type_name -> qpoint.type.v1.Direction
-	6,  // 2: qpoint.type.v1.Connection.socket_protocol:type_name -> qpoint.type.v1.SocketProtocol
-	7,  // 3: qpoint.type.v1.Connection.l7_protocol:type_name -> qpoint.type.v1.L7Protocol
-	8,  // 4: qpoint.type.v1.Connection.tls_version:type_name -> qpoint.type.v1.TlsVersion
-	2,  // 5: qpoint.type.v1.Connection.system:type_name -> qpoint.type.v1.Connection.System
-	3,  // 6: qpoint.type.v1.Connection.source:type_name -> qpoint.type.v1.Connection.Endpoint
-	3,  // 7: qpoint.type.v1.Connection.destination:type_name -> qpoint.type.v1.Connection.Endpoint
-	0,  // 8: qpoint.type.v1.Connection.Endpoint.type:type_name -> qpoint.type.v1.Connection.Endpoint.Type
-	9,  // 9: qpoint.type.v1.Connection.Endpoint.address:type_name -> qpoint.type.v1.Address
-	10, // 10: qpoint.type.v1.Connection.Endpoint.container:type_name -> qpoint.type.v1.Container
-	11, // [11:11] is the sub-list for method output_type
-	11, // [11:11] is the sub-list for method input_type
-	11, // [11:11] is the sub-list for extension type_name
-	11, // [11:11] is the sub-list for extension extendee
-	0,  // [0:11] is the sub-list for field type_name
+	5,  // 0: qpoint.type.v1.Connection.timestamp:type_name -> google.protobuf.Timestamp
+	6,  // 1: qpoint.type.v1.Connection.direction:type_name -> qpoint.type.v1.Direction
+	7,  // 2: qpoint.type.v1.Connection.socket_protocol:type_name -> qpoint.type.v1.SocketProtocol
+	8,  // 3: qpoint.type.v1.Connection.l7_protocol:type_name -> qpoint.type.v1.L7Protocol
+	9,  // 4: qpoint.type.v1.Connection.tls_version:type_name -> qpoint.type.v1.TlsVersion
+	1,  // 5: qpoint.type.v1.Connection.system:type_name -> qpoint.type.v1.Connection.System
+	2,  // 6: qpoint.type.v1.Connection.source:type_name -> qpoint.type.v1.Connection.Endpoint
+	2,  // 7: qpoint.type.v1.Connection.destination:type_name -> qpoint.type.v1.Connection.Endpoint
+	3,  // 8: qpoint.type.v1.Connection.Endpoint.local:type_name -> qpoint.type.v1.Connection.Endpoint.Local
+	4,  // 9: qpoint.type.v1.Connection.Endpoint.remote:type_name -> qpoint.type.v1.Connection.Endpoint.Remote
+	10, // 10: qpoint.type.v1.Connection.Endpoint.Local.address:type_name -> qpoint.type.v1.Address
+	11, // 11: qpoint.type.v1.Connection.Endpoint.Local.container:type_name -> qpoint.type.v1.Container
+	10, // 12: qpoint.type.v1.Connection.Endpoint.Remote.address:type_name -> qpoint.type.v1.Address
+	13, // [13:13] is the sub-list for method output_type
+	13, // [13:13] is the sub-list for method input_type
+	13, // [13:13] is the sub-list for extension type_name
+	13, // [13:13] is the sub-list for extension extendee
+	0,  // [0:13] is the sub-list for field type_name
 }
 
 func init() { file_qpoint_type_v1_connection_proto_init() }
@@ -682,19 +881,22 @@ func file_qpoint_type_v1_connection_proto_init() {
 		return
 	}
 	file_qpoint_type_v1_system_proto_init()
+	file_qpoint_type_v1_connection_proto_msgTypes[2].OneofWrappers = []any{
+		(*connection_Endpoint_Local_)(nil),
+		(*connection_Endpoint_Remote_)(nil),
+	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_qpoint_type_v1_connection_proto_rawDesc), len(file_qpoint_type_v1_connection_proto_rawDesc)),
-			NumEnums:      1,
-			NumMessages:   3,
+			NumEnums:      0,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_qpoint_type_v1_connection_proto_goTypes,
 		DependencyIndexes: file_qpoint_type_v1_connection_proto_depIdxs,
-		EnumInfos:         file_qpoint_type_v1_connection_proto_enumTypes,
 		MessageInfos:      file_qpoint_type_v1_connection_proto_msgTypes,
 	}.Build()
 	File_qpoint_type_v1_connection_proto = out.File
