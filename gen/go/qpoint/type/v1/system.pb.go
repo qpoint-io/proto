@@ -410,7 +410,7 @@ func (b0 Container_builder) Build() *Container {
 type Address struct {
 	state           protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Ip   string                 `protobuf:"bytes,1,opt,name=ip,proto3"`
-	xxx_hidden_Port string                 `protobuf:"bytes,2,opt,name=port,proto3"`
+	xxx_hidden_Port uint32                 `protobuf:"varint,2,opt,name=port,proto3"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -447,18 +447,18 @@ func (x *Address) GetIp() string {
 	return ""
 }
 
-func (x *Address) GetPort() string {
+func (x *Address) GetPort() uint32 {
 	if x != nil {
 		return x.xxx_hidden_Port
 	}
-	return ""
+	return 0
 }
 
 func (x *Address) SetIp(v string) {
 	x.xxx_hidden_Ip = v
 }
 
-func (x *Address) SetPort(v string) {
+func (x *Address) SetPort(v uint32) {
 	x.xxx_hidden_Port = v
 }
 
@@ -466,7 +466,7 @@ type Address_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	Ip   string
-	Port string
+	Port uint32
 }
 
 func (b0 Address_builder) Build() *Address {
@@ -493,7 +493,7 @@ const file_qpoint_type_v1_system_proto_rawDesc = "" +
 	"\x03pod\x18\x04 \x01(\v2\x13.qpoint.type.v1.PodR\x03pod\"-\n" +
 	"\aAddress\x12\x0e\n" +
 	"\x02ip\x18\x01 \x01(\tR\x02ip\x12\x12\n" +
-	"\x04port\x18\x02 \x01(\tR\x04port*\x91\x01\n" +
+	"\x04port\x18\x02 \x01(\rR\x04port*\x91\x01\n" +
 	"\tDirection\x12\x19\n" +
 	"\x15DIRECTION_UNSPECIFIED\x10\x00\x12\x15\n" +
 	"\x11DIRECTION_INGRESS\x10\x01\x12\x14\n" +

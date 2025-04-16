@@ -50,5 +50,5 @@ message Container {
 
 message Address {
   string ip = 1;
-  string port = 2;
+  uint32 port = 2;
 }
