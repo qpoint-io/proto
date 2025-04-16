@@ -321,6 +321,15 @@ func (x *IngestRequest_Event) GetPiiEntity() *v1.PIIEntity {
 	return nil
 }
 
+func (x *IngestRequest_Event) GetConnection() *v1.Connection {
+	if x != nil {
+		if x, ok := x.xxx_hidden_Event.(*ingestRequest_Event_Connection); ok {
+			return x.Connection
+		}
+	}
+	return nil
+}
+
 func (x *IngestRequest_Event) SetRequest(v *v1.Request) {
 	if v == nil {
 		x.xxx_hidden_Event = nil
@@ -351,6 +360,14 @@ func (x *IngestRequest_Event) SetPiiEntity(v *v1.PIIEntity) {
 		return
 	}
 	x.xxx_hidden_Event = &ingestRequest_Event_PiiEntity{v}
+}
+
+func (x *IngestRequest_Event) SetConnection(v *v1.Connection) {
+	if v == nil {
+		x.xxx_hidden_Event = nil
+		return
+	}
+	x.xxx_hidden_Event = &ingestRequest_Event_Connection{v}
 }
 
 func (x *IngestRequest_Event) HasEvent() bool {
@@ -392,6 +409,14 @@ func (x *IngestRequest_Event) HasPiiEntity() bool {
 	return ok
 }
 
+func (x *IngestRequest_Event) HasConnection() bool {
+	if x == nil {
+		return false
+	}
+	_, ok := x.xxx_hidden_Event.(*ingestRequest_Event_Connection)
+	return ok
+}
+
 func (x *IngestRequest_Event) ClearEvent() {
 	x.xxx_hidden_Event = nil
 }
@@ -420,11 +445,18 @@ func (x *IngestRequest_Event) ClearPiiEntity() {
 	}
 }
 
+func (x *IngestRequest_Event) ClearConnection() {
+	if _, ok := x.xxx_hidden_Event.(*ingestRequest_Event_Connection); ok {
+		x.xxx_hidden_Event = nil
+	}
+}
+
 const IngestRequest_Event_Event_not_set_case case_IngestRequest_Event_Event = 0
 const IngestRequest_Event_Request_case case_IngestRequest_Event_Event = 1
 const IngestRequest_Event_Issue_case case_IngestRequest_Event_Event = 2
 const IngestRequest_Event_Artifact_case case_IngestRequest_Event_Event = 3
 const IngestRequest_Event_PiiEntity_case case_IngestRequest_Event_Event = 4
+const IngestRequest_Event_Connection_case case_IngestRequest_Event_Event = 5
 
 func (x *IngestRequest_Event) WhichEvent() case_IngestRequest_Event_Event {
 	if x == nil {
@@ -439,6 +471,8 @@ func (x *IngestRequest_Event) WhichEvent() case_IngestRequest_Event_Event {
 		return IngestRequest_Event_Artifact_case
 	case *ingestRequest_Event_PiiEntity:
 		return IngestRequest_Event_PiiEntity_case
+	case *ingestRequest_Event_Connection:
+		return IngestRequest_Event_Connection_case
 	default:
 		return IngestRequest_Event_Event_not_set_case
 	}
@@ -448,10 +482,11 @@ type IngestRequest_Event_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Fields of oneof xxx_hidden_Event:
-	Request   *v1.Request
-	Issue     *v1.Issue
-	Artifact  *v1.Artifact
-	PiiEntity *v1.PIIEntity
+	Request    *v1.Request
+	Issue      *v1.Issue
+	Artifact   *v1.Artifact
+	PiiEntity  *v1.PIIEntity
+	Connection *v1.Connection
 	// -- end of xxx_hidden_Event
 }
 
@@ -470,6 +505,9 @@ func (b0 IngestRequest_Event_builder) Build() *IngestRequest_Event {
 	}
 	if b.PiiEntity != nil {
 		x.xxx_hidden_Event = &ingestRequest_Event_PiiEntity{b.PiiEntity}
+	}
+	if b.Connection != nil {
+		x.xxx_hidden_Event = &ingestRequest_Event_Connection{b.Connection}
 	}
 	return m0
 }
@@ -504,6 +542,10 @@ type ingestRequest_Event_PiiEntity struct {
 	PiiEntity *v1.PIIEntity `protobuf:"bytes,4,opt,name=pii_entity,json=piiEntity,proto3,oneof"`
 }
 
+type ingestRequest_Event_Connection struct {
+	Connection *v1.Connection `protobuf:"bytes,5,opt,name=connection,proto3,oneof"`
+}
+
 func (*ingestRequest_Event_Request) isIngestRequest_Event_Event() {}
 
 func (*ingestRequest_Event_Issue) isIngestRequest_Event_Event() {}
@@ -512,22 +554,27 @@ func (*ingestRequest_Event_Artifact) isIngestRequest_Event_Event() {}
 
 func (*ingestRequest_Event_PiiEntity) isIngestRequest_Event_Event() {}
 
+func (*ingestRequest_Event_Connection) isIngestRequest_Event_Event() {}
+
 var File_eventstore_v1_main_proto protoreflect.FileDescriptor
 
 const file_eventstore_v1_main_proto_rawDesc = "" +
 	"\n" +
-	"\x18eventstore/v1/main.proto\x12\reventstore.v1\x1a\x1dqpoint/type/v1/artifact.proto\x1a\x1aqpoint/type/v1/issue.proto\x1a\x18qpoint/type/v1/pii.proto\x1a\x1cqpoint/type/v1/request.proto\"\r\n" +
+	"\x18eventstore/v1/main.proto\x12\reventstore.v1\x1a\x1dqpoint/type/v1/artifact.proto\x1a\x1fqpoint/type/v1/connection.proto\x1a\x1aqpoint/type/v1/issue.proto\x1a\x18qpoint/type/v1/pii.proto\x1a\x1cqpoint/type/v1/request.proto\"\r\n" +
 	"\vPingRequest\"%\n" +
 	"\fPingResponse\x12\x15\n" +
-	"\x06org_id\x18\x01 \x01(\tR\x05orgId\"\xb6\x02\n" +
+	"\x06org_id\x18\x01 \x01(\tR\x05orgId\"\xf4\x02\n" +
 	"\rIngestRequest\x12:\n" +
-	"\x06events\x18\x01 \x03(\v2\".eventstore.v1.IngestRequest.EventR\x06events\x1a\xe8\x01\n" +
+	"\x06events\x18\x01 \x03(\v2\".eventstore.v1.IngestRequest.EventR\x06events\x1a\xa6\x02\n" +
 	"\x05Event\x123\n" +
 	"\arequest\x18\x01 \x01(\v2\x17.qpoint.type.v1.RequestH\x00R\arequest\x12-\n" +
 	"\x05issue\x18\x02 \x01(\v2\x15.qpoint.type.v1.IssueH\x00R\x05issue\x126\n" +
 	"\bartifact\x18\x03 \x01(\v2\x18.qpoint.type.v1.ArtifactH\x00R\bartifact\x12:\n" +
 	"\n" +
-	"pii_entity\x18\x04 \x01(\v2\x19.qpoint.type.v1.PIIEntityH\x00R\tpiiEntityB\a\n" +
+	"pii_entity\x18\x04 \x01(\v2\x19.qpoint.type.v1.PIIEntityH\x00R\tpiiEntity\x12<\n" +
+	"\n" +
+	"connection\x18\x05 \x01(\v2\x1a.qpoint.type.v1.ConnectionH\x00R\n" +
+	"connectionB\a\n" +
 	"\x05event\"i\n" +
 	"\x0eIngestResponse\x120\n" +
 	"\x14total_accepted_count\x18\x01 \x01(\rR\x12totalAcceptedCount\x12%\n" +
@@ -548,6 +595,7 @@ var file_eventstore_v1_main_proto_goTypes = []any{
 	(*v1.Issue)(nil),            // 6: qpoint.type.v1.Issue
 	(*v1.Artifact)(nil),         // 7: qpoint.type.v1.Artifact
 	(*v1.PIIEntity)(nil),        // 8: qpoint.type.v1.PIIEntity
+	(*v1.Connection)(nil),       // 9: qpoint.type.v1.Connection
 }
 var file_eventstore_v1_main_proto_depIdxs = []int32{
 	4, // 0: eventstore.v1.IngestRequest.events:type_name -> eventstore.v1.IngestRequest.Event
@@ -555,15 +603,16 @@ var file_eventstore_v1_main_proto_depIdxs = []int32{
 	6, // 2: eventstore.v1.IngestRequest.Event.issue:type_name -> qpoint.type.v1.Issue
 	7, // 3: eventstore.v1.IngestRequest.Event.artifact:type_name -> qpoint.type.v1.Artifact
 	8, // 4: eventstore.v1.IngestRequest.Event.pii_entity:type_name -> qpoint.type.v1.PIIEntity
-	0, // 5: eventstore.v1.EventStoreService.Ping:input_type -> eventstore.v1.PingRequest
-	2, // 6: eventstore.v1.EventStoreService.Ingest:input_type -> eventstore.v1.IngestRequest
-	1, // 7: eventstore.v1.EventStoreService.Ping:output_type -> eventstore.v1.PingResponse
-	3, // 8: eventstore.v1.EventStoreService.Ingest:output_type -> eventstore.v1.IngestResponse
-	7, // [7:9] is the sub-list for method output_type
-	5, // [5:7] is the sub-list for method input_type
-	5, // [5:5] is the sub-list for extension type_name
-	5, // [5:5] is the sub-list for extension extendee
-	0, // [0:5] is the sub-list for field type_name
+	9, // 5: eventstore.v1.IngestRequest.Event.connection:type_name -> qpoint.type.v1.Connection
+	0, // 6: eventstore.v1.EventStoreService.Ping:input_type -> eventstore.v1.PingRequest
+	2, // 7: eventstore.v1.EventStoreService.Ingest:input_type -> eventstore.v1.IngestRequest
+	1, // 8: eventstore.v1.EventStoreService.Ping:output_type -> eventstore.v1.PingResponse
+	3, // 9: eventstore.v1.EventStoreService.Ingest:output_type -> eventstore.v1.IngestResponse
+	8, // [8:10] is the sub-list for method output_type
+	6, // [6:8] is the sub-list for method input_type
+	6, // [6:6] is the sub-list for extension type_name
+	6, // [6:6] is the sub-list for extension extendee
+	0, // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_eventstore_v1_main_proto_init() }
@@ -576,6 +625,7 @@ func file_eventstore_v1_main_proto_init() {
 		(*ingestRequest_Event_Issue)(nil),
 		(*ingestRequest_Event_Artifact)(nil),
 		(*ingestRequest_Event_PiiEntity)(nil),
+		(*ingestRequest_Event_Connection)(nil),
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
