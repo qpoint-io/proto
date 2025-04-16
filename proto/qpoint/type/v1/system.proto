@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package qpoint.type.v1;
+
+enum Direction {
+  DIRECTION_UNSPECIFIED = 0;
+  DIRECTION_INGRESS = 1;
+  DIRECTION_EGRESS = 2;
+  DIRECTION_EGRESS_INTERNAL = 3;
+  DIRECTION_EGRESS_EXTERNAL = 4;
+}
+
+enum TlsVersion {
+  TLS_VERSION_UNSPECIFIED = 0;
+  TLS_VERSION_V1_0 = 1;
+  TLS_VERSION_V1_1 = 2;
+  TLS_VERSION_V1_2 = 3;
+  TLS_VERSION_V1_3 = 4;
+}
+
+enum SocketProtocol {
+  SOCKET_PROTOCOL_UNSPECIFIED = 0;
+  SOCKET_PROTOCOL_TCP = 1;
+  SOCKET_PROTOCOL_UDP = 2;
+  SOCKET_PROTOCOL_ICMP = 3;
+  SOCKET_PROTOCOL_RAW = 4;
+}
+
+enum L7Protocol {
+  L7_PROTOCOL_UNSPECIFIED = 0;
+  L7_PROTOCOL_HTTP1 = 1;
+  L7_PROTOCOL_HTTP2 = 2;
+  L7_PROTOCOL_HTTP3 = 3;
+  L7_PROTOCOL_DNS = 4;
+  L7_PROTOCOL_GRPC = 5;
+  L7_PROTOCOL_OTHER = 6;
+}
+
+message Pod {
+  string name = 1;
+  string namespace = 2;
+}
+
+message Container {
+  string id = 1;
+  string name = 2;
+  string image = 3;
+  Pod pod = 4;
+}
+
+message Address {
+  string ip = 1;
+  uint32 port = 2;
+}

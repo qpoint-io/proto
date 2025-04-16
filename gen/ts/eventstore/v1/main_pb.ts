@@ -6,6 +6,8 @@ import type { GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegen
 import { fileDesc, messageDesc, serviceDesc } from "@bufbuild/protobuf/codegenv1";
 import type { Artifact } from "../../qpoint/type/v1/artifact_pb";
 import { file_qpoint_type_v1_artifact } from "../../qpoint/type/v1/artifact_pb";
+import type { Connection } from "../../qpoint/type/v1/connection_pb";
+import { file_qpoint_type_v1_connection } from "../../qpoint/type/v1/connection_pb";
 import type { Issue } from "../../qpoint/type/v1/issue_pb";
 import { file_qpoint_type_v1_issue } from "../../qpoint/type/v1/issue_pb";
 import type { PIIEntity } from "../../qpoint/type/v1/pii_pb";
@@ -18,7 +20,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file eventstore/v1/main.proto.
  */
 export const file_eventstore_v1_main: GenFile = /*@__PURE__*/
-  fileDesc("ChhldmVudHN0b3JlL3YxL21haW4ucHJvdG8SDWV2ZW50c3RvcmUudjEiDQoLUGluZ1JlcXVlc3QiHgoMUGluZ1Jlc3BvbnNlEg4KBm9yZ19pZBgBIAEoCSKJAgoNSW5nZXN0UmVxdWVzdBIyCgZldmVudHMYASADKAsyIi5ldmVudHN0b3JlLnYxLkluZ2VzdFJlcXVlc3QuRXZlbnQawwEKBUV2ZW50EioKB3JlcXVlc3QYASABKAsyFy5xcG9pbnQudHlwZS52MS5SZXF1ZXN0SAASJgoFaXNzdWUYAiABKAsyFS5xcG9pbnQudHlwZS52MS5Jc3N1ZUgAEiwKCGFydGlmYWN0GAMgASgLMhgucXBvaW50LnR5cGUudjEuQXJ0aWZhY3RIABIvCgpwaWlfZW50aXR5GAQgASgLMhkucXBvaW50LnR5cGUudjEuUElJRW50aXR5SABCBwoFZXZlbnQiRgoOSW5nZXN0UmVzcG9uc2USHAoUdG90YWxfYWNjZXB0ZWRfY291bnQYASABKA0SFgoOYWNjZXB0ZWRfY291bnQYAiABKA0yowEKEUV2ZW50U3RvcmVTZXJ2aWNlEkEKBFBpbmcSGi5ldmVudHN0b3JlLnYxLlBpbmdSZXF1ZXN0GhsuZXZlbnRzdG9yZS52MS5QaW5nUmVzcG9uc2UiABJLCgZJbmdlc3QSHC5ldmVudHN0b3JlLnYxLkluZ2VzdFJlcXVlc3QaHS5ldmVudHN0b3JlLnYxLkluZ2VzdFJlc3BvbnNlIgAoATABQrEBChFjb20uZXZlbnRzdG9yZS52MUIJTWFpblByb3RvUAFaPGdpdGh1Yi5jb20vcXBvaW50LWlvL3Byb3RvL2dlbi9nby9ldmVudHN0b3JlL3YxO2V2ZW50c3RvcmV2MaICA0VYWKoCDUV2ZW50c3RvcmUuVjHKAg1FdmVudHN0b3JlXFYx4gIZRXZlbnRzdG9yZVxWMVxHUEJNZXRhZGF0YeoCDkV2ZW50c3RvcmU6OlYxYgZwcm90bzM", [file_qpoint_type_v1_artifact, file_qpoint_type_v1_issue, file_qpoint_type_v1_pii, file_qpoint_type_v1_request]);
+  fileDesc("ChhldmVudHN0b3JlL3YxL21haW4ucHJvdG8SDWV2ZW50c3RvcmUudjEiDQoLUGluZ1JlcXVlc3QiHgoMUGluZ1Jlc3BvbnNlEg4KBm9yZ19pZBgBIAEoCSK7AgoNSW5nZXN0UmVxdWVzdBIyCgZldmVudHMYASADKAsyIi5ldmVudHN0b3JlLnYxLkluZ2VzdFJlcXVlc3QuRXZlbnQa9QEKBUV2ZW50EioKB3JlcXVlc3QYASABKAsyFy5xcG9pbnQudHlwZS52MS5SZXF1ZXN0SAASJgoFaXNzdWUYAiABKAsyFS5xcG9pbnQudHlwZS52MS5Jc3N1ZUgAEiwKCGFydGlmYWN0GAMgASgLMhgucXBvaW50LnR5cGUudjEuQXJ0aWZhY3RIABIvCgpwaWlfZW50aXR5GAQgASgLMhkucXBvaW50LnR5cGUudjEuUElJRW50aXR5SAASMAoKY29ubmVjdGlvbhgFIAEoCzIaLnFwb2ludC50eXBlLnYxLkNvbm5lY3Rpb25IAEIHCgVldmVudCJGCg5Jbmdlc3RSZXNwb25zZRIcChR0b3RhbF9hY2NlcHRlZF9jb3VudBgBIAEoDRIWCg5hY2NlcHRlZF9jb3VudBgCIAEoDTKjAQoRRXZlbnRTdG9yZVNlcnZpY2USQQoEUGluZxIaLmV2ZW50c3RvcmUudjEuUGluZ1JlcXVlc3QaGy5ldmVudHN0b3JlLnYxLlBpbmdSZXNwb25zZSIAEksKBkluZ2VzdBIcLmV2ZW50c3RvcmUudjEuSW5nZXN0UmVxdWVzdBodLmV2ZW50c3RvcmUudjEuSW5nZXN0UmVzcG9uc2UiACgBMAFCsQEKEWNvbS5ldmVudHN0b3JlLnYxQglNYWluUHJvdG9QAVo8Z2l0aHViLmNvbS9xcG9pbnQtaW8vcHJvdG8vZ2VuL2dvL2V2ZW50c3RvcmUvdjE7ZXZlbnRzdG9yZXYxogIDRVhYqgINRXZlbnRzdG9yZS5WMcoCDUV2ZW50c3RvcmVcVjHiAhlFdmVudHN0b3JlXFYxXEdQQk1ldGFkYXRh6gIORXZlbnRzdG9yZTo6VjFiBnByb3RvMw", [file_qpoint_type_v1_artifact, file_qpoint_type_v1_connection, file_qpoint_type_v1_issue, file_qpoint_type_v1_pii, file_qpoint_type_v1_request]);
 
 /**
  * @generated from message eventstore.v1.PingRequest
@@ -98,6 +100,12 @@ export type IngestRequest_Event = Message<"eventstore.v1.IngestRequest.Event"> &
      */
     value: PIIEntity;
     case: "piiEntity";
+  } | {
+    /**
+     * @generated from field: qpoint.type.v1.Connection connection = 5;
+     */
+    value: Connection;
+    case: "connection";
   } | { case: undefined; value?: undefined };
 };
 
