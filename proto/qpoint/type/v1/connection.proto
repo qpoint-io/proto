@@ -10,8 +10,8 @@ message Connection {
   string id = 1 [(buf.validate.field).required = true];
   google.protobuf.Timestamp timestamp = 2 [(buf.validate.field).required = true];
   Direction direction = 3;
-  string endpoint_id = 6 [(buf.validate.field).required = true];
-  string vendor_id = 7 [(buf.validate.field).required = true];
+  string endpoint_id = 6;
+  string vendor_id = 7;
   uint32 part = 8;
   bool finalized = 9;
 

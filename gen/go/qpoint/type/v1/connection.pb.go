@@ -796,15 +796,15 @@ var File_qpoint_type_v1_connection_proto protoreflect.FileDescriptor
 
 const file_qpoint_type_v1_connection_proto_rawDesc = "" +
 	"\n" +
-	"\x1fqpoint/type/v1/connection.proto\x12\x0eqpoint.type.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bqpoint/type/v1/system.proto\"\xf5\t\n" +
+	"\x1fqpoint/type/v1/connection.proto\x12\x0eqpoint.type.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bqpoint/type/v1/system.proto\"\xe5\t\n" +
 	"\n" +
 	"Connection\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12@\n" +
 	"\ttimestamp\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\ttimestamp\x127\n" +
-	"\tdirection\x18\x03 \x01(\x0e2\x19.qpoint.type.v1.DirectionR\tdirection\x12'\n" +
-	"\vendpoint_id\x18\x06 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\n" +
-	"endpointId\x12#\n" +
-	"\tvendor_id\x18\a \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\bvendorId\x12\x12\n" +
+	"\tdirection\x18\x03 \x01(\x0e2\x19.qpoint.type.v1.DirectionR\tdirection\x12\x1f\n" +
+	"\vendpoint_id\x18\x06 \x01(\tR\n" +
+	"endpointId\x12\x1b\n" +
+	"\tvendor_id\x18\a \x01(\tR\bvendorId\x12\x12\n" +
 	"\x04part\x18\b \x01(\rR\x04part\x12\x1c\n" +
 	"\tfinalized\x18\t \x01(\bR\tfinalized\x12\x12\n" +
 	"\x04tags\x18\n" +
