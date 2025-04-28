@@ -31,7 +31,7 @@ type Connection struct {
 	xxx_hidden_VendorId       string                 `protobuf:"bytes,7,opt,name=vendor_id,json=vendorId,proto3"`
 	xxx_hidden_Part           uint32                 `protobuf:"varint,8,opt,name=part,proto3"`
 	xxx_hidden_Finalized      bool                   `protobuf:"varint,9,opt,name=finalized,proto3"`
-	xxx_hidden_Tags           []string               `protobuf:"bytes,10,rep,name=tags,proto3"`
+	xxx_hidden_Tags           *[]*Tag                `protobuf:"bytes,10,rep,name=tags,proto3"`
 	xxx_hidden_SocketProtocol SocketProtocol         `protobuf:"varint,11,opt,name=socket_protocol,json=socketProtocol,proto3,enum=qpoint.type.v1.SocketProtocol"`
 	xxx_hidden_L7Protocol     L7Protocol             `protobuf:"varint,12,opt,name=l7_protocol,json=l7Protocol,proto3,enum=qpoint.type.v1.L7Protocol"`
 	xxx_hidden_TlsVersion     TlsVersion             `protobuf:"varint,13,opt,name=tls_version,json=tlsVersion,proto3,enum=qpoint.type.v1.TlsVersion"`
@@ -118,9 +118,11 @@ func (x *Connection) GetFinalized() bool {
 	return false
 }
 
-func (x *Connection) GetTags() []string {
+func (x *Connection) GetTags() []*Tag {
 	if x != nil {
-		return x.xxx_hidden_Tags
+		if x.xxx_hidden_Tags != nil {
+			return *x.xxx_hidden_Tags
+		}
 	}
 	return nil
 }
@@ -209,8 +211,8 @@ func (x *Connection) SetFinalized(v bool) {
 	x.xxx_hidden_Finalized = v
 }
 
-func (x *Connection) SetTags(v []string) {
-	x.xxx_hidden_Tags = v
+func (x *Connection) SetTags(v []*Tag) {
+	x.xxx_hidden_Tags = &v
 }
 
 func (x *Connection) SetSocketProtocol(v SocketProtocol) {
@@ -299,7 +301,7 @@ type Connection_builder struct {
 	VendorId       string
 	Part           uint32
 	Finalized      bool
-	Tags           []string
+	Tags           []*Tag
 	SocketProtocol SocketProtocol
 	L7Protocol     L7Protocol
 	TlsVersion     TlsVersion
@@ -321,7 +323,7 @@ func (b0 Connection_builder) Build() *Connection {
 	x.xxx_hidden_VendorId = b.VendorId
 	x.xxx_hidden_Part = b.Part
 	x.xxx_hidden_Finalized = b.Finalized
-	x.xxx_hidden_Tags = b.Tags
+	x.xxx_hidden_Tags = &b.Tags
 	x.xxx_hidden_SocketProtocol = b.SocketProtocol
 	x.xxx_hidden_L7Protocol = b.L7Protocol
 	x.xxx_hidden_TlsVersion = b.TlsVersion
@@ -796,7 +798,7 @@ var File_qpoint_type_v1_connection_proto protoreflect.FileDescriptor
 
 const file_qpoint_type_v1_connection_proto_rawDesc = "" +
 	"\n" +
-	"\x1fqpoint/type/v1/connection.proto\x12\x0eqpoint.type.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bqpoint/type/v1/system.proto\"\xe5\t\n" +
+	"\x1fqpoint/type/v1/connection.proto\x12\x0eqpoint.type.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bqpoint/type/v1/system.proto\x1a\x18qpoint/type/v1/tag.proto\"\xfa\t\n" +
 	"\n" +
 	"Connection\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12@\n" +
@@ -806,9 +808,9 @@ const file_qpoint_type_v1_connection_proto_rawDesc = "" +
 	"endpointId\x12\x1b\n" +
 	"\tvendor_id\x18\a \x01(\tR\bvendorId\x12\x12\n" +
 	"\x04part\x18\b \x01(\rR\x04part\x12\x1c\n" +
-	"\tfinalized\x18\t \x01(\bR\tfinalized\x12\x12\n" +
+	"\tfinalized\x18\t \x01(\bR\tfinalized\x12'\n" +
 	"\x04tags\x18\n" +
-	" \x03(\tR\x04tags\x12G\n" +
+	" \x03(\v2\x13.qpoint.type.v1.TagR\x04tags\x12G\n" +
 	"\x0fsocket_protocol\x18\v \x01(\x0e2\x1e.qpoint.type.v1.SocketProtocolR\x0esocketProtocol\x12;\n" +
 	"\vl7_protocol\x18\f \x01(\x0e2\x1a.qpoint.type.v1.L7ProtocolR\n" +
 	"l7Protocol\x12;\n" +
@@ -848,31 +850,33 @@ var file_qpoint_type_v1_connection_proto_goTypes = []any{
 	(*Connection_Endpoint_Remote)(nil), // 4: qpoint.type.v1.Connection.Endpoint.Remote
 	(*timestamppb.Timestamp)(nil),      // 5: google.protobuf.Timestamp
 	(Direction)(0),                     // 6: qpoint.type.v1.Direction
-	(SocketProtocol)(0),                // 7: qpoint.type.v1.SocketProtocol
-	(L7Protocol)(0),                    // 8: qpoint.type.v1.L7Protocol
-	(TlsVersion)(0),                    // 9: qpoint.type.v1.TlsVersion
-	(*Address)(nil),                    // 10: qpoint.type.v1.Address
-	(*Container)(nil),                  // 11: qpoint.type.v1.Container
+	(*Tag)(nil),                        // 7: qpoint.type.v1.Tag
+	(SocketProtocol)(0),                // 8: qpoint.type.v1.SocketProtocol
+	(L7Protocol)(0),                    // 9: qpoint.type.v1.L7Protocol
+	(TlsVersion)(0),                    // 10: qpoint.type.v1.TlsVersion
+	(*Address)(nil),                    // 11: qpoint.type.v1.Address
+	(*Container)(nil),                  // 12: qpoint.type.v1.Container
 }
 var file_qpoint_type_v1_connection_proto_depIdxs = []int32{
 	5,  // 0: qpoint.type.v1.Connection.timestamp:type_name -> google.protobuf.Timestamp
 	6,  // 1: qpoint.type.v1.Connection.direction:type_name -> qpoint.type.v1.Direction
-	7,  // 2: qpoint.type.v1.Connection.socket_protocol:type_name -> qpoint.type.v1.SocketProtocol
-	8,  // 3: qpoint.type.v1.Connection.l7_protocol:type_name -> qpoint.type.v1.L7Protocol
-	9,  // 4: qpoint.type.v1.Connection.tls_version:type_name -> qpoint.type.v1.TlsVersion
-	1,  // 5: qpoint.type.v1.Connection.system:type_name -> qpoint.type.v1.Connection.System
-	2,  // 6: qpoint.type.v1.Connection.source:type_name -> qpoint.type.v1.Connection.Endpoint
-	2,  // 7: qpoint.type.v1.Connection.destination:type_name -> qpoint.type.v1.Connection.Endpoint
-	3,  // 8: qpoint.type.v1.Connection.Endpoint.local:type_name -> qpoint.type.v1.Connection.Endpoint.Local
-	4,  // 9: qpoint.type.v1.Connection.Endpoint.remote:type_name -> qpoint.type.v1.Connection.Endpoint.Remote
-	10, // 10: qpoint.type.v1.Connection.Endpoint.Local.address:type_name -> qpoint.type.v1.Address
-	11, // 11: qpoint.type.v1.Connection.Endpoint.Local.container:type_name -> qpoint.type.v1.Container
-	10, // 12: qpoint.type.v1.Connection.Endpoint.Remote.address:type_name -> qpoint.type.v1.Address
-	13, // [13:13] is the sub-list for method output_type
-	13, // [13:13] is the sub-list for method input_type
-	13, // [13:13] is the sub-list for extension type_name
-	13, // [13:13] is the sub-list for extension extendee
-	0,  // [0:13] is the sub-list for field type_name
+	7,  // 2: qpoint.type.v1.Connection.tags:type_name -> qpoint.type.v1.Tag
+	8,  // 3: qpoint.type.v1.Connection.socket_protocol:type_name -> qpoint.type.v1.SocketProtocol
+	9,  // 4: qpoint.type.v1.Connection.l7_protocol:type_name -> qpoint.type.v1.L7Protocol
+	10, // 5: qpoint.type.v1.Connection.tls_version:type_name -> qpoint.type.v1.TlsVersion
+	1,  // 6: qpoint.type.v1.Connection.system:type_name -> qpoint.type.v1.Connection.System
+	2,  // 7: qpoint.type.v1.Connection.source:type_name -> qpoint.type.v1.Connection.Endpoint
+	2,  // 8: qpoint.type.v1.Connection.destination:type_name -> qpoint.type.v1.Connection.Endpoint
+	3,  // 9: qpoint.type.v1.Connection.Endpoint.local:type_name -> qpoint.type.v1.Connection.Endpoint.Local
+	4,  // 10: qpoint.type.v1.Connection.Endpoint.remote:type_name -> qpoint.type.v1.Connection.Endpoint.Remote
+	11, // 11: qpoint.type.v1.Connection.Endpoint.Local.address:type_name -> qpoint.type.v1.Address
+	12, // 12: qpoint.type.v1.Connection.Endpoint.Local.container:type_name -> qpoint.type.v1.Container
+	11, // 13: qpoint.type.v1.Connection.Endpoint.Remote.address:type_name -> qpoint.type.v1.Address
+	14, // [14:14] is the sub-list for method output_type
+	14, // [14:14] is the sub-list for method input_type
+	14, // [14:14] is the sub-list for extension type_name
+	14, // [14:14] is the sub-list for extension extendee
+	0,  // [0:14] is the sub-list for field type_name
 }
 
 func init() { file_qpoint_type_v1_connection_proto_init() }
@@ -881,6 +885,7 @@ func file_qpoint_type_v1_connection_proto_init() {
 		return
 	}
 	file_qpoint_type_v1_system_proto_init()
+	file_qpoint_type_v1_tag_proto_init()
 	file_qpoint_type_v1_connection_proto_msgTypes[2].OneofWrappers = []any{
 		(*connection_Endpoint_Local_)(nil),
 		(*connection_Endpoint_Remote_)(nil),
