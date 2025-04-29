@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package qpoint.type.v1;
+
+import "buf/validate/validate.proto";
+import "google/protobuf/timestamp.proto";
+import "qpoint/type/v1/system.proto";
+import "qpoint/type/v1/tag.proto";
+
+message Connection {
+  string id = 1 [(buf.validate.field).required = true];
+  google.protobuf.Timestamp timestamp = 2 [(buf.validate.field).required = true];
+  Direction direction = 3;
+  string endpoint_id = 6;
+  string vendor_id = 7;
+  uint32 part = 8;
+  bool finalized = 9;
+
+  repeated Tag tags = 10;
+  SocketProtocol socket_protocol = 11;
+  L7Protocol l7_protocol = 12;
+  TlsVersion tls_version = 13;
+
+  message System {
+    string hostname = 1;
+    string agent = 2;
+    string agent_instance = 3;
+  }
+  System system = 14;
+
+  message Endpoint {
+    message Local {
+      Address address = 1;
+      string hostname = 2;
+      string exe = 3;
+      string user = 4;
+      Container container = 5;
+    }
+
+    message Remote {
+      Address address = 1;
+    }
+
+    oneof endpoint {
+      Local local = 1;
+      Remote remote = 2;
+    }
+  }
+  Endpoint source = 15;
+  Endpoint destination = 16;
+
+  uint64 bytes_received = 19;
+  uint64 bytes_sent = 20;
+}

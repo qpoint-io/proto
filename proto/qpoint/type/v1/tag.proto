@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package qpoint.type.v1;
+
+message Tag {
+  string key = 1;
+  repeated string values = 2;
+}
