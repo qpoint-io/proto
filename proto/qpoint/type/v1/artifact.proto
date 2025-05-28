@@ -3,6 +3,7 @@ syntax = "proto3";
 package qpoint.type.v1;
 
 import "buf/validate/validate.proto";
+import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
 message Artifact {
@@ -14,4 +15,5 @@ message Artifact {
   string vendor_id = 6;
   string digest = 7;
   string url = 8;
+  google.protobuf.Struct summary = 9;
 }
