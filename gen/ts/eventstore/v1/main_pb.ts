@@ -20,7 +20,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file eventstore/v1/main.proto.
  */
 export const file_eventstore_v1_main: GenFile = /*@__PURE__*/
-  fileDesc("ChhldmVudHN0b3JlL3YxL21haW4ucHJvdG8SDWV2ZW50c3RvcmUudjEiDQoLUGluZ1JlcXVlc3QiHgoMUGluZ1Jlc3BvbnNlEg4KBm9yZ19pZBgBIAEoCSK7AgoNSW5nZXN0UmVxdWVzdBIyCgZldmVudHMYASADKAsyIi5ldmVudHN0b3JlLnYxLkluZ2VzdFJlcXVlc3QuRXZlbnQa9QEKBUV2ZW50EioKB3JlcXVlc3QYASABKAsyFy5xcG9pbnQudHlwZS52MS5SZXF1ZXN0SAASJgoFaXNzdWUYAiABKAsyFS5xcG9pbnQudHlwZS52MS5Jc3N1ZUgAEiwKCGFydGlmYWN0GAMgASgLMhgucXBvaW50LnR5cGUudjEuQXJ0aWZhY3RIABIvCgpwaWlfZW50aXR5GAQgASgLMhkucXBvaW50LnR5cGUudjEuUElJRW50aXR5SAASMAoKY29ubmVjdGlvbhgFIAEoCzIaLnFwb2ludC50eXBlLnYxLkNvbm5lY3Rpb25IAEIHCgVldmVudCJGCg5Jbmdlc3RSZXNwb25zZRIcChR0b3RhbF9hY2NlcHRlZF9jb3VudBgBIAEoDRIWCg5hY2NlcHRlZF9jb3VudBgCIAEoDTKjAQoRRXZlbnRTdG9yZVNlcnZpY2USQQoEUGluZxIaLmV2ZW50c3RvcmUudjEuUGluZ1JlcXVlc3QaGy5ldmVudHN0b3JlLnYxLlBpbmdSZXNwb25zZSIAEksKBkluZ2VzdBIcLmV2ZW50c3RvcmUudjEuSW5nZXN0UmVxdWVzdBodLmV2ZW50c3RvcmUudjEuSW5nZXN0UmVzcG9uc2UiACgBMAFCsQEKEWNvbS5ldmVudHN0b3JlLnYxQglNYWluUHJvdG9QAVo8Z2l0aHViLmNvbS9xcG9pbnQtaW8vcHJvdG8vZ2VuL2dvL2V2ZW50c3RvcmUvdjE7ZXZlbnRzdG9yZXYxogIDRVhYqgINRXZlbnRzdG9yZS5WMcoCDUV2ZW50c3RvcmVcVjHiAhlFdmVudHN0b3JlXFYxXEdQQk1ldGFkYXRh6gIORXZlbnRzdG9yZTo6VjFiBnByb3RvMw", [file_qpoint_type_v1_artifact, file_qpoint_type_v1_connection, file_qpoint_type_v1_issue, file_qpoint_type_v1_pii, file_qpoint_type_v1_request]);
+  fileDesc("ChhldmVudHN0b3JlL3YxL21haW4ucHJvdG8SDWV2ZW50c3RvcmUudjEiDQoLUGluZ1JlcXVlc3QiHgoMUGluZ1Jlc3BvbnNlEg4KBm9yZ19pZBgBIAEoCSL1AQoFRXZlbnQSKgoHcmVxdWVzdBgBIAEoCzIXLnFwb2ludC50eXBlLnYxLlJlcXVlc3RIABImCgVpc3N1ZRgCIAEoCzIVLnFwb2ludC50eXBlLnYxLklzc3VlSAASLAoIYXJ0aWZhY3QYAyABKAsyGC5xcG9pbnQudHlwZS52MS5BcnRpZmFjdEgAEi8KCnBpaV9lbnRpdHkYBCABKAsyGS5xcG9pbnQudHlwZS52MS5QSUlFbnRpdHlIABIwCgpjb25uZWN0aW9uGAUgASgLMhoucXBvaW50LnR5cGUudjEuQ29ubmVjdGlvbkgAQgcKBWV2ZW50IrsCCg1Jbmdlc3RSZXF1ZXN0EjIKBmV2ZW50cxgBIAMoCzIiLmV2ZW50c3RvcmUudjEuSW5nZXN0UmVxdWVzdC5FdmVudBr1AQoFRXZlbnQSKgoHcmVxdWVzdBgBIAEoCzIXLnFwb2ludC50eXBlLnYxLlJlcXVlc3RIABImCgVpc3N1ZRgCIAEoCzIVLnFwb2ludC50eXBlLnYxLklzc3VlSAASLAoIYXJ0aWZhY3QYAyABKAsyGC5xcG9pbnQudHlwZS52MS5BcnRpZmFjdEgAEi8KCnBpaV9lbnRpdHkYBCABKAsyGS5xcG9pbnQudHlwZS52MS5QSUlFbnRpdHlIABIwCgpjb25uZWN0aW9uGAUgASgLMhoucXBvaW50LnR5cGUudjEuQ29ubmVjdGlvbkgAQgcKBWV2ZW50IkYKDkluZ2VzdFJlc3BvbnNlEhwKFHRvdGFsX2FjY2VwdGVkX2NvdW50GAEgASgNEhYKDmFjY2VwdGVkX2NvdW50GAIgASgNIjoKEkluZ2VzdEJhdGNoUmVxdWVzdBIkCgZldmVudHMYASADKAsyFC5ldmVudHN0b3JlLnYxLkV2ZW50IhUKE0luZ2VzdEJhdGNoUmVzcG9uc2Uy+wEKEUV2ZW50U3RvcmVTZXJ2aWNlEkEKBFBpbmcSGi5ldmVudHN0b3JlLnYxLlBpbmdSZXF1ZXN0GhsuZXZlbnRzdG9yZS52MS5QaW5nUmVzcG9uc2UiABJLCgZJbmdlc3QSHC5ldmVudHN0b3JlLnYxLkluZ2VzdFJlcXVlc3QaHS5ldmVudHN0b3JlLnYxLkluZ2VzdFJlc3BvbnNlIgAoATABElYKC0luZ2VzdEJhdGNoEiEuZXZlbnRzdG9yZS52MS5Jbmdlc3RCYXRjaFJlcXVlc3QaIi5ldmVudHN0b3JlLnYxLkluZ2VzdEJhdGNoUmVzcG9uc2UiAEKxAQoRY29tLmV2ZW50c3RvcmUudjFCCU1haW5Qcm90b1ABWjxnaXRodWIuY29tL3Fwb2ludC1pby9wcm90by9nZW4vZ28vZXZlbnRzdG9yZS92MTtldmVudHN0b3JldjGiAgNFWFiqAg1FdmVudHN0b3JlLlYxygINRXZlbnRzdG9yZVxWMeICGUV2ZW50c3RvcmVcVjFcR1BCTWV0YWRhdGHqAg5FdmVudHN0b3JlOjpWMWIGcHJvdG8z", [file_qpoint_type_v1_artifact, file_qpoint_type_v1_connection, file_qpoint_type_v1_issue, file_qpoint_type_v1_pii, file_qpoint_type_v1_request]);
 
 /**
  * @generated from message eventstore.v1.PingRequest
@@ -53,6 +53,53 @@ export const PingResponseSchema: GenMessage<PingResponse> = /*@__PURE__*/
   messageDesc(file_eventstore_v1_main, 1);
 
 /**
+ * @generated from message eventstore.v1.Event
+ */
+export type Event = Message<"eventstore.v1.Event"> & {
+  /**
+   * @generated from oneof eventstore.v1.Event.event
+   */
+  event: {
+    /**
+     * @generated from field: qpoint.type.v1.Request request = 1;
+     */
+    value: Request;
+    case: "request";
+  } | {
+    /**
+     * @generated from field: qpoint.type.v1.Issue issue = 2;
+     */
+    value: Issue;
+    case: "issue";
+  } | {
+    /**
+     * @generated from field: qpoint.type.v1.Artifact artifact = 3;
+     */
+    value: Artifact;
+    case: "artifact";
+  } | {
+    /**
+     * @generated from field: qpoint.type.v1.PIIEntity pii_entity = 4;
+     */
+    value: PIIEntity;
+    case: "piiEntity";
+  } | {
+    /**
+     * @generated from field: qpoint.type.v1.Connection connection = 5;
+     */
+    value: Connection;
+    case: "connection";
+  } | { case: undefined; value?: undefined };
+};
+
+/**
+ * Describes the message eventstore.v1.Event.
+ * Use `create(EventSchema)` to create a new message.
+ */
+export const EventSchema: GenMessage<Event> = /*@__PURE__*/
+  messageDesc(file_eventstore_v1_main, 2);
+
+/**
  * @generated from message eventstore.v1.IngestRequest
  */
 export type IngestRequest = Message<"eventstore.v1.IngestRequest"> & {
@@ -67,9 +114,11 @@ export type IngestRequest = Message<"eventstore.v1.IngestRequest"> & {
  * Use `create(IngestRequestSchema)` to create a new message.
  */
 export const IngestRequestSchema: GenMessage<IngestRequest> = /*@__PURE__*/
-  messageDesc(file_eventstore_v1_main, 2);
+  messageDesc(file_eventstore_v1_main, 3);
 
 /**
+ * Event was moved to the top-level, however IngestRequest will retain its submessage for backwards compatibility.
+ *
  * @generated from message eventstore.v1.IngestRequest.Event
  */
 export type IngestRequest_Event = Message<"eventstore.v1.IngestRequest.Event"> & {
@@ -114,7 +163,7 @@ export type IngestRequest_Event = Message<"eventstore.v1.IngestRequest.Event"> &
  * Use `create(IngestRequest_EventSchema)` to create a new message.
  */
 export const IngestRequest_EventSchema: GenMessage<IngestRequest_Event> = /*@__PURE__*/
-  messageDesc(file_eventstore_v1_main, 2, 0);
+  messageDesc(file_eventstore_v1_main, 3, 0);
 
 /**
  * @generated from message eventstore.v1.IngestResponse
@@ -140,7 +189,37 @@ export type IngestResponse = Message<"eventstore.v1.IngestResponse"> & {
  * Use `create(IngestResponseSchema)` to create a new message.
  */
 export const IngestResponseSchema: GenMessage<IngestResponse> = /*@__PURE__*/
-  messageDesc(file_eventstore_v1_main, 3);
+  messageDesc(file_eventstore_v1_main, 4);
+
+/**
+ * @generated from message eventstore.v1.IngestBatchRequest
+ */
+export type IngestBatchRequest = Message<"eventstore.v1.IngestBatchRequest"> & {
+  /**
+   * @generated from field: repeated eventstore.v1.Event events = 1;
+   */
+  events: Event[];
+};
+
+/**
+ * Describes the message eventstore.v1.IngestBatchRequest.
+ * Use `create(IngestBatchRequestSchema)` to create a new message.
+ */
+export const IngestBatchRequestSchema: GenMessage<IngestBatchRequest> = /*@__PURE__*/
+  messageDesc(file_eventstore_v1_main, 5);
+
+/**
+ * @generated from message eventstore.v1.IngestBatchResponse
+ */
+export type IngestBatchResponse = Message<"eventstore.v1.IngestBatchResponse"> & {
+};
+
+/**
+ * Describes the message eventstore.v1.IngestBatchResponse.
+ * Use `create(IngestBatchResponseSchema)` to create a new message.
+ */
+export const IngestBatchResponseSchema: GenMessage<IngestBatchResponse> = /*@__PURE__*/
+  messageDesc(file_eventstore_v1_main, 6);
 
 /**
  * @generated from service eventstore.v1.EventStoreService
@@ -161,6 +240,14 @@ export const EventStoreService: GenService<{
     methodKind: "bidi_streaming";
     input: typeof IngestRequestSchema;
     output: typeof IngestResponseSchema;
+  },
+  /**
+   * @generated from rpc eventstore.v1.EventStoreService.IngestBatch
+   */
+  ingestBatch: {
+    methodKind: "unary";
+    input: typeof IngestBatchRequestSchema;
+    output: typeof IngestBatchResponseSchema;
   },
 }> = /*@__PURE__*/
   serviceDesc(file_eventstore_v1_main, 0);

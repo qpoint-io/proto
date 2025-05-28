@@ -12,6 +12,7 @@ service EventStoreService {
   rpc Ping(PingRequest) returns (PingResponse) {}
 
   rpc Ingest(stream IngestRequest) returns (stream IngestResponse) {}
+  rpc IngestBatch(IngestBatchRequest) returns (IngestBatchResponse) {}
 }
 
 message PingRequest {}
@@ -20,7 +21,18 @@ message PingResponse {
   string org_id = 1;
 }
 
+message Event {
+  oneof event {
+    qpoint.type.v1.Request request = 1;
+    qpoint.type.v1.Issue issue = 2;
+    qpoint.type.v1.Artifact artifact = 3;
+    qpoint.type.v1.PIIEntity pii_entity = 4;
+    qpoint.type.v1.Connection connection = 5;
+  }
+}
+
 message IngestRequest {
+  // Event was moved to the top-level, however IngestRequest will retain its submessage for backwards compatibility.
   message Event {
     oneof event {
       qpoint.type.v1.Request request = 1;
@@ -41,3 +53,9 @@ message IngestResponse {
   // accepted_count is the number of events accepted by the server since the last IngestResponse.
   uint32 accepted_count = 2;
 }
+
+message IngestBatchRequest {
+  repeated Event events = 1;
+}
+
+message IngestBatchResponse {}

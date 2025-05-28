@@ -38,12 +38,16 @@ const (
 	// EventStoreServiceIngestProcedure is the fully-qualified name of the EventStoreService's Ingest
 	// RPC.
 	EventStoreServiceIngestProcedure = "/eventstore.v1.EventStoreService/Ingest"
+	// EventStoreServiceIngestBatchProcedure is the fully-qualified name of the EventStoreService's
+	// IngestBatch RPC.
+	EventStoreServiceIngestBatchProcedure = "/eventstore.v1.EventStoreService/IngestBatch"
 )
 
 // EventStoreServiceClient is a client for the eventstore.v1.EventStoreService service.
 type EventStoreServiceClient interface {
 	Ping(context.Context, *connect.Request[v1.PingRequest]) (*connect.Response[v1.PingResponse], error)
 	Ingest(context.Context) *connect.BidiStreamForClient[v1.IngestRequest, v1.IngestResponse]
+	IngestBatch(context.Context, *connect.Request[v1.IngestBatchRequest]) (*connect.Response[v1.IngestBatchResponse], error)
 }
 
 // NewEventStoreServiceClient constructs a client for the eventstore.v1.EventStoreService service.
@@ -69,13 +73,20 @@ func NewEventStoreServiceClient(httpClient connect.HTTPClient, baseURL string, o
 			connect.WithSchema(eventStoreServiceMethods.ByName("Ingest")),
 			connect.WithClientOptions(opts...),
 		),
+		ingestBatch: connect.NewClient[v1.IngestBatchRequest, v1.IngestBatchResponse](
+			httpClient,
+			baseURL+EventStoreServiceIngestBatchProcedure,
+			connect.WithSchema(eventStoreServiceMethods.ByName("IngestBatch")),
+			connect.WithClientOptions(opts...),
+		),
 	}
 }
 
 // eventStoreServiceClient implements EventStoreServiceClient.
 type eventStoreServiceClient struct {
-	ping   *connect.Client[v1.PingRequest, v1.PingResponse]
-	ingest *connect.Client[v1.IngestRequest, v1.IngestResponse]
+	ping        *connect.Client[v1.PingRequest, v1.PingResponse]
+	ingest      *connect.Client[v1.IngestRequest, v1.IngestResponse]
+	ingestBatch *connect.Client[v1.IngestBatchRequest, v1.IngestBatchResponse]
 }
 
 // Ping calls eventstore.v1.EventStoreService.Ping.
@@ -88,10 +99,16 @@ func (c *eventStoreServiceClient) Ingest(ctx context.Context) *connect.BidiStrea
 	return c.ingest.CallBidiStream(ctx)
 }
 
+// IngestBatch calls eventstore.v1.EventStoreService.IngestBatch.
+func (c *eventStoreServiceClient) IngestBatch(ctx context.Context, req *connect.Request[v1.IngestBatchRequest]) (*connect.Response[v1.IngestBatchResponse], error) {
+	return c.ingestBatch.CallUnary(ctx, req)
+}
+
 // EventStoreServiceHandler is an implementation of the eventstore.v1.EventStoreService service.
 type EventStoreServiceHandler interface {
 	Ping(context.Context, *connect.Request[v1.PingRequest]) (*connect.Response[v1.PingResponse], error)
 	Ingest(context.Context, *connect.BidiStream[v1.IngestRequest, v1.IngestResponse]) error
+	IngestBatch(context.Context, *connect.Request[v1.IngestBatchRequest]) (*connect.Response[v1.IngestBatchResponse], error)
 }
 
 // NewEventStoreServiceHandler builds an HTTP handler from the service implementation. It returns
@@ -113,12 +130,20 @@ func NewEventStoreServiceHandler(svc EventStoreServiceHandler, opts ...connect.H
 		connect.WithSchema(eventStoreServiceMethods.ByName("Ingest")),
 		connect.WithHandlerOptions(opts...),
 	)
+	eventStoreServiceIngestBatchHandler := connect.NewUnaryHandler(
+		EventStoreServiceIngestBatchProcedure,
+		svc.IngestBatch,
+		connect.WithSchema(eventStoreServiceMethods.ByName("IngestBatch")),
+		connect.WithHandlerOptions(opts...),
+	)
 	return "/eventstore.v1.EventStoreService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case EventStoreServicePingProcedure:
 			eventStoreServicePingHandler.ServeHTTP(w, r)
 		case EventStoreServiceIngestProcedure:
 			eventStoreServiceIngestHandler.ServeHTTP(w, r)
+		case EventStoreServiceIngestBatchProcedure:
+			eventStoreServiceIngestBatchHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -134,4 +159,8 @@ func (UnimplementedEventStoreServiceHandler) Ping(context.Context, *connect.Requ
 
 func (UnimplementedEventStoreServiceHandler) Ingest(context.Context, *connect.BidiStream[v1.IngestRequest, v1.IngestResponse]) error {
 	return connect.NewError(connect.CodeUnimplemented, errors.New("eventstore.v1.EventStoreService.Ingest is not implemented"))
+}
+
+func (UnimplementedEventStoreServiceHandler) IngestBatch(context.Context, *connect.Request[v1.IngestBatchRequest]) (*connect.Response[v1.IngestBatchResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("eventstore.v1.EventStoreService.IngestBatch is not implemented"))
 }
