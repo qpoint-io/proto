@@ -121,6 +121,309 @@ func (b0 PingResponse_builder) Build() *PingResponse {
 	return m0
 }
 
+type Event struct {
+	state            protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Event isEvent_Event          `protobuf_oneof:"event"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *Event) Reset() {
+	*x = Event{}
+	mi := &file_eventstore_v1_main_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Event) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Event) ProtoMessage() {}
+
+func (x *Event) ProtoReflect() protoreflect.Message {
+	mi := &file_eventstore_v1_main_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *Event) GetRequest() *v1.Request {
+	if x != nil {
+		if x, ok := x.xxx_hidden_Event.(*event_Request); ok {
+			return x.Request
+		}
+	}
+	return nil
+}
+
+func (x *Event) GetIssue() *v1.Issue {
+	if x != nil {
+		if x, ok := x.xxx_hidden_Event.(*event_Issue); ok {
+			return x.Issue
+		}
+	}
+	return nil
+}
+
+func (x *Event) GetArtifact() *v1.Artifact {
+	if x != nil {
+		if x, ok := x.xxx_hidden_Event.(*event_Artifact); ok {
+			return x.Artifact
+		}
+	}
+	return nil
+}
+
+func (x *Event) GetPiiEntity() *v1.PIIEntity {
+	if x != nil {
+		if x, ok := x.xxx_hidden_Event.(*event_PiiEntity); ok {
+			return x.PiiEntity
+		}
+	}
+	return nil
+}
+
+func (x *Event) GetConnection() *v1.Connection {
+	if x != nil {
+		if x, ok := x.xxx_hidden_Event.(*event_Connection); ok {
+			return x.Connection
+		}
+	}
+	return nil
+}
+
+func (x *Event) SetRequest(v *v1.Request) {
+	if v == nil {
+		x.xxx_hidden_Event = nil
+		return
+	}
+	x.xxx_hidden_Event = &event_Request{v}
+}
+
+func (x *Event) SetIssue(v *v1.Issue) {
+	if v == nil {
+		x.xxx_hidden_Event = nil
+		return
+	}
+	x.xxx_hidden_Event = &event_Issue{v}
+}
+
+func (x *Event) SetArtifact(v *v1.Artifact) {
+	if v == nil {
+		x.xxx_hidden_Event = nil
+		return
+	}
+	x.xxx_hidden_Event = &event_Artifact{v}
+}
+
+func (x *Event) SetPiiEntity(v *v1.PIIEntity) {
+	if v == nil {
+		x.xxx_hidden_Event = nil
+		return
+	}
+	x.xxx_hidden_Event = &event_PiiEntity{v}
+}
+
+func (x *Event) SetConnection(v *v1.Connection) {
+	if v == nil {
+		x.xxx_hidden_Event = nil
+		return
+	}
+	x.xxx_hidden_Event = &event_Connection{v}
+}
+
+func (x *Event) HasEvent() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_Event != nil
+}
+
+func (x *Event) HasRequest() bool {
+	if x == nil {
+		return false
+	}
+	_, ok := x.xxx_hidden_Event.(*event_Request)
+	return ok
+}
+
+func (x *Event) HasIssue() bool {
+	if x == nil {
+		return false
+	}
+	_, ok := x.xxx_hidden_Event.(*event_Issue)
+	return ok
+}
+
+func (x *Event) HasArtifact() bool {
+	if x == nil {
+		return false
+	}
+	_, ok := x.xxx_hidden_Event.(*event_Artifact)
+	return ok
+}
+
+func (x *Event) HasPiiEntity() bool {
+	if x == nil {
+		return false
+	}
+	_, ok := x.xxx_hidden_Event.(*event_PiiEntity)
+	return ok
+}
+
+func (x *Event) HasConnection() bool {
+	if x == nil {
+		return false
+	}
+	_, ok := x.xxx_hidden_Event.(*event_Connection)
+	return ok
+}
+
+func (x *Event) ClearEvent() {
+	x.xxx_hidden_Event = nil
+}
+
+func (x *Event) ClearRequest() {
+	if _, ok := x.xxx_hidden_Event.(*event_Request); ok {
+		x.xxx_hidden_Event = nil
+	}
+}
+
+func (x *Event) ClearIssue() {
+	if _, ok := x.xxx_hidden_Event.(*event_Issue); ok {
+		x.xxx_hidden_Event = nil
+	}
+}
+
+func (x *Event) ClearArtifact() {
+	if _, ok := x.xxx_hidden_Event.(*event_Artifact); ok {
+		x.xxx_hidden_Event = nil
+	}
+}
+
+func (x *Event) ClearPiiEntity() {
+	if _, ok := x.xxx_hidden_Event.(*event_PiiEntity); ok {
+		x.xxx_hidden_Event = nil
+	}
+}
+
+func (x *Event) ClearConnection() {
+	if _, ok := x.xxx_hidden_Event.(*event_Connection); ok {
+		x.xxx_hidden_Event = nil
+	}
+}
+
+const Event_Event_not_set_case case_Event_Event = 0
+const Event_Request_case case_Event_Event = 1
+const Event_Issue_case case_Event_Event = 2
+const Event_Artifact_case case_Event_Event = 3
+const Event_PiiEntity_case case_Event_Event = 4
+const Event_Connection_case case_Event_Event = 5
+
+func (x *Event) WhichEvent() case_Event_Event {
+	if x == nil {
+		return Event_Event_not_set_case
+	}
+	switch x.xxx_hidden_Event.(type) {
+	case *event_Request:
+		return Event_Request_case
+	case *event_Issue:
+		return Event_Issue_case
+	case *event_Artifact:
+		return Event_Artifact_case
+	case *event_PiiEntity:
+		return Event_PiiEntity_case
+	case *event_Connection:
+		return Event_Connection_case
+	default:
+		return Event_Event_not_set_case
+	}
+}
+
+type Event_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Fields of oneof xxx_hidden_Event:
+	Request    *v1.Request
+	Issue      *v1.Issue
+	Artifact   *v1.Artifact
+	PiiEntity  *v1.PIIEntity
+	Connection *v1.Connection
+	// -- end of xxx_hidden_Event
+}
+
+func (b0 Event_builder) Build() *Event {
+	m0 := &Event{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.Request != nil {
+		x.xxx_hidden_Event = &event_Request{b.Request}
+	}
+	if b.Issue != nil {
+		x.xxx_hidden_Event = &event_Issue{b.Issue}
+	}
+	if b.Artifact != nil {
+		x.xxx_hidden_Event = &event_Artifact{b.Artifact}
+	}
+	if b.PiiEntity != nil {
+		x.xxx_hidden_Event = &event_PiiEntity{b.PiiEntity}
+	}
+	if b.Connection != nil {
+		x.xxx_hidden_Event = &event_Connection{b.Connection}
+	}
+	return m0
+}
+
+type case_Event_Event protoreflect.FieldNumber
+
+func (x case_Event_Event) String() string {
+	md := file_eventstore_v1_main_proto_msgTypes[2].Descriptor()
+	if x == 0 {
+		return "not set"
+	}
+	return protoimpl.X.MessageFieldStringOf(md, protoreflect.FieldNumber(x))
+}
+
+type isEvent_Event interface {
+	isEvent_Event()
+}
+
+type event_Request struct {
+	Request *v1.Request `protobuf:"bytes,1,opt,name=request,proto3,oneof"`
+}
+
+type event_Issue struct {
+	Issue *v1.Issue `protobuf:"bytes,2,opt,name=issue,proto3,oneof"`
+}
+
+type event_Artifact struct {
+	Artifact *v1.Artifact `protobuf:"bytes,3,opt,name=artifact,proto3,oneof"`
+}
+
+type event_PiiEntity struct {
+	PiiEntity *v1.PIIEntity `protobuf:"bytes,4,opt,name=pii_entity,json=piiEntity,proto3,oneof"`
+}
+
+type event_Connection struct {
+	Connection *v1.Connection `protobuf:"bytes,5,opt,name=connection,proto3,oneof"`
+}
+
+func (*event_Request) isEvent_Event() {}
+
+func (*event_Issue) isEvent_Event() {}
+
+func (*event_Artifact) isEvent_Event() {}
+
+func (*event_PiiEntity) isEvent_Event() {}
+
+func (*event_Connection) isEvent_Event() {}
+
 type IngestRequest struct {
 	state             protoimpl.MessageState  `protogen:"opaque.v1"`
 	xxx_hidden_Events *[]*IngestRequest_Event `protobuf:"bytes,1,rep,name=events,proto3"`
@@ -130,7 +433,7 @@ type IngestRequest struct {
 
 func (x *IngestRequest) Reset() {
 	*x = IngestRequest{}
-	mi := &file_eventstore_v1_main_proto_msgTypes[2]
+	mi := &file_eventstore_v1_main_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -142,7 +445,7 @@ func (x *IngestRequest) String() string {
 func (*IngestRequest) ProtoMessage() {}
 
 func (x *IngestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_eventstore_v1_main_proto_msgTypes[2]
+	mi := &file_eventstore_v1_main_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -190,7 +493,7 @@ type IngestResponse struct {
 
 func (x *IngestResponse) Reset() {
 	*x = IngestResponse{}
-	mi := &file_eventstore_v1_main_proto_msgTypes[3]
+	mi := &file_eventstore_v1_main_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -202,7 +505,7 @@ func (x *IngestResponse) String() string {
 func (*IngestResponse) ProtoMessage() {}
 
 func (x *IngestResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_eventstore_v1_main_proto_msgTypes[3]
+	mi := &file_eventstore_v1_main_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -253,6 +556,109 @@ func (b0 IngestResponse_builder) Build() *IngestResponse {
 	return m0
 }
 
+type IngestBatchRequest struct {
+	state             protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Events *[]*Event              `protobuf:"bytes,1,rep,name=events,proto3"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
+}
+
+func (x *IngestBatchRequest) Reset() {
+	*x = IngestBatchRequest{}
+	mi := &file_eventstore_v1_main_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IngestBatchRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IngestBatchRequest) ProtoMessage() {}
+
+func (x *IngestBatchRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_eventstore_v1_main_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *IngestBatchRequest) GetEvents() []*Event {
+	if x != nil {
+		if x.xxx_hidden_Events != nil {
+			return *x.xxx_hidden_Events
+		}
+	}
+	return nil
+}
+
+func (x *IngestBatchRequest) SetEvents(v []*Event) {
+	x.xxx_hidden_Events = &v
+}
+
+type IngestBatchRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	Events []*Event
+}
+
+func (b0 IngestBatchRequest_builder) Build() *IngestBatchRequest {
+	m0 := &IngestBatchRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.xxx_hidden_Events = &b.Events
+	return m0
+}
+
+type IngestBatchResponse struct {
+	state         protoimpl.MessageState `protogen:"opaque.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IngestBatchResponse) Reset() {
+	*x = IngestBatchResponse{}
+	mi := &file_eventstore_v1_main_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IngestBatchResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IngestBatchResponse) ProtoMessage() {}
+
+func (x *IngestBatchResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_eventstore_v1_main_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+type IngestBatchResponse_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+}
+
+func (b0 IngestBatchResponse_builder) Build() *IngestBatchResponse {
+	m0 := &IngestBatchResponse{}
+	b, x := &b0, m0
+	_, _ = b, x
+	return m0
+}
+
+// Event was moved to the top-level, however IngestRequest will retain its submessage for backwards compatibility.
 type IngestRequest_Event struct {
 	state            protoimpl.MessageState      `protogen:"opaque.v1"`
 	xxx_hidden_Event isIngestRequest_Event_Event `protobuf_oneof:"event"`
@@ -262,7 +668,7 @@ type IngestRequest_Event struct {
 
 func (x *IngestRequest_Event) Reset() {
 	*x = IngestRequest_Event{}
-	mi := &file_eventstore_v1_main_proto_msgTypes[4]
+	mi := &file_eventstore_v1_main_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -274,7 +680,7 @@ func (x *IngestRequest_Event) String() string {
 func (*IngestRequest_Event) ProtoMessage() {}
 
 func (x *IngestRequest_Event) ProtoReflect() protoreflect.Message {
-	mi := &file_eventstore_v1_main_proto_msgTypes[4]
+	mi := &file_eventstore_v1_main_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -515,7 +921,7 @@ func (b0 IngestRequest_Event_builder) Build() *IngestRequest_Event {
 type case_IngestRequest_Event_Event protoreflect.FieldNumber
 
 func (x case_IngestRequest_Event_Event) String() string {
-	md := file_eventstore_v1_main_proto_msgTypes[4].Descriptor()
+	md := file_eventstore_v1_main_proto_msgTypes[7].Descriptor()
 	if x == 0 {
 		return "not set"
 	}
@@ -563,7 +969,17 @@ const file_eventstore_v1_main_proto_rawDesc = "" +
 	"\x18eventstore/v1/main.proto\x12\reventstore.v1\x1a\x1dqpoint/type/v1/artifact.proto\x1a\x1fqpoint/type/v1/connection.proto\x1a\x1aqpoint/type/v1/issue.proto\x1a\x18qpoint/type/v1/pii.proto\x1a\x1cqpoint/type/v1/request.proto\"\r\n" +
 	"\vPingRequest\"%\n" +
 	"\fPingResponse\x12\x15\n" +
-	"\x06org_id\x18\x01 \x01(\tR\x05orgId\"\xf4\x02\n" +
+	"\x06org_id\x18\x01 \x01(\tR\x05orgId\"\xa6\x02\n" +
+	"\x05Event\x123\n" +
+	"\arequest\x18\x01 \x01(\v2\x17.qpoint.type.v1.RequestH\x00R\arequest\x12-\n" +
+	"\x05issue\x18\x02 \x01(\v2\x15.qpoint.type.v1.IssueH\x00R\x05issue\x126\n" +
+	"\bartifact\x18\x03 \x01(\v2\x18.qpoint.type.v1.ArtifactH\x00R\bartifact\x12:\n" +
+	"\n" +
+	"pii_entity\x18\x04 \x01(\v2\x19.qpoint.type.v1.PIIEntityH\x00R\tpiiEntity\x12<\n" +
+	"\n" +
+	"connection\x18\x05 \x01(\v2\x1a.qpoint.type.v1.ConnectionH\x00R\n" +
+	"connectionB\a\n" +
+	"\x05event\"\xf4\x02\n" +
 	"\rIngestRequest\x12:\n" +
 	"\x06events\x18\x01 \x03(\v2\".eventstore.v1.IngestRequest.EventR\x06events\x1a\xa6\x02\n" +
 	"\x05Event\x123\n" +
@@ -578,41 +994,56 @@ const file_eventstore_v1_main_proto_rawDesc = "" +
 	"\x05event\"i\n" +
 	"\x0eIngestResponse\x120\n" +
 	"\x14total_accepted_count\x18\x01 \x01(\rR\x12totalAcceptedCount\x12%\n" +
-	"\x0eaccepted_count\x18\x02 \x01(\rR\racceptedCount2\xa3\x01\n" +
+	"\x0eaccepted_count\x18\x02 \x01(\rR\racceptedCount\"B\n" +
+	"\x12IngestBatchRequest\x12,\n" +
+	"\x06events\x18\x01 \x03(\v2\x14.eventstore.v1.EventR\x06events\"\x15\n" +
+	"\x13IngestBatchResponse2\xfb\x01\n" +
 	"\x11EventStoreService\x12A\n" +
 	"\x04Ping\x12\x1a.eventstore.v1.PingRequest\x1a\x1b.eventstore.v1.PingResponse\"\x00\x12K\n" +
-	"\x06Ingest\x12\x1c.eventstore.v1.IngestRequest\x1a\x1d.eventstore.v1.IngestResponse\"\x00(\x010\x01B\xb1\x01\n" +
+	"\x06Ingest\x12\x1c.eventstore.v1.IngestRequest\x1a\x1d.eventstore.v1.IngestResponse\"\x00(\x010\x01\x12V\n" +
+	"\vIngestBatch\x12!.eventstore.v1.IngestBatchRequest\x1a\".eventstore.v1.IngestBatchResponse\"\x00B\xb1\x01\n" +
 	"\x11com.eventstore.v1B\tMainProtoP\x01Z<github.com/qpoint-io/proto/gen/go/eventstore/v1;eventstorev1\xa2\x02\x03EXX\xaa\x02\rEventstore.V1\xca\x02\rEventstore\\V1\xe2\x02\x19Eventstore\\V1\\GPBMetadata\xea\x02\x0eEventstore::V1b\x06proto3"
 
-var file_eventstore_v1_main_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_eventstore_v1_main_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_eventstore_v1_main_proto_goTypes = []any{
 	(*PingRequest)(nil),         // 0: eventstore.v1.PingRequest
 	(*PingResponse)(nil),        // 1: eventstore.v1.PingResponse
-	(*IngestRequest)(nil),       // 2: eventstore.v1.IngestRequest
-	(*IngestResponse)(nil),      // 3: eventstore.v1.IngestResponse
-	(*IngestRequest_Event)(nil), // 4: eventstore.v1.IngestRequest.Event
-	(*v1.Request)(nil),          // 5: qpoint.type.v1.Request
-	(*v1.Issue)(nil),            // 6: qpoint.type.v1.Issue
-	(*v1.Artifact)(nil),         // 7: qpoint.type.v1.Artifact
-	(*v1.PIIEntity)(nil),        // 8: qpoint.type.v1.PIIEntity
-	(*v1.Connection)(nil),       // 9: qpoint.type.v1.Connection
+	(*Event)(nil),               // 2: eventstore.v1.Event
+	(*IngestRequest)(nil),       // 3: eventstore.v1.IngestRequest
+	(*IngestResponse)(nil),      // 4: eventstore.v1.IngestResponse
+	(*IngestBatchRequest)(nil),  // 5: eventstore.v1.IngestBatchRequest
+	(*IngestBatchResponse)(nil), // 6: eventstore.v1.IngestBatchResponse
+	(*IngestRequest_Event)(nil), // 7: eventstore.v1.IngestRequest.Event
+	(*v1.Request)(nil),          // 8: qpoint.type.v1.Request
+	(*v1.Issue)(nil),            // 9: qpoint.type.v1.Issue
+	(*v1.Artifact)(nil),         // 10: qpoint.type.v1.Artifact
+	(*v1.PIIEntity)(nil),        // 11: qpoint.type.v1.PIIEntity
+	(*v1.Connection)(nil),       // 12: qpoint.type.v1.Connection
 }
 var file_eventstore_v1_main_proto_depIdxs = []int32{
-	4, // 0: eventstore.v1.IngestRequest.events:type_name -> eventstore.v1.IngestRequest.Event
-	5, // 1: eventstore.v1.IngestRequest.Event.request:type_name -> qpoint.type.v1.Request
-	6, // 2: eventstore.v1.IngestRequest.Event.issue:type_name -> qpoint.type.v1.Issue
-	7, // 3: eventstore.v1.IngestRequest.Event.artifact:type_name -> qpoint.type.v1.Artifact
-	8, // 4: eventstore.v1.IngestRequest.Event.pii_entity:type_name -> qpoint.type.v1.PIIEntity
-	9, // 5: eventstore.v1.IngestRequest.Event.connection:type_name -> qpoint.type.v1.Connection
-	0, // 6: eventstore.v1.EventStoreService.Ping:input_type -> eventstore.v1.PingRequest
-	2, // 7: eventstore.v1.EventStoreService.Ingest:input_type -> eventstore.v1.IngestRequest
-	1, // 8: eventstore.v1.EventStoreService.Ping:output_type -> eventstore.v1.PingResponse
-	3, // 9: eventstore.v1.EventStoreService.Ingest:output_type -> eventstore.v1.IngestResponse
-	8, // [8:10] is the sub-list for method output_type
-	6, // [6:8] is the sub-list for method input_type
-	6, // [6:6] is the sub-list for extension type_name
-	6, // [6:6] is the sub-list for extension extendee
-	0, // [0:6] is the sub-list for field type_name
+	8,  // 0: eventstore.v1.Event.request:type_name -> qpoint.type.v1.Request
+	9,  // 1: eventstore.v1.Event.issue:type_name -> qpoint.type.v1.Issue
+	10, // 2: eventstore.v1.Event.artifact:type_name -> qpoint.type.v1.Artifact
+	11, // 3: eventstore.v1.Event.pii_entity:type_name -> qpoint.type.v1.PIIEntity
+	12, // 4: eventstore.v1.Event.connection:type_name -> qpoint.type.v1.Connection
+	7,  // 5: eventstore.v1.IngestRequest.events:type_name -> eventstore.v1.IngestRequest.Event
+	2,  // 6: eventstore.v1.IngestBatchRequest.events:type_name -> eventstore.v1.Event
+	8,  // 7: eventstore.v1.IngestRequest.Event.request:type_name -> qpoint.type.v1.Request
+	9,  // 8: eventstore.v1.IngestRequest.Event.issue:type_name -> qpoint.type.v1.Issue
+	10, // 9: eventstore.v1.IngestRequest.Event.artifact:type_name -> qpoint.type.v1.Artifact
+	11, // 10: eventstore.v1.IngestRequest.Event.pii_entity:type_name -> qpoint.type.v1.PIIEntity
+	12, // 11: eventstore.v1.IngestRequest.Event.connection:type_name -> qpoint.type.v1.Connection
+	0,  // 12: eventstore.v1.EventStoreService.Ping:input_type -> eventstore.v1.PingRequest
+	3,  // 13: eventstore.v1.EventStoreService.Ingest:input_type -> eventstore.v1.IngestRequest
+	5,  // 14: eventstore.v1.EventStoreService.IngestBatch:input_type -> eventstore.v1.IngestBatchRequest
+	1,  // 15: eventstore.v1.EventStoreService.Ping:output_type -> eventstore.v1.PingResponse
+	4,  // 16: eventstore.v1.EventStoreService.Ingest:output_type -> eventstore.v1.IngestResponse
+	6,  // 17: eventstore.v1.EventStoreService.IngestBatch:output_type -> eventstore.v1.IngestBatchResponse
+	15, // [15:18] is the sub-list for method output_type
+	12, // [12:15] is the sub-list for method input_type
+	12, // [12:12] is the sub-list for extension type_name
+	12, // [12:12] is the sub-list for extension extendee
+	0,  // [0:12] is the sub-list for field type_name
 }
 
 func init() { file_eventstore_v1_main_proto_init() }
@@ -620,7 +1051,14 @@ func file_eventstore_v1_main_proto_init() {
 	if File_eventstore_v1_main_proto != nil {
 		return
 	}
-	file_eventstore_v1_main_proto_msgTypes[4].OneofWrappers = []any{
+	file_eventstore_v1_main_proto_msgTypes[2].OneofWrappers = []any{
+		(*event_Request)(nil),
+		(*event_Issue)(nil),
+		(*event_Artifact)(nil),
+		(*event_PiiEntity)(nil),
+		(*event_Connection)(nil),
+	}
+	file_eventstore_v1_main_proto_msgTypes[7].OneofWrappers = []any{
 		(*ingestRequest_Event_Request)(nil),
 		(*ingestRequest_Event_Issue)(nil),
 		(*ingestRequest_Event_Artifact)(nil),
@@ -633,7 +1071,7 @@ func file_eventstore_v1_main_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_eventstore_v1_main_proto_rawDesc), len(file_eventstore_v1_main_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
