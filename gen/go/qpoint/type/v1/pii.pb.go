@@ -23,20 +23,22 @@ const (
 )
 
 type PIIEntity struct {
-	state                   protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Timestamp    *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=timestamp,proto3"`
-	xxx_hidden_ConnectionId string                 `protobuf:"bytes,2,opt,name=connection_id,json=connectionId,proto3"`
-	xxx_hidden_RequestId    string                 `protobuf:"bytes,3,opt,name=request_id,json=requestId,proto3"`
-	xxx_hidden_EndpointId   string                 `protobuf:"bytes,4,opt,name=endpoint_id,json=endpointId,proto3"`
-	xxx_hidden_VendorId     string                 `protobuf:"bytes,5,opt,name=vendor_id,json=vendorId,proto3"`
-	xxx_hidden_Tags         []string               `protobuf:"bytes,6,rep,name=tags,proto3"`
-	xxx_hidden_EntityType   string                 `protobuf:"bytes,7,opt,name=entity_type,json=entityType,proto3"`
-	xxx_hidden_Score        float32                `protobuf:"fixed32,8,opt,name=score,proto3"`
-	xxx_hidden_Source       string                 `protobuf:"bytes,9,opt,name=source,proto3"`
-	xxx_hidden_FieldPath    string                 `protobuf:"bytes,10,opt,name=field_path,json=fieldPath,proto3"`
-	xxx_hidden_ValueHash    string                 `protobuf:"bytes,11,opt,name=value_hash,json=valueHash,proto3"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state                    protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Timestamp     *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=timestamp,proto3"`
+	xxx_hidden_ConnectionId  string                 `protobuf:"bytes,2,opt,name=connection_id,json=connectionId,proto3"`
+	xxx_hidden_RequestId     string                 `protobuf:"bytes,3,opt,name=request_id,json=requestId,proto3"`
+	xxx_hidden_EndpointId    string                 `protobuf:"bytes,4,opt,name=endpoint_id,json=endpointId,proto3"`
+	xxx_hidden_VendorId      string                 `protobuf:"bytes,5,opt,name=vendor_id,json=vendorId,proto3"`
+	xxx_hidden_Tags          []string               `protobuf:"bytes,6,rep,name=tags,proto3"`
+	xxx_hidden_EntityType    string                 `protobuf:"bytes,7,opt,name=entity_type,json=entityType,proto3"`
+	xxx_hidden_Score         float32                `protobuf:"fixed32,8,opt,name=score,proto3"`
+	xxx_hidden_Source        string                 `protobuf:"bytes,9,opt,name=source,proto3"`
+	xxx_hidden_FieldPath     string                 `protobuf:"bytes,10,opt,name=field_path,json=fieldPath,proto3"`
+	xxx_hidden_ValueHash     string                 `protobuf:"bytes,11,opt,name=value_hash,json=valueHash,proto3"`
+	xxx_hidden_RequestMethod string                 `protobuf:"bytes,12,opt,name=request_method,json=requestMethod,proto3"`
+	xxx_hidden_RequestPath   string                 `protobuf:"bytes,13,opt,name=request_path,json=requestPath,proto3"`
+	unknownFields            protoimpl.UnknownFields
+	sizeCache                protoimpl.SizeCache
 }
 
 func (x *PIIEntity) Reset() {
@@ -141,6 +143,20 @@ func (x *PIIEntity) GetValueHash() string {
 	return ""
 }
 
+func (x *PIIEntity) GetRequestMethod() string {
+	if x != nil {
+		return x.xxx_hidden_RequestMethod
+	}
+	return ""
+}
+
+func (x *PIIEntity) GetRequestPath() string {
+	if x != nil {
+		return x.xxx_hidden_RequestPath
+	}
+	return ""
+}
+
 func (x *PIIEntity) SetTimestamp(v *timestamppb.Timestamp) {
 	x.xxx_hidden_Timestamp = v
 }
@@ -185,6 +201,14 @@ func (x *PIIEntity) SetValueHash(v string) {
 	x.xxx_hidden_ValueHash = v
 }
 
+func (x *PIIEntity) SetRequestMethod(v string) {
+	x.xxx_hidden_RequestMethod = v
+}
+
+func (x *PIIEntity) SetRequestPath(v string) {
+	x.xxx_hidden_RequestPath = v
+}
+
 func (x *PIIEntity) HasTimestamp() bool {
 	if x == nil {
 		return false
@@ -210,7 +234,9 @@ type PIIEntity_builder struct {
 	Source       string
 	FieldPath    string
 	// value_hash is a SHA-256 hash of the value. The length is 32 bytes (64 characters).
-	ValueHash string
+	ValueHash     string
+	RequestMethod string
+	RequestPath   string
 }
 
 func (b0 PIIEntity_builder) Build() *PIIEntity {
@@ -228,6 +254,8 @@ func (b0 PIIEntity_builder) Build() *PIIEntity {
 	x.xxx_hidden_Source = b.Source
 	x.xxx_hidden_FieldPath = b.FieldPath
 	x.xxx_hidden_ValueHash = b.ValueHash
+	x.xxx_hidden_RequestMethod = b.RequestMethod
+	x.xxx_hidden_RequestPath = b.RequestPath
 	return m0
 }
 
@@ -235,7 +263,7 @@ var File_qpoint_type_v1_pii_proto protoreflect.FileDescriptor
 
 const file_qpoint_type_v1_pii_proto_rawDesc = "" +
 	"\n" +
-	"\x18qpoint/type/v1/pii.proto\x12\x0eqpoint.type.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x80\x03\n" +
+	"\x18qpoint/type/v1/pii.proto\x12\x0eqpoint.type.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xca\x03\n" +
 	"\tPIIEntity\x12@\n" +
 	"\ttimestamp\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\ttimestamp\x12+\n" +
 	"\rconnection_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\fconnectionId\x12%\n" +
@@ -253,7 +281,9 @@ const file_qpoint_type_v1_pii_proto_rawDesc = "" +
 	"field_path\x18\n" +
 	" \x01(\tR\tfieldPath\x12\x1d\n" +
 	"\n" +
-	"value_hash\x18\v \x01(\tR\tvalueHashB\xb1\x01\n" +
+	"value_hash\x18\v \x01(\tR\tvalueHash\x12%\n" +
+	"\x0erequest_method\x18\f \x01(\tR\rrequestMethod\x12!\n" +
+	"\frequest_path\x18\r \x01(\tR\vrequestPathB\xb1\x01\n" +
 	"\x12com.qpoint.type.v1B\bPiiProtoP\x01Z7github.com/qpoint-io/proto/gen/go/qpoint/type/v1;typev1\xa2\x02\x03QTX\xaa\x02\x0eQpoint.Type.V1\xca\x02\x0eQpoint\\Type\\V1\xe2\x02\x1aQpoint\\Type\\V1\\GPBMetadata\xea\x02\x10Qpoint::Type::V1b\x06proto3"
 
 var file_qpoint_type_v1_pii_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
