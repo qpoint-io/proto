@@ -18,4 +18,6 @@ message PIIEntity {
   string field_path = 10;
   // value_hash is a SHA-256 hash of the value. The length is 32 bytes (64 characters).
   string value_hash = 11;
+  string request_method = 12;
+  string request_path = 13;
 }
