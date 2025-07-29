@@ -23,25 +23,27 @@ const (
 )
 
 type Connection struct {
-	state                     protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Id             string                 `protobuf:"bytes,1,opt,name=id,proto3"`
-	xxx_hidden_Timestamp      *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=timestamp,proto3"`
-	xxx_hidden_Direction      Direction              `protobuf:"varint,3,opt,name=direction,proto3,enum=qpoint.type.v1.Direction"`
-	xxx_hidden_EndpointId     string                 `protobuf:"bytes,6,opt,name=endpoint_id,json=endpointId,proto3"`
-	xxx_hidden_VendorId       string                 `protobuf:"bytes,7,opt,name=vendor_id,json=vendorId,proto3"`
-	xxx_hidden_Part           uint32                 `protobuf:"varint,8,opt,name=part,proto3"`
-	xxx_hidden_Finalized      bool                   `protobuf:"varint,9,opt,name=finalized,proto3"`
-	xxx_hidden_Tags           *[]*Tag                `protobuf:"bytes,10,rep,name=tags,proto3"`
-	xxx_hidden_SocketProtocol SocketProtocol         `protobuf:"varint,11,opt,name=socket_protocol,json=socketProtocol,proto3,enum=qpoint.type.v1.SocketProtocol"`
-	xxx_hidden_L7Protocol     L7Protocol             `protobuf:"varint,12,opt,name=l7_protocol,json=l7Protocol,proto3,enum=qpoint.type.v1.L7Protocol"`
-	xxx_hidden_TlsVersion     TlsVersion             `protobuf:"varint,13,opt,name=tls_version,json=tlsVersion,proto3,enum=qpoint.type.v1.TlsVersion"`
-	xxx_hidden_System         *Connection_System     `protobuf:"bytes,14,opt,name=system,proto3"`
-	xxx_hidden_Source         *Connection_Endpoint   `protobuf:"bytes,15,opt,name=source,proto3"`
-	xxx_hidden_Destination    *Connection_Endpoint   `protobuf:"bytes,16,opt,name=destination,proto3"`
-	xxx_hidden_BytesReceived  uint64                 `protobuf:"varint,19,opt,name=bytes_received,json=bytesReceived,proto3"`
-	xxx_hidden_BytesSent      uint64                 `protobuf:"varint,20,opt,name=bytes_sent,json=bytesSent,proto3"`
-	unknownFields             protoimpl.UnknownFields
-	sizeCache                 protoimpl.SizeCache
+	state                            protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Id                    string                 `protobuf:"bytes,1,opt,name=id,proto3"`
+	xxx_hidden_Timestamp             *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=timestamp,proto3"`
+	xxx_hidden_Direction             Direction              `protobuf:"varint,3,opt,name=direction,proto3,enum=qpoint.type.v1.Direction"`
+	xxx_hidden_EndpointId            string                 `protobuf:"bytes,6,opt,name=endpoint_id,json=endpointId,proto3"`
+	xxx_hidden_VendorId              string                 `protobuf:"bytes,7,opt,name=vendor_id,json=vendorId,proto3"`
+	xxx_hidden_Part                  uint32                 `protobuf:"varint,8,opt,name=part,proto3"`
+	xxx_hidden_Finalized             bool                   `protobuf:"varint,9,opt,name=finalized,proto3"`
+	xxx_hidden_Tags                  *[]*Tag                `protobuf:"bytes,10,rep,name=tags,proto3"`
+	xxx_hidden_SocketProtocol        SocketProtocol         `protobuf:"varint,11,opt,name=socket_protocol,json=socketProtocol,proto3,enum=qpoint.type.v1.SocketProtocol"`
+	xxx_hidden_L7Protocol            L7Protocol             `protobuf:"varint,12,opt,name=l7_protocol,json=l7Protocol,proto3,enum=qpoint.type.v1.L7Protocol"`
+	xxx_hidden_TlsVersion            TlsVersion             `protobuf:"varint,13,opt,name=tls_version,json=tlsVersion,proto3,enum=qpoint.type.v1.TlsVersion"`
+	xxx_hidden_System                *Connection_System     `protobuf:"bytes,14,opt,name=system,proto3"`
+	xxx_hidden_Source                *Connection_Endpoint   `protobuf:"bytes,15,opt,name=source,proto3"`
+	xxx_hidden_Destination           *Connection_Endpoint   `protobuf:"bytes,16,opt,name=destination,proto3"`
+	xxx_hidden_BytesReceived         uint64                 `protobuf:"varint,19,opt,name=bytes_received,json=bytesReceived,proto3"`
+	xxx_hidden_BytesSent             uint64                 `protobuf:"varint,20,opt,name=bytes_sent,json=bytesSent,proto3"`
+	xxx_hidden_TlsProbeTypesDetected []string               `protobuf:"bytes,21,rep,name=tls_probe_types_detected,json=tlsProbeTypesDetected,proto3"`
+	xxx_hidden_TlsProbeIntrospected  bool                   `protobuf:"varint,22,opt,name=tls_probe_introspected,json=tlsProbeIntrospected,proto3"`
+	unknownFields                    protoimpl.UnknownFields
+	sizeCache                        protoimpl.SizeCache
 }
 
 func (x *Connection) Reset() {
@@ -183,6 +185,20 @@ func (x *Connection) GetBytesSent() uint64 {
 	return 0
 }
 
+func (x *Connection) GetTlsProbeTypesDetected() []string {
+	if x != nil {
+		return x.xxx_hidden_TlsProbeTypesDetected
+	}
+	return nil
+}
+
+func (x *Connection) GetTlsProbeIntrospected() bool {
+	if x != nil {
+		return x.xxx_hidden_TlsProbeIntrospected
+	}
+	return false
+}
+
 func (x *Connection) SetId(v string) {
 	x.xxx_hidden_Id = v
 }
@@ -247,6 +263,14 @@ func (x *Connection) SetBytesSent(v uint64) {
 	x.xxx_hidden_BytesSent = v
 }
 
+func (x *Connection) SetTlsProbeTypesDetected(v []string) {
+	x.xxx_hidden_TlsProbeTypesDetected = v
+}
+
+func (x *Connection) SetTlsProbeIntrospected(v bool) {
+	x.xxx_hidden_TlsProbeIntrospected = v
+}
+
 func (x *Connection) HasTimestamp() bool {
 	if x == nil {
 		return false
@@ -294,22 +318,24 @@ func (x *Connection) ClearDestination() {
 type Connection_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Id             string
-	Timestamp      *timestamppb.Timestamp
-	Direction      Direction
-	EndpointId     string
-	VendorId       string
-	Part           uint32
-	Finalized      bool
-	Tags           []*Tag
-	SocketProtocol SocketProtocol
-	L7Protocol     L7Protocol
-	TlsVersion     TlsVersion
-	System         *Connection_System
-	Source         *Connection_Endpoint
-	Destination    *Connection_Endpoint
-	BytesReceived  uint64
-	BytesSent      uint64
+	Id                    string
+	Timestamp             *timestamppb.Timestamp
+	Direction             Direction
+	EndpointId            string
+	VendorId              string
+	Part                  uint32
+	Finalized             bool
+	Tags                  []*Tag
+	SocketProtocol        SocketProtocol
+	L7Protocol            L7Protocol
+	TlsVersion            TlsVersion
+	System                *Connection_System
+	Source                *Connection_Endpoint
+	Destination           *Connection_Endpoint
+	BytesReceived         uint64
+	BytesSent             uint64
+	TlsProbeTypesDetected []string
+	TlsProbeIntrospected  bool
 }
 
 func (b0 Connection_builder) Build() *Connection {
@@ -332,6 +358,8 @@ func (b0 Connection_builder) Build() *Connection {
 	x.xxx_hidden_Destination = b.Destination
 	x.xxx_hidden_BytesReceived = b.BytesReceived
 	x.xxx_hidden_BytesSent = b.BytesSent
+	x.xxx_hidden_TlsProbeTypesDetected = b.TlsProbeTypesDetected
+	x.xxx_hidden_TlsProbeIntrospected = b.TlsProbeIntrospected
 	return m0
 }
 
@@ -798,7 +826,8 @@ var File_qpoint_type_v1_connection_proto protoreflect.FileDescriptor
 
 const file_qpoint_type_v1_connection_proto_rawDesc = "" +
 	"\n" +
-	"\x1fqpoint/type/v1/connection.proto\x12\x0eqpoint.type.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bqpoint/type/v1/system.proto\x1a\x18qpoint/type/v1/tag.proto\"\xfa\t\n" +
+	"\x1fqpoint/type/v1/connection.proto\x12\x0eqpoint.type.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bqpoint/type/v1/system.proto\x1a\x18qpoint/type/v1/tag.proto\"\xe9\n" +
+	"\n" +
 	"\n" +
 	"Connection\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12@\n" +
@@ -821,7 +850,9 @@ const file_qpoint_type_v1_connection_proto_rawDesc = "" +
 	"\vdestination\x18\x10 \x01(\v2#.qpoint.type.v1.Connection.EndpointR\vdestination\x12%\n" +
 	"\x0ebytes_received\x18\x13 \x01(\x04R\rbytesReceived\x12\x1d\n" +
 	"\n" +
-	"bytes_sent\x18\x14 \x01(\x04R\tbytesSent\x1aa\n" +
+	"bytes_sent\x18\x14 \x01(\x04R\tbytesSent\x127\n" +
+	"\x18tls_probe_types_detected\x18\x15 \x03(\tR\x15tlsProbeTypesDetected\x124\n" +
+	"\x16tls_probe_introspected\x18\x16 \x01(\bR\x14tlsProbeIntrospected\x1aa\n" +
 	"\x06System\x12\x1a\n" +
 	"\bhostname\x18\x01 \x01(\tR\bhostname\x12\x14\n" +
 	"\x05agent\x18\x02 \x01(\tR\x05agent\x12%\n" +
