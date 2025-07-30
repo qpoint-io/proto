@@ -51,4 +51,7 @@ message Connection {
 
   uint64 bytes_received = 19;
   uint64 bytes_sent = 20;
+
+  repeated string tls_probe_types_detected = 21;
+  bool tls_probe_introspected = 22;
 }
