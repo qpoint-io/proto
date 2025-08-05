@@ -35,6 +35,7 @@ message Connection {
       string exe = 3;
       string user = 4;
       Container container = 5;
+      uint32 user_id = 6;
     }
 
     message Remote {
@@ -54,4 +55,5 @@ message Connection {
 
   repeated string tls_probe_types_detected = 21;
   bool tls_probe_introspected = 22;
+  repeated string labels = 23;
 }

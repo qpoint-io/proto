@@ -42,6 +42,7 @@ type Connection struct {
 	xxx_hidden_BytesSent             uint64                 `protobuf:"varint,20,opt,name=bytes_sent,json=bytesSent,proto3"`
 	xxx_hidden_TlsProbeTypesDetected []string               `protobuf:"bytes,21,rep,name=tls_probe_types_detected,json=tlsProbeTypesDetected,proto3"`
 	xxx_hidden_TlsProbeIntrospected  bool                   `protobuf:"varint,22,opt,name=tls_probe_introspected,json=tlsProbeIntrospected,proto3"`
+	xxx_hidden_Labels                []string               `protobuf:"bytes,23,rep,name=labels,proto3"`
 	unknownFields                    protoimpl.UnknownFields
 	sizeCache                        protoimpl.SizeCache
 }
@@ -199,6 +200,13 @@ func (x *Connection) GetTlsProbeIntrospected() bool {
 	return false
 }
 
+func (x *Connection) GetLabels() []string {
+	if x != nil {
+		return x.xxx_hidden_Labels
+	}
+	return nil
+}
+
 func (x *Connection) SetId(v string) {
 	x.xxx_hidden_Id = v
 }
@@ -271,6 +279,10 @@ func (x *Connection) SetTlsProbeIntrospected(v bool) {
 	x.xxx_hidden_TlsProbeIntrospected = v
 }
 
+func (x *Connection) SetLabels(v []string) {
+	x.xxx_hidden_Labels = v
+}
+
 func (x *Connection) HasTimestamp() bool {
 	if x == nil {
 		return false
@@ -336,6 +348,7 @@ type Connection_builder struct {
 	BytesSent             uint64
 	TlsProbeTypesDetected []string
 	TlsProbeIntrospected  bool
+	Labels                []string
 }
 
 func (b0 Connection_builder) Build() *Connection {
@@ -360,6 +373,7 @@ func (b0 Connection_builder) Build() *Connection {
 	x.xxx_hidden_BytesSent = b.BytesSent
 	x.xxx_hidden_TlsProbeTypesDetected = b.TlsProbeTypesDetected
 	x.xxx_hidden_TlsProbeIntrospected = b.TlsProbeIntrospected
+	x.xxx_hidden_Labels = b.Labels
 	return m0
 }
 
@@ -626,6 +640,7 @@ type Connection_Endpoint_Local struct {
 	xxx_hidden_Exe       string                 `protobuf:"bytes,3,opt,name=exe,proto3"`
 	xxx_hidden_User      string                 `protobuf:"bytes,4,opt,name=user,proto3"`
 	xxx_hidden_Container *Container             `protobuf:"bytes,5,opt,name=container,proto3"`
+	xxx_hidden_UserId    uint32                 `protobuf:"varint,6,opt,name=user_id,json=userId,proto3"`
 	unknownFields        protoimpl.UnknownFields
 	sizeCache            protoimpl.SizeCache
 }
@@ -690,6 +705,13 @@ func (x *Connection_Endpoint_Local) GetContainer() *Container {
 	return nil
 }
 
+func (x *Connection_Endpoint_Local) GetUserId() uint32 {
+	if x != nil {
+		return x.xxx_hidden_UserId
+	}
+	return 0
+}
+
 func (x *Connection_Endpoint_Local) SetAddress(v *Address) {
 	x.xxx_hidden_Address = v
 }
@@ -708,6 +730,10 @@ func (x *Connection_Endpoint_Local) SetUser(v string) {
 
 func (x *Connection_Endpoint_Local) SetContainer(v *Container) {
 	x.xxx_hidden_Container = v
+}
+
+func (x *Connection_Endpoint_Local) SetUserId(v uint32) {
+	x.xxx_hidden_UserId = v
 }
 
 func (x *Connection_Endpoint_Local) HasAddress() bool {
@@ -740,6 +766,7 @@ type Connection_Endpoint_Local_builder struct {
 	Exe       string
 	User      string
 	Container *Container
+	UserId    uint32
 }
 
 func (b0 Connection_Endpoint_Local_builder) Build() *Connection_Endpoint_Local {
@@ -751,6 +778,7 @@ func (b0 Connection_Endpoint_Local_builder) Build() *Connection_Endpoint_Local {
 	x.xxx_hidden_Exe = b.Exe
 	x.xxx_hidden_User = b.User
 	x.xxx_hidden_Container = b.Container
+	x.xxx_hidden_UserId = b.UserId
 	return m0
 }
 
@@ -826,8 +854,7 @@ var File_qpoint_type_v1_connection_proto protoreflect.FileDescriptor
 
 const file_qpoint_type_v1_connection_proto_rawDesc = "" +
 	"\n" +
-	"\x1fqpoint/type/v1/connection.proto\x12\x0eqpoint.type.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bqpoint/type/v1/system.proto\x1a\x18qpoint/type/v1/tag.proto\"\xe9\n" +
-	"\n" +
+	"\x1fqpoint/type/v1/connection.proto\x12\x0eqpoint.type.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bqpoint/type/v1/system.proto\x1a\x18qpoint/type/v1/tag.proto\"\x9a\v\n" +
 	"\n" +
 	"Connection\x12\x16\n" +
 	"\x02id\x18\x01 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x02id\x12@\n" +
@@ -852,20 +879,22 @@ const file_qpoint_type_v1_connection_proto_rawDesc = "" +
 	"\n" +
 	"bytes_sent\x18\x14 \x01(\x04R\tbytesSent\x127\n" +
 	"\x18tls_probe_types_detected\x18\x15 \x03(\tR\x15tlsProbeTypesDetected\x124\n" +
-	"\x16tls_probe_introspected\x18\x16 \x01(\bR\x14tlsProbeIntrospected\x1aa\n" +
+	"\x16tls_probe_introspected\x18\x16 \x01(\bR\x14tlsProbeIntrospected\x12\x16\n" +
+	"\x06labels\x18\x17 \x03(\tR\x06labels\x1aa\n" +
 	"\x06System\x12\x1a\n" +
 	"\bhostname\x18\x01 \x01(\tR\bhostname\x12\x14\n" +
 	"\x05agent\x18\x02 \x01(\tR\x05agent\x12%\n" +
-	"\x0eagent_instance\x18\x03 \x01(\tR\ragentInstance\x1a\x94\x03\n" +
+	"\x0eagent_instance\x18\x03 \x01(\tR\ragentInstance\x1a\xad\x03\n" +
 	"\bEndpoint\x12A\n" +
 	"\x05local\x18\x01 \x01(\v2).qpoint.type.v1.Connection.Endpoint.LocalH\x00R\x05local\x12D\n" +
-	"\x06remote\x18\x02 \x01(\v2*.qpoint.type.v1.Connection.Endpoint.RemoteH\x00R\x06remote\x1a\xb5\x01\n" +
+	"\x06remote\x18\x02 \x01(\v2*.qpoint.type.v1.Connection.Endpoint.RemoteH\x00R\x06remote\x1a\xce\x01\n" +
 	"\x05Local\x121\n" +
 	"\aaddress\x18\x01 \x01(\v2\x17.qpoint.type.v1.AddressR\aaddress\x12\x1a\n" +
 	"\bhostname\x18\x02 \x01(\tR\bhostname\x12\x10\n" +
 	"\x03exe\x18\x03 \x01(\tR\x03exe\x12\x12\n" +
 	"\x04user\x18\x04 \x01(\tR\x04user\x127\n" +
-	"\tcontainer\x18\x05 \x01(\v2\x19.qpoint.type.v1.ContainerR\tcontainer\x1a;\n" +
+	"\tcontainer\x18\x05 \x01(\v2\x19.qpoint.type.v1.ContainerR\tcontainer\x12\x17\n" +
+	"\auser_id\x18\x06 \x01(\rR\x06userId\x1a;\n" +
 	"\x06Remote\x121\n" +
 	"\aaddress\x18\x01 \x01(\v2\x17.qpoint.type.v1.AddressR\aaddressB\n" +
 	"\n" +
