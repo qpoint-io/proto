@@ -31,7 +31,22 @@ TypeScript modules are available in [`gen/ts/`](/gen/ts).
 
 ### Python
 
-Python modules are available in [`gen/py/`](/gen/py).
+Python modules are available in [`gen/py/`](/gen/py). To install in your project:
+
+```bash
+# Using uv
+uv add git+https://github.com/qpoint-io/proto.git
+
+# Or using pip
+pip install git+https://github.com/qpoint-io/proto.git
+```
+
+Then import in your code:
+
+```python
+from eventstore.v1 import main_pb2
+from qpoint.type.v1 import connection_pb2, request_pb2
+```
 
 ## Development
 

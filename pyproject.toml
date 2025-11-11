@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "qpoint-proto"
+version = "0.1.0"
+description = "Protocol buffer definitions for Qpoint products"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "protobuf>=4.25.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/qpoint-io/proto"
+Repository = "https://github.com/qpoint-io/proto"
+
+[tool.hatch.build.targets.wheel]
+only-include = ["gen/py"]
+
+[tool.hatch.build.targets.wheel.sources]
+"gen/py" = ""
+
+[tool.hatch.build.targets.sdist]
+only-include = ["gen/py"]

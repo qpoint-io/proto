@@ -5,6 +5,18 @@ cd "$(dirname "$0")/.."
 
 if [[ -e gen ]]; then
     rm -r gen
-    mkdir -p gen/py
 fi
+mkdir -p gen/go gen/ts gen/py
 dev/buf generate .
+
+# Unpack Python protobuf zip and set up package structure
+if [[ -f gen/py/py.zip ]]; then
+    cd gen/py
+    unzip -q py.zip
+    rm py.zip
+
+    # Create __init__.py files in all directories
+    find . -type d -exec touch {}/__init__.py \;
+
+    cd ../..
+fi
