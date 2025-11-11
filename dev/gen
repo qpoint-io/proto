@@ -5,6 +5,9 @@ cd "$(dirname "$0")/.."
 
 if [[ -e gen ]]; then
     rm -r gen
-    mkdir -p gen/py
 fi
+mkdir -p gen/go gen/ts gen/py
 dev/buf generate .
+
+# Create __init__.py files in all directories
+(cd gen/py && find . -type d -exec touch {}/__init__.py \;)
