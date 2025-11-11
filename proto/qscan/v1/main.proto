@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package qscan.v1;
+
+import "qpoint/type/v1/artifact.proto";
+
+service QscanSchedulerService {
+  rpc Ping(PingRequest) returns (PingResponse) {}
+  rpc GetNextJob(GetNextJobRequest) returns (GetNextJobResponse) {}
+}
+
+message PingRequest {}
+
+message PingResponse {
+  string org_id = 1;
+}
+
+message GetNextJobRequest {}
+
+message GetNextJobResponse {
+  qpoint.type.v1.Artifact artifact = 1;
+}
