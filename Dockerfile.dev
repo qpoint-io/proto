@@ -10,6 +10,8 @@ COPY --from=go /go/bin/protoc-gen-go /usr/local/bin/protoc-gen-go
 COPY --from=go /go/bin/protoc-gen-connect-go /usr/local/bin/protoc-gen-connect-go
 COPY --from=buf /usr/local/bin/buf /usr/local/bin/buf
 
+RUN apk add --no-cache protoc 
+
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install
