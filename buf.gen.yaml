@@ -24,3 +24,6 @@ plugins:
     out: gen/ts
     include_imports: true
     opt: target=ts
+  # Python
+  - protoc_builtin: python
+    out: gen/py/py.zip
