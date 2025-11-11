@@ -25,7 +25,7 @@ plugins:
     include_imports: true
     opt: target=ts
   # Python
-  - local: protoc-gen-python
+  - remote: buf.build/protocolbuffers/python
     out: gen/python
     opt:
       - paths=source_relative
