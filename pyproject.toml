@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qpoint-proto"
+version = "1.0.0"
+description = "Protocol Buffers definitions for Qpoint products"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "protobuf>=4.25.0",
+]
+authors = [
+    {name = "Qpoint", email = "support@qpoint.io"}
+]
+license = {text = "MIT"}
+
+[project.urls]
+Homepage = "https://github.com/qpoint-io/proto"
+Repository = "https://github.com/qpoint-io/proto"
+
+[tool.setuptools]
+package-dir = {"" = "gen/python"}
+
+[tool.setuptools.packages.find]
+where = ["gen/python"]

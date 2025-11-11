@@ -24,3 +24,8 @@ plugins:
     out: gen/ts
     include_imports: true
     opt: target=ts
+  # Python
+  - local: protoc-gen-python
+    out: gen/python
+    opt:
+      - paths=source_relative
