@@ -232,42 +232,507 @@ func (b0 GetNextJobResponse_builder) Build() *GetNextJobResponse {
 	return m0
 }
 
+type SubmitJobReportRequest struct {
+	state             protoimpl.MessageState         `protogen:"opaque.v1"`
+	xxx_hidden_OrgId  string                         `protobuf:"bytes,1,opt,name=org_id,json=orgId,proto3"`
+	xxx_hidden_Result *SubmitJobReportRequest_Result `protobuf:"bytes,2,opt,name=result,proto3"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
+}
+
+func (x *SubmitJobReportRequest) Reset() {
+	*x = SubmitJobReportRequest{}
+	mi := &file_qscan_v1_main_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SubmitJobReportRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SubmitJobReportRequest) ProtoMessage() {}
+
+func (x *SubmitJobReportRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_qscan_v1_main_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *SubmitJobReportRequest) GetOrgId() string {
+	if x != nil {
+		return x.xxx_hidden_OrgId
+	}
+	return ""
+}
+
+func (x *SubmitJobReportRequest) GetResult() *SubmitJobReportRequest_Result {
+	if x != nil {
+		return x.xxx_hidden_Result
+	}
+	return nil
+}
+
+func (x *SubmitJobReportRequest) SetOrgId(v string) {
+	x.xxx_hidden_OrgId = v
+}
+
+func (x *SubmitJobReportRequest) SetResult(v *SubmitJobReportRequest_Result) {
+	x.xxx_hidden_Result = v
+}
+
+func (x *SubmitJobReportRequest) HasResult() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_Result != nil
+}
+
+func (x *SubmitJobReportRequest) ClearResult() {
+	x.xxx_hidden_Result = nil
+}
+
+type SubmitJobReportRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	OrgId  string
+	Result *SubmitJobReportRequest_Result
+}
+
+func (b0 SubmitJobReportRequest_builder) Build() *SubmitJobReportRequest {
+	m0 := &SubmitJobReportRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.xxx_hidden_OrgId = b.OrgId
+	x.xxx_hidden_Result = b.Result
+	return m0
+}
+
+type SubmitJobReportSuccess struct {
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Artifact    *v1.Artifact           `protobuf:"bytes,1,opt,name=artifact,proto3"`
+	xxx_hidden_PiiEntities *[]*v1.PIIEntity       `protobuf:"bytes,2,rep,name=pii_entities,json=piiEntities,proto3"`
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
+}
+
+func (x *SubmitJobReportSuccess) Reset() {
+	*x = SubmitJobReportSuccess{}
+	mi := &file_qscan_v1_main_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SubmitJobReportSuccess) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SubmitJobReportSuccess) ProtoMessage() {}
+
+func (x *SubmitJobReportSuccess) ProtoReflect() protoreflect.Message {
+	mi := &file_qscan_v1_main_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *SubmitJobReportSuccess) GetArtifact() *v1.Artifact {
+	if x != nil {
+		return x.xxx_hidden_Artifact
+	}
+	return nil
+}
+
+func (x *SubmitJobReportSuccess) GetPiiEntities() []*v1.PIIEntity {
+	if x != nil {
+		if x.xxx_hidden_PiiEntities != nil {
+			return *x.xxx_hidden_PiiEntities
+		}
+	}
+	return nil
+}
+
+func (x *SubmitJobReportSuccess) SetArtifact(v *v1.Artifact) {
+	x.xxx_hidden_Artifact = v
+}
+
+func (x *SubmitJobReportSuccess) SetPiiEntities(v []*v1.PIIEntity) {
+	x.xxx_hidden_PiiEntities = &v
+}
+
+func (x *SubmitJobReportSuccess) HasArtifact() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_Artifact != nil
+}
+
+func (x *SubmitJobReportSuccess) ClearArtifact() {
+	x.xxx_hidden_Artifact = nil
+}
+
+type SubmitJobReportSuccess_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	Artifact    *v1.Artifact
+	PiiEntities []*v1.PIIEntity
+}
+
+func (b0 SubmitJobReportSuccess_builder) Build() *SubmitJobReportSuccess {
+	m0 := &SubmitJobReportSuccess{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.xxx_hidden_Artifact = b.Artifact
+	x.xxx_hidden_PiiEntities = &b.PiiEntities
+	return m0
+}
+
+type SubmitJobReportError struct {
+	state                protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_ErrorText string                 `protobuf:"bytes,1,opt,name=error_text,json=errorText,proto3"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
+}
+
+func (x *SubmitJobReportError) Reset() {
+	*x = SubmitJobReportError{}
+	mi := &file_qscan_v1_main_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SubmitJobReportError) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SubmitJobReportError) ProtoMessage() {}
+
+func (x *SubmitJobReportError) ProtoReflect() protoreflect.Message {
+	mi := &file_qscan_v1_main_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *SubmitJobReportError) GetErrorText() string {
+	if x != nil {
+		return x.xxx_hidden_ErrorText
+	}
+	return ""
+}
+
+func (x *SubmitJobReportError) SetErrorText(v string) {
+	x.xxx_hidden_ErrorText = v
+}
+
+type SubmitJobReportError_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	ErrorText string
+}
+
+func (b0 SubmitJobReportError_builder) Build() *SubmitJobReportError {
+	m0 := &SubmitJobReportError{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.xxx_hidden_ErrorText = b.ErrorText
+	return m0
+}
+
+type SubmitJobReportResponse struct {
+	state         protoimpl.MessageState `protogen:"opaque.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SubmitJobReportResponse) Reset() {
+	*x = SubmitJobReportResponse{}
+	mi := &file_qscan_v1_main_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SubmitJobReportResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SubmitJobReportResponse) ProtoMessage() {}
+
+func (x *SubmitJobReportResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_qscan_v1_main_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+type SubmitJobReportResponse_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+}
+
+func (b0 SubmitJobReportResponse_builder) Build() *SubmitJobReportResponse {
+	m0 := &SubmitJobReportResponse{}
+	b, x := &b0, m0
+	_, _ = b, x
+	return m0
+}
+
+type SubmitJobReportRequest_Result struct {
+	state             protoimpl.MessageState                 `protogen:"opaque.v1"`
+	xxx_hidden_Result isSubmitJobReportRequest_Result_Result `protobuf_oneof:"result"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
+}
+
+func (x *SubmitJobReportRequest_Result) Reset() {
+	*x = SubmitJobReportRequest_Result{}
+	mi := &file_qscan_v1_main_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SubmitJobReportRequest_Result) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SubmitJobReportRequest_Result) ProtoMessage() {}
+
+func (x *SubmitJobReportRequest_Result) ProtoReflect() protoreflect.Message {
+	mi := &file_qscan_v1_main_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *SubmitJobReportRequest_Result) GetSuccess() *SubmitJobReportSuccess {
+	if x != nil {
+		if x, ok := x.xxx_hidden_Result.(*submitJobReportRequest_Result_Success); ok {
+			return x.Success
+		}
+	}
+	return nil
+}
+
+func (x *SubmitJobReportRequest_Result) GetError() *SubmitJobReportError {
+	if x != nil {
+		if x, ok := x.xxx_hidden_Result.(*submitJobReportRequest_Result_Error); ok {
+			return x.Error
+		}
+	}
+	return nil
+}
+
+func (x *SubmitJobReportRequest_Result) SetSuccess(v *SubmitJobReportSuccess) {
+	if v == nil {
+		x.xxx_hidden_Result = nil
+		return
+	}
+	x.xxx_hidden_Result = &submitJobReportRequest_Result_Success{v}
+}
+
+func (x *SubmitJobReportRequest_Result) SetError(v *SubmitJobReportError) {
+	if v == nil {
+		x.xxx_hidden_Result = nil
+		return
+	}
+	x.xxx_hidden_Result = &submitJobReportRequest_Result_Error{v}
+}
+
+func (x *SubmitJobReportRequest_Result) HasResult() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_Result != nil
+}
+
+func (x *SubmitJobReportRequest_Result) HasSuccess() bool {
+	if x == nil {
+		return false
+	}
+	_, ok := x.xxx_hidden_Result.(*submitJobReportRequest_Result_Success)
+	return ok
+}
+
+func (x *SubmitJobReportRequest_Result) HasError() bool {
+	if x == nil {
+		return false
+	}
+	_, ok := x.xxx_hidden_Result.(*submitJobReportRequest_Result_Error)
+	return ok
+}
+
+func (x *SubmitJobReportRequest_Result) ClearResult() {
+	x.xxx_hidden_Result = nil
+}
+
+func (x *SubmitJobReportRequest_Result) ClearSuccess() {
+	if _, ok := x.xxx_hidden_Result.(*submitJobReportRequest_Result_Success); ok {
+		x.xxx_hidden_Result = nil
+	}
+}
+
+func (x *SubmitJobReportRequest_Result) ClearError() {
+	if _, ok := x.xxx_hidden_Result.(*submitJobReportRequest_Result_Error); ok {
+		x.xxx_hidden_Result = nil
+	}
+}
+
+const SubmitJobReportRequest_Result_Result_not_set_case case_SubmitJobReportRequest_Result_Result = 0
+const SubmitJobReportRequest_Result_Success_case case_SubmitJobReportRequest_Result_Result = 1
+const SubmitJobReportRequest_Result_Error_case case_SubmitJobReportRequest_Result_Result = 2
+
+func (x *SubmitJobReportRequest_Result) WhichResult() case_SubmitJobReportRequest_Result_Result {
+	if x == nil {
+		return SubmitJobReportRequest_Result_Result_not_set_case
+	}
+	switch x.xxx_hidden_Result.(type) {
+	case *submitJobReportRequest_Result_Success:
+		return SubmitJobReportRequest_Result_Success_case
+	case *submitJobReportRequest_Result_Error:
+		return SubmitJobReportRequest_Result_Error_case
+	default:
+		return SubmitJobReportRequest_Result_Result_not_set_case
+	}
+}
+
+type SubmitJobReportRequest_Result_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Fields of oneof xxx_hidden_Result:
+	Success *SubmitJobReportSuccess
+	Error   *SubmitJobReportError
+	// -- end of xxx_hidden_Result
+}
+
+func (b0 SubmitJobReportRequest_Result_builder) Build() *SubmitJobReportRequest_Result {
+	m0 := &SubmitJobReportRequest_Result{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.Success != nil {
+		x.xxx_hidden_Result = &submitJobReportRequest_Result_Success{b.Success}
+	}
+	if b.Error != nil {
+		x.xxx_hidden_Result = &submitJobReportRequest_Result_Error{b.Error}
+	}
+	return m0
+}
+
+type case_SubmitJobReportRequest_Result_Result protoreflect.FieldNumber
+
+func (x case_SubmitJobReportRequest_Result_Result) String() string {
+	md := file_qscan_v1_main_proto_msgTypes[8].Descriptor()
+	if x == 0 {
+		return "not set"
+	}
+	return protoimpl.X.MessageFieldStringOf(md, protoreflect.FieldNumber(x))
+}
+
+type isSubmitJobReportRequest_Result_Result interface {
+	isSubmitJobReportRequest_Result_Result()
+}
+
+type submitJobReportRequest_Result_Success struct {
+	Success *SubmitJobReportSuccess `protobuf:"bytes,1,opt,name=success,proto3,oneof"`
+}
+
+type submitJobReportRequest_Result_Error struct {
+	Error *SubmitJobReportError `protobuf:"bytes,2,opt,name=error,proto3,oneof"`
+}
+
+func (*submitJobReportRequest_Result_Success) isSubmitJobReportRequest_Result_Result() {}
+
+func (*submitJobReportRequest_Result_Error) isSubmitJobReportRequest_Result_Result() {}
+
 var File_qscan_v1_main_proto protoreflect.FileDescriptor
 
 const file_qscan_v1_main_proto_rawDesc = "" +
 	"\n" +
-	"\x13qscan/v1/main.proto\x12\bqscan.v1\x1a\x1dqpoint/type/v1/artifact.proto\"\r\n" +
+	"\x13qscan/v1/main.proto\x12\bqscan.v1\x1a\x1dqpoint/type/v1/artifact.proto\x1a\x18qpoint/type/v1/pii.proto\"\r\n" +
 	"\vPingRequest\"%\n" +
 	"\fPingResponse\x12\x15\n" +
 	"\x06org_id\x18\x01 \x01(\tR\x05orgId\"\x13\n" +
 	"\x11GetNextJobRequest\"J\n" +
 	"\x12GetNextJobResponse\x124\n" +
-	"\bartifact\x18\x01 \x01(\v2\x18.qpoint.type.v1.ArtifactR\bartifact2\x9b\x01\n" +
+	"\bartifact\x18\x01 \x01(\v2\x18.qpoint.type.v1.ArtifactR\bartifact\"\xfb\x01\n" +
+	"\x16SubmitJobReportRequest\x12\x15\n" +
+	"\x06org_id\x18\x01 \x01(\tR\x05orgId\x12?\n" +
+	"\x06result\x18\x02 \x01(\v2'.qscan.v1.SubmitJobReportRequest.ResultR\x06result\x1a\x88\x01\n" +
+	"\x06Result\x12<\n" +
+	"\asuccess\x18\x01 \x01(\v2 .qscan.v1.SubmitJobReportSuccessH\x00R\asuccess\x126\n" +
+	"\x05error\x18\x02 \x01(\v2\x1e.qscan.v1.SubmitJobReportErrorH\x00R\x05errorB\b\n" +
+	"\x06result\"\x8c\x01\n" +
+	"\x16SubmitJobReportSuccess\x124\n" +
+	"\bartifact\x18\x01 \x01(\v2\x18.qpoint.type.v1.ArtifactR\bartifact\x12<\n" +
+	"\fpii_entities\x18\x02 \x03(\v2\x19.qpoint.type.v1.PIIEntityR\vpiiEntities\"5\n" +
+	"\x14SubmitJobReportError\x12\x1d\n" +
+	"\n" +
+	"error_text\x18\x01 \x01(\tR\terrorText\"\x19\n" +
+	"\x17SubmitJobReportResponse2\xf5\x01\n" +
 	"\x15QscanSchedulerService\x127\n" +
 	"\x04Ping\x12\x15.qscan.v1.PingRequest\x1a\x16.qscan.v1.PingResponse\"\x00\x12I\n" +
 	"\n" +
-	"GetNextJob\x12\x1b.qscan.v1.GetNextJobRequest\x1a\x1c.qscan.v1.GetNextJobResponse\"\x00B\x8e\x01\n" +
+	"GetNextJob\x12\x1b.qscan.v1.GetNextJobRequest\x1a\x1c.qscan.v1.GetNextJobResponse\"\x00\x12X\n" +
+	"\x0fSubmitJobReport\x12 .qscan.v1.SubmitJobReportRequest\x1a!.qscan.v1.SubmitJobReportResponse\"\x00B\x8e\x01\n" +
 	"\fcom.qscan.v1B\tMainProtoP\x01Z2github.com/qpoint-io/proto/gen/go/qscan/v1;qscanv1\xa2\x02\x03QXX\xaa\x02\bQscan.V1\xca\x02\bQscan\\V1\xe2\x02\x14Qscan\\V1\\GPBMetadata\xea\x02\tQscan::V1b\x06proto3"
 
-var file_qscan_v1_main_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_qscan_v1_main_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_qscan_v1_main_proto_goTypes = []any{
-	(*PingRequest)(nil),        // 0: qscan.v1.PingRequest
-	(*PingResponse)(nil),       // 1: qscan.v1.PingResponse
-	(*GetNextJobRequest)(nil),  // 2: qscan.v1.GetNextJobRequest
-	(*GetNextJobResponse)(nil), // 3: qscan.v1.GetNextJobResponse
-	(*v1.Artifact)(nil),        // 4: qpoint.type.v1.Artifact
+	(*PingRequest)(nil),                   // 0: qscan.v1.PingRequest
+	(*PingResponse)(nil),                  // 1: qscan.v1.PingResponse
+	(*GetNextJobRequest)(nil),             // 2: qscan.v1.GetNextJobRequest
+	(*GetNextJobResponse)(nil),            // 3: qscan.v1.GetNextJobResponse
+	(*SubmitJobReportRequest)(nil),        // 4: qscan.v1.SubmitJobReportRequest
+	(*SubmitJobReportSuccess)(nil),        // 5: qscan.v1.SubmitJobReportSuccess
+	(*SubmitJobReportError)(nil),          // 6: qscan.v1.SubmitJobReportError
+	(*SubmitJobReportResponse)(nil),       // 7: qscan.v1.SubmitJobReportResponse
+	(*SubmitJobReportRequest_Result)(nil), // 8: qscan.v1.SubmitJobReportRequest.Result
+	(*v1.Artifact)(nil),                   // 9: qpoint.type.v1.Artifact
+	(*v1.PIIEntity)(nil),                  // 10: qpoint.type.v1.PIIEntity
 }
 var file_qscan_v1_main_proto_depIdxs = []int32{
-	4, // 0: qscan.v1.GetNextJobResponse.artifact:type_name -> qpoint.type.v1.Artifact
-	0, // 1: qscan.v1.QscanSchedulerService.Ping:input_type -> qscan.v1.PingRequest
-	2, // 2: qscan.v1.QscanSchedulerService.GetNextJob:input_type -> qscan.v1.GetNextJobRequest
-	1, // 3: qscan.v1.QscanSchedulerService.Ping:output_type -> qscan.v1.PingResponse
-	3, // 4: qscan.v1.QscanSchedulerService.GetNextJob:output_type -> qscan.v1.GetNextJobResponse
-	3, // [3:5] is the sub-list for method output_type
-	1, // [1:3] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	9,  // 0: qscan.v1.GetNextJobResponse.artifact:type_name -> qpoint.type.v1.Artifact
+	8,  // 1: qscan.v1.SubmitJobReportRequest.result:type_name -> qscan.v1.SubmitJobReportRequest.Result
+	9,  // 2: qscan.v1.SubmitJobReportSuccess.artifact:type_name -> qpoint.type.v1.Artifact
+	10, // 3: qscan.v1.SubmitJobReportSuccess.pii_entities:type_name -> qpoint.type.v1.PIIEntity
+	5,  // 4: qscan.v1.SubmitJobReportRequest.Result.success:type_name -> qscan.v1.SubmitJobReportSuccess
+	6,  // 5: qscan.v1.SubmitJobReportRequest.Result.error:type_name -> qscan.v1.SubmitJobReportError
+	0,  // 6: qscan.v1.QscanSchedulerService.Ping:input_type -> qscan.v1.PingRequest
+	2,  // 7: qscan.v1.QscanSchedulerService.GetNextJob:input_type -> qscan.v1.GetNextJobRequest
+	4,  // 8: qscan.v1.QscanSchedulerService.SubmitJobReport:input_type -> qscan.v1.SubmitJobReportRequest
+	1,  // 9: qscan.v1.QscanSchedulerService.Ping:output_type -> qscan.v1.PingResponse
+	3,  // 10: qscan.v1.QscanSchedulerService.GetNextJob:output_type -> qscan.v1.GetNextJobResponse
+	7,  // 11: qscan.v1.QscanSchedulerService.SubmitJobReport:output_type -> qscan.v1.SubmitJobReportResponse
+	9,  // [9:12] is the sub-list for method output_type
+	6,  // [6:9] is the sub-list for method input_type
+	6,  // [6:6] is the sub-list for extension type_name
+	6,  // [6:6] is the sub-list for extension extendee
+	0,  // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_qscan_v1_main_proto_init() }
@@ -275,13 +740,17 @@ func file_qscan_v1_main_proto_init() {
 	if File_qscan_v1_main_proto != nil {
 		return
 	}
+	file_qscan_v1_main_proto_msgTypes[8].OneofWrappers = []any{
+		(*submitJobReportRequest_Result_Success)(nil),
+		(*submitJobReportRequest_Result_Error)(nil),
+	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_qscan_v1_main_proto_rawDesc), len(file_qscan_v1_main_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
