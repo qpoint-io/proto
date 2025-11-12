@@ -166,7 +166,8 @@ func (b0 GetNextJobRequest_builder) Build() *GetNextJobRequest {
 
 type GetNextJobResponse struct {
 	state               protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Artifact *v1.Artifact           `protobuf:"bytes,1,opt,name=artifact,proto3"`
+	xxx_hidden_ScanId   string                 `protobuf:"bytes,1,opt,name=scan_id,json=scanId,proto3"`
+	xxx_hidden_Artifact *v1.Artifact           `protobuf:"bytes,2,opt,name=artifact,proto3"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -196,11 +197,22 @@ func (x *GetNextJobResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+func (x *GetNextJobResponse) GetScanId() string {
+	if x != nil {
+		return x.xxx_hidden_ScanId
+	}
+	return ""
+}
+
 func (x *GetNextJobResponse) GetArtifact() *v1.Artifact {
 	if x != nil {
 		return x.xxx_hidden_Artifact
 	}
 	return nil
+}
+
+func (x *GetNextJobResponse) SetScanId(v string) {
+	x.xxx_hidden_ScanId = v
 }
 
 func (x *GetNextJobResponse) SetArtifact(v *v1.Artifact) {
@@ -221,6 +233,7 @@ func (x *GetNextJobResponse) ClearArtifact() {
 type GetNextJobResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
+	ScanId   string
 	Artifact *v1.Artifact
 }
 
@@ -228,14 +241,16 @@ func (b0 GetNextJobResponse_builder) Build() *GetNextJobResponse {
 	m0 := &GetNextJobResponse{}
 	b, x := &b0, m0
 	_, _ = b, x
+	x.xxx_hidden_ScanId = b.ScanId
 	x.xxx_hidden_Artifact = b.Artifact
 	return m0
 }
 
 type SubmitJobReportRequest struct {
 	state             protoimpl.MessageState         `protogen:"opaque.v1"`
-	xxx_hidden_OrgId  string                         `protobuf:"bytes,1,opt,name=org_id,json=orgId,proto3"`
-	xxx_hidden_Result *SubmitJobReportRequest_Result `protobuf:"bytes,2,opt,name=result,proto3"`
+	xxx_hidden_ScanId string                         `protobuf:"bytes,1,opt,name=scan_id,json=scanId,proto3"`
+	xxx_hidden_OrgId  string                         `protobuf:"bytes,2,opt,name=org_id,json=orgId,proto3"`
+	xxx_hidden_Result *SubmitJobReportRequest_Result `protobuf:"bytes,3,opt,name=result,proto3"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -265,6 +280,13 @@ func (x *SubmitJobReportRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+func (x *SubmitJobReportRequest) GetScanId() string {
+	if x != nil {
+		return x.xxx_hidden_ScanId
+	}
+	return ""
+}
+
 func (x *SubmitJobReportRequest) GetOrgId() string {
 	if x != nil {
 		return x.xxx_hidden_OrgId
@@ -277,6 +299,10 @@ func (x *SubmitJobReportRequest) GetResult() *SubmitJobReportRequest_Result {
 		return x.xxx_hidden_Result
 	}
 	return nil
+}
+
+func (x *SubmitJobReportRequest) SetScanId(v string) {
+	x.xxx_hidden_ScanId = v
 }
 
 func (x *SubmitJobReportRequest) SetOrgId(v string) {
@@ -301,6 +327,7 @@ func (x *SubmitJobReportRequest) ClearResult() {
 type SubmitJobReportRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
+	ScanId string
 	OrgId  string
 	Result *SubmitJobReportRequest_Result
 }
@@ -309,6 +336,7 @@ func (b0 SubmitJobReportRequest_builder) Build() *SubmitJobReportRequest {
 	m0 := &SubmitJobReportRequest{}
 	b, x := &b0, m0
 	_, _ = b, x
+	x.xxx_hidden_ScanId = b.ScanId
 	x.xxx_hidden_OrgId = b.OrgId
 	x.xxx_hidden_Result = b.Result
 	return m0
@@ -604,8 +632,8 @@ func (x *SubmitJobReportRequest_Result) ClearError() {
 }
 
 const SubmitJobReportRequest_Result_Result_not_set_case case_SubmitJobReportRequest_Result_Result = 0
-const SubmitJobReportRequest_Result_Success_case case_SubmitJobReportRequest_Result_Result = 1
-const SubmitJobReportRequest_Result_Error_case case_SubmitJobReportRequest_Result_Result = 2
+const SubmitJobReportRequest_Result_Success_case case_SubmitJobReportRequest_Result_Result = 4
+const SubmitJobReportRequest_Result_Error_case case_SubmitJobReportRequest_Result_Result = 5
 
 func (x *SubmitJobReportRequest_Result) WhichResult() case_SubmitJobReportRequest_Result_Result {
 	if x == nil {
@@ -658,11 +686,11 @@ type isSubmitJobReportRequest_Result_Result interface {
 }
 
 type submitJobReportRequest_Result_Success struct {
-	Success *SubmitJobReportSuccess `protobuf:"bytes,1,opt,name=success,proto3,oneof"`
+	Success *SubmitJobReportSuccess `protobuf:"bytes,4,opt,name=success,proto3,oneof"`
 }
 
 type submitJobReportRequest_Result_Error struct {
-	Error *SubmitJobReportError `protobuf:"bytes,2,opt,name=error,proto3,oneof"`
+	Error *SubmitJobReportError `protobuf:"bytes,5,opt,name=error,proto3,oneof"`
 }
 
 func (*submitJobReportRequest_Result_Success) isSubmitJobReportRequest_Result_Result() {}
@@ -677,15 +705,17 @@ const file_qscan_v1_main_proto_rawDesc = "" +
 	"\vPingRequest\"%\n" +
 	"\fPingResponse\x12\x15\n" +
 	"\x06org_id\x18\x01 \x01(\tR\x05orgId\"\x13\n" +
-	"\x11GetNextJobRequest\"J\n" +
-	"\x12GetNextJobResponse\x124\n" +
-	"\bartifact\x18\x01 \x01(\v2\x18.qpoint.type.v1.ArtifactR\bartifact\"\xfb\x01\n" +
-	"\x16SubmitJobReportRequest\x12\x15\n" +
-	"\x06org_id\x18\x01 \x01(\tR\x05orgId\x12?\n" +
-	"\x06result\x18\x02 \x01(\v2'.qscan.v1.SubmitJobReportRequest.ResultR\x06result\x1a\x88\x01\n" +
+	"\x11GetNextJobRequest\"c\n" +
+	"\x12GetNextJobResponse\x12\x17\n" +
+	"\ascan_id\x18\x01 \x01(\tR\x06scanId\x124\n" +
+	"\bartifact\x18\x02 \x01(\v2\x18.qpoint.type.v1.ArtifactR\bartifact\"\x94\x02\n" +
+	"\x16SubmitJobReportRequest\x12\x17\n" +
+	"\ascan_id\x18\x01 \x01(\tR\x06scanId\x12\x15\n" +
+	"\x06org_id\x18\x02 \x01(\tR\x05orgId\x12?\n" +
+	"\x06result\x18\x03 \x01(\v2'.qscan.v1.SubmitJobReportRequest.ResultR\x06result\x1a\x88\x01\n" +
 	"\x06Result\x12<\n" +
-	"\asuccess\x18\x01 \x01(\v2 .qscan.v1.SubmitJobReportSuccessH\x00R\asuccess\x126\n" +
-	"\x05error\x18\x02 \x01(\v2\x1e.qscan.v1.SubmitJobReportErrorH\x00R\x05errorB\b\n" +
+	"\asuccess\x18\x04 \x01(\v2 .qscan.v1.SubmitJobReportSuccessH\x00R\asuccess\x126\n" +
+	"\x05error\x18\x05 \x01(\v2\x1e.qscan.v1.SubmitJobReportErrorH\x00R\x05errorB\b\n" +
 	"\x06result\"\x8c\x01\n" +
 	"\x16SubmitJobReportSuccess\x124\n" +
 	"\bartifact\x18\x01 \x01(\v2\x18.qpoint.type.v1.ArtifactR\bartifact\x12<\n" +

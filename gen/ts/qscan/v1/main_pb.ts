@@ -14,7 +14,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file qscan/v1/main.proto.
  */
 export const file_qscan_v1_main: GenFile = /*@__PURE__*/
-  fileDesc("ChNxc2Nhbi92MS9tYWluLnByb3RvEghxc2Nhbi52MSINCgtQaW5nUmVxdWVzdCIeCgxQaW5nUmVzcG9uc2USDgoGb3JnX2lkGAEgASgJIhMKEUdldE5leHRKb2JSZXF1ZXN0IkAKEkdldE5leHRKb2JSZXNwb25zZRIqCghhcnRpZmFjdBgBIAEoCzIYLnFwb2ludC50eXBlLnYxLkFydGlmYWN0ItsBChZTdWJtaXRKb2JSZXBvcnRSZXF1ZXN0Eg4KBm9yZ19pZBgBIAEoCRI3CgZyZXN1bHQYAiABKAsyJy5xc2Nhbi52MS5TdWJtaXRKb2JSZXBvcnRSZXF1ZXN0LlJlc3VsdBp4CgZSZXN1bHQSMwoHc3VjY2VzcxgBIAEoCzIgLnFzY2FuLnYxLlN1Ym1pdEpvYlJlcG9ydFN1Y2Nlc3NIABIvCgVlcnJvchgCIAEoCzIeLnFzY2FuLnYxLlN1Ym1pdEpvYlJlcG9ydEVycm9ySABCCAoGcmVzdWx0InUKFlN1Ym1pdEpvYlJlcG9ydFN1Y2Nlc3MSKgoIYXJ0aWZhY3QYASABKAsyGC5xcG9pbnQudHlwZS52MS5BcnRpZmFjdBIvCgxwaWlfZW50aXRpZXMYAiADKAsyGS5xcG9pbnQudHlwZS52MS5QSUlFbnRpdHkiKgoUU3VibWl0Sm9iUmVwb3J0RXJyb3ISEgoKZXJyb3JfdGV4dBgBIAEoCSIZChdTdWJtaXRKb2JSZXBvcnRSZXNwb25zZTL1AQoVUXNjYW5TY2hlZHVsZXJTZXJ2aWNlEjcKBFBpbmcSFS5xc2Nhbi52MS5QaW5nUmVxdWVzdBoWLnFzY2FuLnYxLlBpbmdSZXNwb25zZSIAEkkKCkdldE5leHRKb2ISGy5xc2Nhbi52MS5HZXROZXh0Sm9iUmVxdWVzdBocLnFzY2FuLnYxLkdldE5leHRKb2JSZXNwb25zZSIAElgKD1N1Ym1pdEpvYlJlcG9ydBIgLnFzY2FuLnYxLlN1Ym1pdEpvYlJlcG9ydFJlcXVlc3QaIS5xc2Nhbi52MS5TdWJtaXRKb2JSZXBvcnRSZXNwb25zZSIAQo4BCgxjb20ucXNjYW4udjFCCU1haW5Qcm90b1ABWjJnaXRodWIuY29tL3Fwb2ludC1pby9wcm90by9nZW4vZ28vcXNjYW4vdjE7cXNjYW52MaICA1FYWKoCCFFzY2FuLlYxygIIUXNjYW5cVjHiAhRRc2NhblxWMVxHUEJNZXRhZGF0YeoCCVFzY2FuOjpWMWIGcHJvdG8z", [file_qpoint_type_v1_artifact, file_qpoint_type_v1_pii]);
+  fileDesc("ChNxc2Nhbi92MS9tYWluLnByb3RvEghxc2Nhbi52MSINCgtQaW5nUmVxdWVzdCIeCgxQaW5nUmVzcG9uc2USDgoGb3JnX2lkGAEgASgJIhMKEUdldE5leHRKb2JSZXF1ZXN0IlEKEkdldE5leHRKb2JSZXNwb25zZRIPCgdzY2FuX2lkGAEgASgJEioKCGFydGlmYWN0GAIgASgLMhgucXBvaW50LnR5cGUudjEuQXJ0aWZhY3Qi7AEKFlN1Ym1pdEpvYlJlcG9ydFJlcXVlc3QSDwoHc2Nhbl9pZBgBIAEoCRIOCgZvcmdfaWQYAiABKAkSNwoGcmVzdWx0GAMgASgLMicucXNjYW4udjEuU3VibWl0Sm9iUmVwb3J0UmVxdWVzdC5SZXN1bHQaeAoGUmVzdWx0EjMKB3N1Y2Nlc3MYBCABKAsyIC5xc2Nhbi52MS5TdWJtaXRKb2JSZXBvcnRTdWNjZXNzSAASLwoFZXJyb3IYBSABKAsyHi5xc2Nhbi52MS5TdWJtaXRKb2JSZXBvcnRFcnJvckgAQggKBnJlc3VsdCJ1ChZTdWJtaXRKb2JSZXBvcnRTdWNjZXNzEioKCGFydGlmYWN0GAEgASgLMhgucXBvaW50LnR5cGUudjEuQXJ0aWZhY3QSLwoMcGlpX2VudGl0aWVzGAIgAygLMhkucXBvaW50LnR5cGUudjEuUElJRW50aXR5IioKFFN1Ym1pdEpvYlJlcG9ydEVycm9yEhIKCmVycm9yX3RleHQYASABKAkiGQoXU3VibWl0Sm9iUmVwb3J0UmVzcG9uc2Uy9QEKFVFzY2FuU2NoZWR1bGVyU2VydmljZRI3CgRQaW5nEhUucXNjYW4udjEuUGluZ1JlcXVlc3QaFi5xc2Nhbi52MS5QaW5nUmVzcG9uc2UiABJJCgpHZXROZXh0Sm9iEhsucXNjYW4udjEuR2V0TmV4dEpvYlJlcXVlc3QaHC5xc2Nhbi52MS5HZXROZXh0Sm9iUmVzcG9uc2UiABJYCg9TdWJtaXRKb2JSZXBvcnQSIC5xc2Nhbi52MS5TdWJtaXRKb2JSZXBvcnRSZXF1ZXN0GiEucXNjYW4udjEuU3VibWl0Sm9iUmVwb3J0UmVzcG9uc2UiAEKOAQoMY29tLnFzY2FuLnYxQglNYWluUHJvdG9QAVoyZ2l0aHViLmNvbS9xcG9pbnQtaW8vcHJvdG8vZ2VuL2dvL3FzY2FuL3YxO3FzY2FudjGiAgNRWFiqAghRc2Nhbi5WMcoCCFFzY2FuXFYx4gIUUXNjYW5cVjFcR1BCTWV0YWRhdGHqAglRc2Nhbjo6VjFiBnByb3RvMw", [file_qpoint_type_v1_artifact, file_qpoint_type_v1_pii]);
 
 /**
  * @generated from message qscan.v1.PingRequest
@@ -64,7 +64,12 @@ export const GetNextJobRequestSchema: GenMessage<GetNextJobRequest> = /*@__PURE_
  */
 export type GetNextJobResponse = Message<"qscan.v1.GetNextJobResponse"> & {
   /**
-   * @generated from field: qpoint.type.v1.Artifact artifact = 1;
+   * @generated from field: string scan_id = 1;
+   */
+  scanId: string;
+
+  /**
+   * @generated from field: qpoint.type.v1.Artifact artifact = 2;
    */
   artifact?: Artifact;
 };
@@ -81,12 +86,17 @@ export const GetNextJobResponseSchema: GenMessage<GetNextJobResponse> = /*@__PUR
  */
 export type SubmitJobReportRequest = Message<"qscan.v1.SubmitJobReportRequest"> & {
   /**
-   * @generated from field: string org_id = 1;
+   * @generated from field: string scan_id = 1;
+   */
+  scanId: string;
+
+  /**
+   * @generated from field: string org_id = 2;
    */
   orgId: string;
 
   /**
-   * @generated from field: qscan.v1.SubmitJobReportRequest.Result result = 2;
+   * @generated from field: qscan.v1.SubmitJobReportRequest.Result result = 3;
    */
   result?: SubmitJobReportRequest_Result;
 };
@@ -107,13 +117,13 @@ export type SubmitJobReportRequest_Result = Message<"qscan.v1.SubmitJobReportReq
    */
   result: {
     /**
-     * @generated from field: qscan.v1.SubmitJobReportSuccess success = 1;
+     * @generated from field: qscan.v1.SubmitJobReportSuccess success = 4;
      */
     value: SubmitJobReportSuccess;
     case: "success";
   } | {
     /**
-     * @generated from field: qscan.v1.SubmitJobReportError error = 2;
+     * @generated from field: qscan.v1.SubmitJobReportError error = 5;
      */
     value: SubmitJobReportError;
     case: "error";

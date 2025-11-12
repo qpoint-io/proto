@@ -15,7 +15,7 @@ from qpoint.type.v1 import artifact_pb2 as qpoint_dot_type_dot_v1_dot_artifact__
 from qpoint.type.v1 import pii_pb2 as qpoint_dot_type_dot_v1_dot_pii__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13qscan/v1/main.proto\x12\x08qscan.v1\x1a\x1dqpoint/type/v1/artifact.proto\x1a\x18qpoint/type/v1/pii.proto\"\r\n\x0bPingRequest\"%\n\x0cPingResponse\x12\x15\n\x06org_id\x18\x01 \x01(\tR\x05orgId\"\x13\n\x11GetNextJobRequest\"J\n\x12GetNextJobResponse\x12\x34\n\x08\x61rtifact\x18\x01 \x01(\x0b\x32\x18.qpoint.type.v1.ArtifactR\x08\x61rtifact\"\xfb\x01\n\x16SubmitJobReportRequest\x12\x15\n\x06org_id\x18\x01 \x01(\tR\x05orgId\x12?\n\x06result\x18\x02 \x01(\x0b\x32\'.qscan.v1.SubmitJobReportRequest.ResultR\x06result\x1a\x88\x01\n\x06Result\x12<\n\x07success\x18\x01 \x01(\x0b\x32 .qscan.v1.SubmitJobReportSuccessH\x00R\x07success\x12\x36\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x1e.qscan.v1.SubmitJobReportErrorH\x00R\x05\x65rrorB\x08\n\x06result\"\x8c\x01\n\x16SubmitJobReportSuccess\x12\x34\n\x08\x61rtifact\x18\x01 \x01(\x0b\x32\x18.qpoint.type.v1.ArtifactR\x08\x61rtifact\x12<\n\x0cpii_entities\x18\x02 \x03(\x0b\x32\x19.qpoint.type.v1.PIIEntityR\x0bpiiEntities\"5\n\x14SubmitJobReportError\x12\x1d\n\nerror_text\x18\x01 \x01(\tR\terrorText\"\x19\n\x17SubmitJobReportResponse2\xf5\x01\n\x15QscanSchedulerService\x12\x37\n\x04Ping\x12\x15.qscan.v1.PingRequest\x1a\x16.qscan.v1.PingResponse\"\x00\x12I\n\nGetNextJob\x12\x1b.qscan.v1.GetNextJobRequest\x1a\x1c.qscan.v1.GetNextJobResponse\"\x00\x12X\n\x0fSubmitJobReport\x12 .qscan.v1.SubmitJobReportRequest\x1a!.qscan.v1.SubmitJobReportResponse\"\x00\x42\x8e\x01\n\x0c\x63om.qscan.v1B\tMainProtoP\x01Z2github.com/qpoint-io/proto/gen/go/qscan/v1;qscanv1\xa2\x02\x03QXX\xaa\x02\x08Qscan.V1\xca\x02\x08Qscan\\V1\xe2\x02\x14Qscan\\V1\\GPBMetadata\xea\x02\tQscan::V1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13qscan/v1/main.proto\x12\x08qscan.v1\x1a\x1dqpoint/type/v1/artifact.proto\x1a\x18qpoint/type/v1/pii.proto\"\r\n\x0bPingRequest\"%\n\x0cPingResponse\x12\x15\n\x06org_id\x18\x01 \x01(\tR\x05orgId\"\x13\n\x11GetNextJobRequest\"c\n\x12GetNextJobResponse\x12\x17\n\x07scan_id\x18\x01 \x01(\tR\x06scanId\x12\x34\n\x08\x61rtifact\x18\x02 \x01(\x0b\x32\x18.qpoint.type.v1.ArtifactR\x08\x61rtifact\"\x94\x02\n\x16SubmitJobReportRequest\x12\x17\n\x07scan_id\x18\x01 \x01(\tR\x06scanId\x12\x15\n\x06org_id\x18\x02 \x01(\tR\x05orgId\x12?\n\x06result\x18\x03 \x01(\x0b\x32\'.qscan.v1.SubmitJobReportRequest.ResultR\x06result\x1a\x88\x01\n\x06Result\x12<\n\x07success\x18\x04 \x01(\x0b\x32 .qscan.v1.SubmitJobReportSuccessH\x00R\x07success\x12\x36\n\x05\x65rror\x18\x05 \x01(\x0b\x32\x1e.qscan.v1.SubmitJobReportErrorH\x00R\x05\x65rrorB\x08\n\x06result\"\x8c\x01\n\x16SubmitJobReportSuccess\x12\x34\n\x08\x61rtifact\x18\x01 \x01(\x0b\x32\x18.qpoint.type.v1.ArtifactR\x08\x61rtifact\x12<\n\x0cpii_entities\x18\x02 \x03(\x0b\x32\x19.qpoint.type.v1.PIIEntityR\x0bpiiEntities\"5\n\x14SubmitJobReportError\x12\x1d\n\nerror_text\x18\x01 \x01(\tR\terrorText\"\x19\n\x17SubmitJobReportResponse2\xf5\x01\n\x15QscanSchedulerService\x12\x37\n\x04Ping\x12\x15.qscan.v1.PingRequest\x1a\x16.qscan.v1.PingResponse\"\x00\x12I\n\nGetNextJob\x12\x1b.qscan.v1.GetNextJobRequest\x1a\x1c.qscan.v1.GetNextJobResponse\"\x00\x12X\n\x0fSubmitJobReport\x12 .qscan.v1.SubmitJobReportRequest\x1a!.qscan.v1.SubmitJobReportResponse\"\x00\x42\x8e\x01\n\x0c\x63om.qscan.v1B\tMainProtoP\x01Z2github.com/qpoint-io/proto/gen/go/qscan/v1;qscanv1\xa2\x02\x03QXX\xaa\x02\x08Qscan.V1\xca\x02\x08Qscan\\V1\xe2\x02\x14Qscan\\V1\\GPBMetadata\xea\x02\tQscan::V1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -30,17 +30,17 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_GETNEXTJOBREQUEST']._serialized_start=144
   _globals['_GETNEXTJOBREQUEST']._serialized_end=163
   _globals['_GETNEXTJOBRESPONSE']._serialized_start=165
-  _globals['_GETNEXTJOBRESPONSE']._serialized_end=239
-  _globals['_SUBMITJOBREPORTREQUEST']._serialized_start=242
-  _globals['_SUBMITJOBREPORTREQUEST']._serialized_end=493
-  _globals['_SUBMITJOBREPORTREQUEST_RESULT']._serialized_start=357
-  _globals['_SUBMITJOBREPORTREQUEST_RESULT']._serialized_end=493
-  _globals['_SUBMITJOBREPORTSUCCESS']._serialized_start=496
-  _globals['_SUBMITJOBREPORTSUCCESS']._serialized_end=636
-  _globals['_SUBMITJOBREPORTERROR']._serialized_start=638
-  _globals['_SUBMITJOBREPORTERROR']._serialized_end=691
-  _globals['_SUBMITJOBREPORTRESPONSE']._serialized_start=693
-  _globals['_SUBMITJOBREPORTRESPONSE']._serialized_end=718
-  _globals['_QSCANSCHEDULERSERVICE']._serialized_start=721
-  _globals['_QSCANSCHEDULERSERVICE']._serialized_end=966
+  _globals['_GETNEXTJOBRESPONSE']._serialized_end=264
+  _globals['_SUBMITJOBREPORTREQUEST']._serialized_start=267
+  _globals['_SUBMITJOBREPORTREQUEST']._serialized_end=543
+  _globals['_SUBMITJOBREPORTREQUEST_RESULT']._serialized_start=407
+  _globals['_SUBMITJOBREPORTREQUEST_RESULT']._serialized_end=543
+  _globals['_SUBMITJOBREPORTSUCCESS']._serialized_start=546
+  _globals['_SUBMITJOBREPORTSUCCESS']._serialized_end=686
+  _globals['_SUBMITJOBREPORTERROR']._serialized_start=688
+  _globals['_SUBMITJOBREPORTERROR']._serialized_end=741
+  _globals['_SUBMITJOBREPORTRESPONSE']._serialized_start=743
+  _globals['_SUBMITJOBREPORTRESPONSE']._serialized_end=768
+  _globals['_QSCANSCHEDULERSERVICE']._serialized_start=771
+  _globals['_QSCANSCHEDULERSERVICE']._serialized_end=1016
 # @@protoc_insertion_point(module_scope)
