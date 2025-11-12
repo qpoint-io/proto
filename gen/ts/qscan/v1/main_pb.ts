@@ -6,13 +6,15 @@ import type { GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegen
 import { fileDesc, messageDesc, serviceDesc } from "@bufbuild/protobuf/codegenv1";
 import type { Artifact } from "../../qpoint/type/v1/artifact_pb";
 import { file_qpoint_type_v1_artifact } from "../../qpoint/type/v1/artifact_pb";
+import type { PIIEntity } from "../../qpoint/type/v1/pii_pb";
+import { file_qpoint_type_v1_pii } from "../../qpoint/type/v1/pii_pb";
 import type { Message } from "@bufbuild/protobuf";
 
 /**
  * Describes the file qscan/v1/main.proto.
  */
 export const file_qscan_v1_main: GenFile = /*@__PURE__*/
-  fileDesc("ChNxc2Nhbi92MS9tYWluLnByb3RvEghxc2Nhbi52MSINCgtQaW5nUmVxdWVzdCIeCgxQaW5nUmVzcG9uc2USDgoGb3JnX2lkGAEgASgJIhMKEUdldE5leHRKb2JSZXF1ZXN0IkAKEkdldE5leHRKb2JSZXNwb25zZRIqCghhcnRpZmFjdBgBIAEoCzIYLnFwb2ludC50eXBlLnYxLkFydGlmYWN0MpsBChVRc2NhblNjaGVkdWxlclNlcnZpY2USNwoEUGluZxIVLnFzY2FuLnYxLlBpbmdSZXF1ZXN0GhYucXNjYW4udjEuUGluZ1Jlc3BvbnNlIgASSQoKR2V0TmV4dEpvYhIbLnFzY2FuLnYxLkdldE5leHRKb2JSZXF1ZXN0GhwucXNjYW4udjEuR2V0TmV4dEpvYlJlc3BvbnNlIgBCjgEKDGNvbS5xc2Nhbi52MUIJTWFpblByb3RvUAFaMmdpdGh1Yi5jb20vcXBvaW50LWlvL3Byb3RvL2dlbi9nby9xc2Nhbi92MTtxc2NhbnYxogIDUVhYqgIIUXNjYW4uVjHKAghRc2NhblxWMeICFFFzY2FuXFYxXEdQQk1ldGFkYXRh6gIJUXNjYW46OlYxYgZwcm90bzM", [file_qpoint_type_v1_artifact]);
+  fileDesc("ChNxc2Nhbi92MS9tYWluLnByb3RvEghxc2Nhbi52MSINCgtQaW5nUmVxdWVzdCIeCgxQaW5nUmVzcG9uc2USDgoGb3JnX2lkGAEgASgJIhMKEUdldE5leHRKb2JSZXF1ZXN0IkAKEkdldE5leHRKb2JSZXNwb25zZRIqCghhcnRpZmFjdBgBIAEoCzIYLnFwb2ludC50eXBlLnYxLkFydGlmYWN0ItsBChZTdWJtaXRKb2JSZXBvcnRSZXF1ZXN0Eg4KBm9yZ19pZBgBIAEoCRI3CgZyZXN1bHQYAiABKAsyJy5xc2Nhbi52MS5TdWJtaXRKb2JSZXBvcnRSZXF1ZXN0LlJlc3VsdBp4CgZSZXN1bHQSMwoHc3VjY2VzcxgBIAEoCzIgLnFzY2FuLnYxLlN1Ym1pdEpvYlJlcG9ydFN1Y2Nlc3NIABIvCgVlcnJvchgCIAEoCzIeLnFzY2FuLnYxLlN1Ym1pdEpvYlJlcG9ydEVycm9ySABCCAoGcmVzdWx0InUKFlN1Ym1pdEpvYlJlcG9ydFN1Y2Nlc3MSKgoIYXJ0aWZhY3QYASABKAsyGC5xcG9pbnQudHlwZS52MS5BcnRpZmFjdBIvCgxwaWlfZW50aXRpZXMYAiADKAsyGS5xcG9pbnQudHlwZS52MS5QSUlFbnRpdHkiKgoUU3VibWl0Sm9iUmVwb3J0RXJyb3ISEgoKZXJyb3JfdGV4dBgBIAEoCSIZChdTdWJtaXRKb2JSZXBvcnRSZXNwb25zZTL1AQoVUXNjYW5TY2hlZHVsZXJTZXJ2aWNlEjcKBFBpbmcSFS5xc2Nhbi52MS5QaW5nUmVxdWVzdBoWLnFzY2FuLnYxLlBpbmdSZXNwb25zZSIAEkkKCkdldE5leHRKb2ISGy5xc2Nhbi52MS5HZXROZXh0Sm9iUmVxdWVzdBocLnFzY2FuLnYxLkdldE5leHRKb2JSZXNwb25zZSIAElgKD1N1Ym1pdEpvYlJlcG9ydBIgLnFzY2FuLnYxLlN1Ym1pdEpvYlJlcG9ydFJlcXVlc3QaIS5xc2Nhbi52MS5TdWJtaXRKb2JSZXBvcnRSZXNwb25zZSIAQo4BCgxjb20ucXNjYW4udjFCCU1haW5Qcm90b1ABWjJnaXRodWIuY29tL3Fwb2ludC1pby9wcm90by9nZW4vZ28vcXNjYW4vdjE7cXNjYW52MaICA1FYWKoCCFFzY2FuLlYxygIIUXNjYW5cVjHiAhRRc2NhblxWMVxHUEJNZXRhZGF0YeoCCVFzY2FuOjpWMWIGcHJvdG8z", [file_qpoint_type_v1_artifact, file_qpoint_type_v1_pii]);
 
 /**
  * @generated from message qscan.v1.PingRequest
@@ -75,6 +77,109 @@ export const GetNextJobResponseSchema: GenMessage<GetNextJobResponse> = /*@__PUR
   messageDesc(file_qscan_v1_main, 3);
 
 /**
+ * @generated from message qscan.v1.SubmitJobReportRequest
+ */
+export type SubmitJobReportRequest = Message<"qscan.v1.SubmitJobReportRequest"> & {
+  /**
+   * @generated from field: string org_id = 1;
+   */
+  orgId: string;
+
+  /**
+   * @generated from field: qscan.v1.SubmitJobReportRequest.Result result = 2;
+   */
+  result?: SubmitJobReportRequest_Result;
+};
+
+/**
+ * Describes the message qscan.v1.SubmitJobReportRequest.
+ * Use `create(SubmitJobReportRequestSchema)` to create a new message.
+ */
+export const SubmitJobReportRequestSchema: GenMessage<SubmitJobReportRequest> = /*@__PURE__*/
+  messageDesc(file_qscan_v1_main, 4);
+
+/**
+ * @generated from message qscan.v1.SubmitJobReportRequest.Result
+ */
+export type SubmitJobReportRequest_Result = Message<"qscan.v1.SubmitJobReportRequest.Result"> & {
+  /**
+   * @generated from oneof qscan.v1.SubmitJobReportRequest.Result.result
+   */
+  result: {
+    /**
+     * @generated from field: qscan.v1.SubmitJobReportSuccess success = 1;
+     */
+    value: SubmitJobReportSuccess;
+    case: "success";
+  } | {
+    /**
+     * @generated from field: qscan.v1.SubmitJobReportError error = 2;
+     */
+    value: SubmitJobReportError;
+    case: "error";
+  } | { case: undefined; value?: undefined };
+};
+
+/**
+ * Describes the message qscan.v1.SubmitJobReportRequest.Result.
+ * Use `create(SubmitJobReportRequest_ResultSchema)` to create a new message.
+ */
+export const SubmitJobReportRequest_ResultSchema: GenMessage<SubmitJobReportRequest_Result> = /*@__PURE__*/
+  messageDesc(file_qscan_v1_main, 4, 0);
+
+/**
+ * @generated from message qscan.v1.SubmitJobReportSuccess
+ */
+export type SubmitJobReportSuccess = Message<"qscan.v1.SubmitJobReportSuccess"> & {
+  /**
+   * @generated from field: qpoint.type.v1.Artifact artifact = 1;
+   */
+  artifact?: Artifact;
+
+  /**
+   * @generated from field: repeated qpoint.type.v1.PIIEntity pii_entities = 2;
+   */
+  piiEntities: PIIEntity[];
+};
+
+/**
+ * Describes the message qscan.v1.SubmitJobReportSuccess.
+ * Use `create(SubmitJobReportSuccessSchema)` to create a new message.
+ */
+export const SubmitJobReportSuccessSchema: GenMessage<SubmitJobReportSuccess> = /*@__PURE__*/
+  messageDesc(file_qscan_v1_main, 5);
+
+/**
+ * @generated from message qscan.v1.SubmitJobReportError
+ */
+export type SubmitJobReportError = Message<"qscan.v1.SubmitJobReportError"> & {
+  /**
+   * @generated from field: string error_text = 1;
+   */
+  errorText: string;
+};
+
+/**
+ * Describes the message qscan.v1.SubmitJobReportError.
+ * Use `create(SubmitJobReportErrorSchema)` to create a new message.
+ */
+export const SubmitJobReportErrorSchema: GenMessage<SubmitJobReportError> = /*@__PURE__*/
+  messageDesc(file_qscan_v1_main, 6);
+
+/**
+ * @generated from message qscan.v1.SubmitJobReportResponse
+ */
+export type SubmitJobReportResponse = Message<"qscan.v1.SubmitJobReportResponse"> & {
+};
+
+/**
+ * Describes the message qscan.v1.SubmitJobReportResponse.
+ * Use `create(SubmitJobReportResponseSchema)` to create a new message.
+ */
+export const SubmitJobReportResponseSchema: GenMessage<SubmitJobReportResponse> = /*@__PURE__*/
+  messageDesc(file_qscan_v1_main, 7);
+
+/**
  * @generated from service qscan.v1.QscanSchedulerService
  */
 export const QscanSchedulerService: GenService<{
@@ -93,6 +198,14 @@ export const QscanSchedulerService: GenService<{
     methodKind: "unary";
     input: typeof GetNextJobRequestSchema;
     output: typeof GetNextJobResponseSchema;
+  },
+  /**
+   * @generated from rpc qscan.v1.QscanSchedulerService.SubmitJobReport
+   */
+  submitJobReport: {
+    methodKind: "unary";
+    input: typeof SubmitJobReportRequestSchema;
+    output: typeof SubmitJobReportResponseSchema;
   },
 }> = /*@__PURE__*/
   serviceDesc(file_qscan_v1_main, 0);

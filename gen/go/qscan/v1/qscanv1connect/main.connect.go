@@ -39,12 +39,16 @@ const (
 	// QscanSchedulerServiceGetNextJobProcedure is the fully-qualified name of the
 	// QscanSchedulerService's GetNextJob RPC.
 	QscanSchedulerServiceGetNextJobProcedure = "/qscan.v1.QscanSchedulerService/GetNextJob"
+	// QscanSchedulerServiceSubmitJobReportProcedure is the fully-qualified name of the
+	// QscanSchedulerService's SubmitJobReport RPC.
+	QscanSchedulerServiceSubmitJobReportProcedure = "/qscan.v1.QscanSchedulerService/SubmitJobReport"
 )
 
 // QscanSchedulerServiceClient is a client for the qscan.v1.QscanSchedulerService service.
 type QscanSchedulerServiceClient interface {
 	Ping(context.Context, *connect.Request[v1.PingRequest]) (*connect.Response[v1.PingResponse], error)
 	GetNextJob(context.Context, *connect.Request[v1.GetNextJobRequest]) (*connect.Response[v1.GetNextJobResponse], error)
+	SubmitJobReport(context.Context, *connect.Request[v1.SubmitJobReportRequest]) (*connect.Response[v1.SubmitJobReportResponse], error)
 }
 
 // NewQscanSchedulerServiceClient constructs a client for the qscan.v1.QscanSchedulerService
@@ -70,13 +74,20 @@ func NewQscanSchedulerServiceClient(httpClient connect.HTTPClient, baseURL strin
 			connect.WithSchema(qscanSchedulerServiceMethods.ByName("GetNextJob")),
 			connect.WithClientOptions(opts...),
 		),
+		submitJobReport: connect.NewClient[v1.SubmitJobReportRequest, v1.SubmitJobReportResponse](
+			httpClient,
+			baseURL+QscanSchedulerServiceSubmitJobReportProcedure,
+			connect.WithSchema(qscanSchedulerServiceMethods.ByName("SubmitJobReport")),
+			connect.WithClientOptions(opts...),
+		),
 	}
 }
 
 // qscanSchedulerServiceClient implements QscanSchedulerServiceClient.
 type qscanSchedulerServiceClient struct {
-	ping       *connect.Client[v1.PingRequest, v1.PingResponse]
-	getNextJob *connect.Client[v1.GetNextJobRequest, v1.GetNextJobResponse]
+	ping            *connect.Client[v1.PingRequest, v1.PingResponse]
+	getNextJob      *connect.Client[v1.GetNextJobRequest, v1.GetNextJobResponse]
+	submitJobReport *connect.Client[v1.SubmitJobReportRequest, v1.SubmitJobReportResponse]
 }
 
 // Ping calls qscan.v1.QscanSchedulerService.Ping.
@@ -89,10 +100,16 @@ func (c *qscanSchedulerServiceClient) GetNextJob(ctx context.Context, req *conne
 	return c.getNextJob.CallUnary(ctx, req)
 }
 
+// SubmitJobReport calls qscan.v1.QscanSchedulerService.SubmitJobReport.
+func (c *qscanSchedulerServiceClient) SubmitJobReport(ctx context.Context, req *connect.Request[v1.SubmitJobReportRequest]) (*connect.Response[v1.SubmitJobReportResponse], error) {
+	return c.submitJobReport.CallUnary(ctx, req)
+}
+
 // QscanSchedulerServiceHandler is an implementation of the qscan.v1.QscanSchedulerService service.
 type QscanSchedulerServiceHandler interface {
 	Ping(context.Context, *connect.Request[v1.PingRequest]) (*connect.Response[v1.PingResponse], error)
 	GetNextJob(context.Context, *connect.Request[v1.GetNextJobRequest]) (*connect.Response[v1.GetNextJobResponse], error)
+	SubmitJobReport(context.Context, *connect.Request[v1.SubmitJobReportRequest]) (*connect.Response[v1.SubmitJobReportResponse], error)
 }
 
 // NewQscanSchedulerServiceHandler builds an HTTP handler from the service implementation. It
@@ -114,12 +131,20 @@ func NewQscanSchedulerServiceHandler(svc QscanSchedulerServiceHandler, opts ...c
 		connect.WithSchema(qscanSchedulerServiceMethods.ByName("GetNextJob")),
 		connect.WithHandlerOptions(opts...),
 	)
+	qscanSchedulerServiceSubmitJobReportHandler := connect.NewUnaryHandler(
+		QscanSchedulerServiceSubmitJobReportProcedure,
+		svc.SubmitJobReport,
+		connect.WithSchema(qscanSchedulerServiceMethods.ByName("SubmitJobReport")),
+		connect.WithHandlerOptions(opts...),
+	)
 	return "/qscan.v1.QscanSchedulerService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case QscanSchedulerServicePingProcedure:
 			qscanSchedulerServicePingHandler.ServeHTTP(w, r)
 		case QscanSchedulerServiceGetNextJobProcedure:
 			qscanSchedulerServiceGetNextJobHandler.ServeHTTP(w, r)
+		case QscanSchedulerServiceSubmitJobReportProcedure:
+			qscanSchedulerServiceSubmitJobReportHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -135,4 +160,8 @@ func (UnimplementedQscanSchedulerServiceHandler) Ping(context.Context, *connect.
 
 func (UnimplementedQscanSchedulerServiceHandler) GetNextJob(context.Context, *connect.Request[v1.GetNextJobRequest]) (*connect.Response[v1.GetNextJobResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("qscan.v1.QscanSchedulerService.GetNextJob is not implemented"))
+}
+
+func (UnimplementedQscanSchedulerServiceHandler) SubmitJobReport(context.Context, *connect.Request[v1.SubmitJobReportRequest]) (*connect.Response[v1.SubmitJobReportResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("qscan.v1.QscanSchedulerService.SubmitJobReport is not implemented"))
 }

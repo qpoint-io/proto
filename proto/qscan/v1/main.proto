@@ -3,10 +3,12 @@ syntax = "proto3";
 package qscan.v1;
 
 import "qpoint/type/v1/artifact.proto";
+import "qpoint/type/v1/pii.proto";
 
 service QscanSchedulerService {
   rpc Ping(PingRequest) returns (PingResponse) {}
   rpc GetNextJob(GetNextJobRequest) returns (GetNextJobResponse) {}
+  rpc SubmitJobReport(SubmitJobReportRequest) returns (SubmitJobReportResponse) {}
 }
 
 message PingRequest {}
@@ -20,3 +22,25 @@ message GetNextJobRequest {}
 message GetNextJobResponse {
   qpoint.type.v1.Artifact artifact = 1;
 }
+
+message SubmitJobReportRequest {
+  string org_id = 1;
+  message Result {
+    oneof result {
+      SubmitJobReportSuccess success = 1;
+      SubmitJobReportError error = 2;
+    }
+  }
+  Result result = 2;
+}
+
+message SubmitJobReportSuccess {
+  qpoint.type.v1.Artifact artifact = 1;
+  repeated qpoint.type.v1.PIIEntity pii_entities = 2;
+}
+
+message SubmitJobReportError {
+  string error_text = 1;
+}
+
+message SubmitJobReportResponse {}
