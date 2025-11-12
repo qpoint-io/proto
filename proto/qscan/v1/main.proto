@@ -20,18 +20,20 @@ message PingResponse {
 message GetNextJobRequest {}
 
 message GetNextJobResponse {
-  qpoint.type.v1.Artifact artifact = 1;
+  string scan_id = 1;
+  qpoint.type.v1.Artifact artifact = 2;
 }
 
 message SubmitJobReportRequest {
-  string org_id = 1;
+  string scan_id = 1;
+  string org_id = 2;
   message Result {
     oneof result {
-      SubmitJobReportSuccess success = 1;
-      SubmitJobReportError error = 2;
+      SubmitJobReportSuccess success = 4;
+      SubmitJobReportError error = 5;
     }
   }
-  Result result = 2;
+  Result result = 3;
 }
 
 message SubmitJobReportSuccess {
