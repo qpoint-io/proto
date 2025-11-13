@@ -27,3 +27,7 @@ plugins:
   # Python
   - protoc_builtin: python
     out: gen/py
+    include_imports: true
+  - protoc_builtin: pyi # Generates type stubs for IDEs
+    out: gen/py
+    include_imports: true
