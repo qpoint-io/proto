@@ -27,3 +27,4 @@ plugins:
   # Python
   - protoc_builtin: python
     out: gen/py
+    include_imports: true
