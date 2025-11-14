@@ -31,3 +31,6 @@ plugins:
   - protoc_builtin: pyi # Generates type stubs for IDEs
     out: gen/py
     include_imports: true
+  - local: protoc-gen-connect-python
+    out: gen/py
+    include_imports: true
