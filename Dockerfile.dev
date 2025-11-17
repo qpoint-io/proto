@@ -10,11 +10,12 @@ COPY --from=go /go/bin/protoc-gen-go /usr/local/bin/protoc-gen-go
 COPY --from=go /go/bin/protoc-gen-connect-go /usr/local/bin/protoc-gen-connect-go
 COPY --from=buf /usr/local/bin/buf /usr/local/bin/buf
 
-RUN apk add --no-cache protoc 
+RUN apk add --no-cache protoc python3 py3-pip
+RUN python3 -m venv /venv && . /venv/bin/activate && pip install protoc-gen-connect-python
 
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install
 RUN mkdir /npm && mv node_modules /npm/
 ENV BUF_CACHE_DIR=/tmp/buf
-ENV PATH="/npm/node_modules/.bin:$PATH"
+ENV PATH="/npm/node_modules/.bin:/venv/bin:$PATH"
