@@ -12,10 +12,12 @@ class PingRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class PingResponse(_message.Message):
-    __slots__ = ["org_id"]
+    __slots__ = ["org_id", "service"]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    SERVICE_FIELD_NUMBER: _ClassVar[int]
     org_id: str
-    def __init__(self, org_id: _Optional[str] = ...) -> None: ...
+    service: str
+    def __init__(self, org_id: _Optional[str] = ..., service: _Optional[str] = ...) -> None: ...
 
 class GetNextJobRequest(_message.Message):
     __slots__ = []
@@ -30,7 +32,7 @@ class GetNextJobResponse(_message.Message):
     def __init__(self, scan_id: _Optional[str] = ..., artifact: _Optional[_Union[_artifact_pb2.Artifact, _Mapping]] = ...) -> None: ...
 
 class SubmitJobReportRequest(_message.Message):
-    __slots__ = ["scan_id", "org_id", "result"]
+    __slots__ = ["scan_id", "result"]
     class Result(_message.Message):
         __slots__ = ["success", "error"]
         SUCCESS_FIELD_NUMBER: _ClassVar[int]
@@ -39,12 +41,10 @@ class SubmitJobReportRequest(_message.Message):
         error: SubmitJobReportError
         def __init__(self, success: _Optional[_Union[SubmitJobReportSuccess, _Mapping]] = ..., error: _Optional[_Union[SubmitJobReportError, _Mapping]] = ...) -> None: ...
     SCAN_ID_FIELD_NUMBER: _ClassVar[int]
-    ORG_ID_FIELD_NUMBER: _ClassVar[int]
     RESULT_FIELD_NUMBER: _ClassVar[int]
     scan_id: str
-    org_id: str
     result: SubmitJobReportRequest.Result
-    def __init__(self, scan_id: _Optional[str] = ..., org_id: _Optional[str] = ..., result: _Optional[_Union[SubmitJobReportRequest.Result, _Mapping]] = ...) -> None: ...
+    def __init__(self, scan_id: _Optional[str] = ..., result: _Optional[_Union[SubmitJobReportRequest.Result, _Mapping]] = ...) -> None: ...
 
 class SubmitJobReportSuccess(_message.Message):
     __slots__ = ["artifact", "pii_entities"]

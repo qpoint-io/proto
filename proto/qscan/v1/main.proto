@@ -15,6 +15,7 @@ message PingRequest {}
 
 message PingResponse {
   string org_id = 1;
+  string service = 2;
 }
 
 message GetNextJobRequest {}
@@ -26,14 +27,13 @@ message GetNextJobResponse {
 
 message SubmitJobReportRequest {
   string scan_id = 1;
-  string org_id = 2;
   message Result {
     oneof result {
-      SubmitJobReportSuccess success = 4;
-      SubmitJobReportError error = 5;
+      SubmitJobReportSuccess success = 3;
+      SubmitJobReportError error = 4;
     }
   }
-  Result result = 3;
+  Result result = 2;
 }
 
 message SubmitJobReportSuccess {
