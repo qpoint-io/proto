@@ -22,7 +22,8 @@ message GetNextJobRequest {}
 
 message GetNextJobResponse {
   string scan_id = 1;
-  qpoint.type.v1.Artifact artifact = 2;
+  string org_id = 2;
+  qpoint.type.v1.Artifact artifact = 3;
 }
 
 message SubmitJobReportRequest {

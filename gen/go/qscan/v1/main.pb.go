@@ -181,7 +181,8 @@ func (b0 GetNextJobRequest_builder) Build() *GetNextJobRequest {
 type GetNextJobResponse struct {
 	state               protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_ScanId   string                 `protobuf:"bytes,1,opt,name=scan_id,json=scanId,proto3"`
-	xxx_hidden_Artifact *v1.Artifact           `protobuf:"bytes,2,opt,name=artifact,proto3"`
+	xxx_hidden_OrgId    string                 `protobuf:"bytes,2,opt,name=org_id,json=orgId,proto3"`
+	xxx_hidden_Artifact *v1.Artifact           `protobuf:"bytes,3,opt,name=artifact,proto3"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -218,6 +219,13 @@ func (x *GetNextJobResponse) GetScanId() string {
 	return ""
 }
 
+func (x *GetNextJobResponse) GetOrgId() string {
+	if x != nil {
+		return x.xxx_hidden_OrgId
+	}
+	return ""
+}
+
 func (x *GetNextJobResponse) GetArtifact() *v1.Artifact {
 	if x != nil {
 		return x.xxx_hidden_Artifact
@@ -227,6 +235,10 @@ func (x *GetNextJobResponse) GetArtifact() *v1.Artifact {
 
 func (x *GetNextJobResponse) SetScanId(v string) {
 	x.xxx_hidden_ScanId = v
+}
+
+func (x *GetNextJobResponse) SetOrgId(v string) {
+	x.xxx_hidden_OrgId = v
 }
 
 func (x *GetNextJobResponse) SetArtifact(v *v1.Artifact) {
@@ -248,6 +260,7 @@ type GetNextJobResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	ScanId   string
+	OrgId    string
 	Artifact *v1.Artifact
 }
 
@@ -256,6 +269,7 @@ func (b0 GetNextJobResponse_builder) Build() *GetNextJobResponse {
 	b, x := &b0, m0
 	_, _ = b, x
 	x.xxx_hidden_ScanId = b.ScanId
+	x.xxx_hidden_OrgId = b.OrgId
 	x.xxx_hidden_Artifact = b.Artifact
 	return m0
 }
@@ -706,10 +720,11 @@ const file_qscan_v1_main_proto_rawDesc = "" +
 	"\fPingResponse\x12\x15\n" +
 	"\x06org_id\x18\x01 \x01(\tR\x05orgId\x12\x18\n" +
 	"\aservice\x18\x02 \x01(\tR\aservice\"\x13\n" +
-	"\x11GetNextJobRequest\"c\n" +
+	"\x11GetNextJobRequest\"z\n" +
 	"\x12GetNextJobResponse\x12\x17\n" +
-	"\ascan_id\x18\x01 \x01(\tR\x06scanId\x124\n" +
-	"\bartifact\x18\x02 \x01(\v2\x18.qpoint.type.v1.ArtifactR\bartifact\"\xfd\x01\n" +
+	"\ascan_id\x18\x01 \x01(\tR\x06scanId\x12\x15\n" +
+	"\x06org_id\x18\x02 \x01(\tR\x05orgId\x124\n" +
+	"\bartifact\x18\x03 \x01(\v2\x18.qpoint.type.v1.ArtifactR\bartifact\"\xfd\x01\n" +
 	"\x16SubmitJobReportRequest\x12\x17\n" +
 	"\ascan_id\x18\x01 \x01(\tR\x06scanId\x12?\n" +
 	"\x06result\x18\x02 \x01(\v2'.qscan.v1.SubmitJobReportRequest.ResultR\x06result\x1a\x88\x01\n" +

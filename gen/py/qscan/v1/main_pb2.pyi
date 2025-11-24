@@ -24,12 +24,14 @@ class GetNextJobRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class GetNextJobResponse(_message.Message):
-    __slots__ = ["scan_id", "artifact"]
+    __slots__ = ["scan_id", "org_id", "artifact"]
     SCAN_ID_FIELD_NUMBER: _ClassVar[int]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
     ARTIFACT_FIELD_NUMBER: _ClassVar[int]
     scan_id: str
+    org_id: str
     artifact: _artifact_pb2.Artifact
-    def __init__(self, scan_id: _Optional[str] = ..., artifact: _Optional[_Union[_artifact_pb2.Artifact, _Mapping]] = ...) -> None: ...
+    def __init__(self, scan_id: _Optional[str] = ..., org_id: _Optional[str] = ..., artifact: _Optional[_Union[_artifact_pb2.Artifact, _Mapping]] = ...) -> None: ...
 
 class SubmitJobReportRequest(_message.Message):
     __slots__ = ["scan_id", "result"]
