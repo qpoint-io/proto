@@ -16,7 +16,7 @@ from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1dqpoint/type/v1/artifact.proto\x12\x0eqpoint.type.v1\x1a\x1b\x62uf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd7\x02\n\x08\x41rtifact\x12@\n\ttimestamp\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\ttimestamp\x12+\n\rconnection_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x0c\x63onnectionId\x12%\n\nrequest_id\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\trequestId\x12\x1a\n\x04type\x18\x04 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x04type\x12\x1f\n\x0b\x65ndpoint_id\x18\x05 \x01(\tR\nendpointId\x12\x1b\n\tvendor_id\x18\x06 \x01(\tR\x08vendorId\x12\x16\n\x06\x64igest\x18\x07 \x01(\tR\x06\x64igest\x12\x10\n\x03url\x18\x08 \x01(\tR\x03url\x12\x31\n\x07summary\x18\t \x01(\x0b\x32\x17.google.protobuf.StructR\x07summaryB\xb6\x01\n\x12\x63om.qpoint.type.v1B\rArtifactProtoP\x01Z7github.com/qpoint-io/proto/gen/go/qpoint/type/v1;typev1\xa2\x02\x03QTX\xaa\x02\x0eQpoint.Type.V1\xca\x02\x0eQpoint\\Type\\V1\xe2\x02\x1aQpoint\\Type\\V1\\GPBMetadata\xea\x02\x10Qpoint::Type::V1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1dqpoint/type/v1/artifact.proto\x12\x0eqpoint.type.v1\x1a\x1b\x62uf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xeb\x02\n\x08\x41rtifact\x12@\n\ttimestamp\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\ttimestamp\x12+\n\rconnection_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x0c\x63onnectionId\x12%\n\nrequest_id\x18\x03 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\trequestId\x12\x1a\n\x04type\x18\x04 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\x04type\x12\x1f\n\x0b\x65ndpoint_id\x18\x05 \x01(\tR\nendpointId\x12\x1b\n\tvendor_id\x18\x06 \x01(\tR\x08vendorId\x12\x16\n\x06\x64igest\x18\x07 \x01(\tR\x06\x64igest\x12\x10\n\x03url\x18\x08 \x01(\tR\x03url\x12\x31\n\x07summary\x18\t \x01(\x0b\x32\x17.google.protobuf.StructR\x07summary\x12\x12\n\x04tags\x18\n \x03(\tR\x04tagsB\xb6\x01\n\x12\x63om.qpoint.type.v1B\rArtifactProtoP\x01Z7github.com/qpoint-io/proto/gen/go/qpoint/type/v1;typev1\xa2\x02\x03QTX\xaa\x02\x0eQpoint.Type.V1\xca\x02\x0eQpoint\\Type\\V1\xe2\x02\x1aQpoint\\Type\\V1\\GPBMetadata\xea\x02\x10Qpoint::Type::V1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,5 +33,5 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_ARTIFACT'].fields_by_name['type']._options = None
   _globals['_ARTIFACT'].fields_by_name['type']._serialized_options = b'\272H\003\310\001\001'
   _globals['_ARTIFACT']._serialized_start=142
-  _globals['_ARTIFACT']._serialized_end=485
+  _globals['_ARTIFACT']._serialized_end=505
 # @@protoc_insertion_point(module_scope)
