@@ -34,6 +34,7 @@ type Artifact struct {
 	xxx_hidden_Digest       string                 `protobuf:"bytes,7,opt,name=digest,proto3"`
 	xxx_hidden_Url          string                 `protobuf:"bytes,8,opt,name=url,proto3"`
 	xxx_hidden_Summary      *structpb.Struct       `protobuf:"bytes,9,opt,name=summary,proto3"`
+	xxx_hidden_Tags         []string               `protobuf:"bytes,10,rep,name=tags,proto3"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
@@ -126,6 +127,13 @@ func (x *Artifact) GetSummary() *structpb.Struct {
 	return nil
 }
 
+func (x *Artifact) GetTags() []string {
+	if x != nil {
+		return x.xxx_hidden_Tags
+	}
+	return nil
+}
+
 func (x *Artifact) SetTimestamp(v *timestamppb.Timestamp) {
 	x.xxx_hidden_Timestamp = v
 }
@@ -162,6 +170,10 @@ func (x *Artifact) SetSummary(v *structpb.Struct) {
 	x.xxx_hidden_Summary = v
 }
 
+func (x *Artifact) SetTags(v []string) {
+	x.xxx_hidden_Tags = v
+}
+
 func (x *Artifact) HasTimestamp() bool {
 	if x == nil {
 		return false
@@ -196,6 +208,7 @@ type Artifact_builder struct {
 	Digest       string
 	Url          string
 	Summary      *structpb.Struct
+	Tags         []string
 }
 
 func (b0 Artifact_builder) Build() *Artifact {
@@ -211,6 +224,7 @@ func (b0 Artifact_builder) Build() *Artifact {
 	x.xxx_hidden_Digest = b.Digest
 	x.xxx_hidden_Url = b.Url
 	x.xxx_hidden_Summary = b.Summary
+	x.xxx_hidden_Tags = b.Tags
 	return m0
 }
 
@@ -218,7 +232,7 @@ var File_qpoint_type_v1_artifact_proto protoreflect.FileDescriptor
 
 const file_qpoint_type_v1_artifact_proto_rawDesc = "" +
 	"\n" +
-	"\x1dqpoint/type/v1/artifact.proto\x12\x0eqpoint.type.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd7\x02\n" +
+	"\x1dqpoint/type/v1/artifact.proto\x12\x0eqpoint.type.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xeb\x02\n" +
 	"\bArtifact\x12@\n" +
 	"\ttimestamp\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\ttimestamp\x12+\n" +
 	"\rconnection_id\x18\x02 \x01(\tB\x06\xbaH\x03\xc8\x01\x01R\fconnectionId\x12%\n" +
@@ -230,7 +244,9 @@ const file_qpoint_type_v1_artifact_proto_rawDesc = "" +
 	"\tvendor_id\x18\x06 \x01(\tR\bvendorId\x12\x16\n" +
 	"\x06digest\x18\a \x01(\tR\x06digest\x12\x10\n" +
 	"\x03url\x18\b \x01(\tR\x03url\x121\n" +
-	"\asummary\x18\t \x01(\v2\x17.google.protobuf.StructR\asummaryB\xb6\x01\n" +
+	"\asummary\x18\t \x01(\v2\x17.google.protobuf.StructR\asummary\x12\x12\n" +
+	"\x04tags\x18\n" +
+	" \x03(\tR\x04tagsB\xb6\x01\n" +
 	"\x12com.qpoint.type.v1B\rArtifactProtoP\x01Z7github.com/qpoint-io/proto/gen/go/qpoint/type/v1;typev1\xa2\x02\x03QTX\xaa\x02\x0eQpoint.Type.V1\xca\x02\x0eQpoint\\Type\\V1\xe2\x02\x1aQpoint\\Type\\V1\\GPBMetadata\xea\x02\x10Qpoint::Type::V1b\x06proto3"
 
 var file_qpoint_type_v1_artifact_proto_msgTypes = make([]protoimpl.MessageInfo, 1)

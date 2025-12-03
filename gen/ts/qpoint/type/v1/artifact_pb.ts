@@ -13,7 +13,7 @@ import type { JsonObject, Message } from "@bufbuild/protobuf";
  * Describes the file qpoint/type/v1/artifact.proto.
  */
 export const file_qpoint_type_v1_artifact: GenFile = /*@__PURE__*/
-  fileDesc("Ch1xcG9pbnQvdHlwZS92MS9hcnRpZmFjdC5wcm90bxIOcXBvaW50LnR5cGUudjEigQIKCEFydGlmYWN0EjUKCXRpbWVzdGFtcBgBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBCBrpIA8gBARIdCg1jb25uZWN0aW9uX2lkGAIgASgJQga6SAPIAQESGgoKcmVxdWVzdF9pZBgDIAEoCUIGukgDyAEBEhQKBHR5cGUYBCABKAlCBrpIA8gBARITCgtlbmRwb2ludF9pZBgFIAEoCRIRCgl2ZW5kb3JfaWQYBiABKAkSDgoGZGlnZXN0GAcgASgJEgsKA3VybBgIIAEoCRIoCgdzdW1tYXJ5GAkgASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVjdEK2AQoSY29tLnFwb2ludC50eXBlLnYxQg1BcnRpZmFjdFByb3RvUAFaN2dpdGh1Yi5jb20vcXBvaW50LWlvL3Byb3RvL2dlbi9nby9xcG9pbnQvdHlwZS92MTt0eXBldjGiAgNRVFiqAg5RcG9pbnQuVHlwZS5WMcoCDlFwb2ludFxUeXBlXFYx4gIaUXBvaW50XFR5cGVcVjFcR1BCTWV0YWRhdGHqAhBRcG9pbnQ6OlR5cGU6OlYxYgZwcm90bzM", [file_buf_validate_validate, file_google_protobuf_struct, file_google_protobuf_timestamp]);
+  fileDesc("Ch1xcG9pbnQvdHlwZS92MS9hcnRpZmFjdC5wcm90bxIOcXBvaW50LnR5cGUudjEijwIKCEFydGlmYWN0EjUKCXRpbWVzdGFtcBgBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBCBrpIA8gBARIdCg1jb25uZWN0aW9uX2lkGAIgASgJQga6SAPIAQESGgoKcmVxdWVzdF9pZBgDIAEoCUIGukgDyAEBEhQKBHR5cGUYBCABKAlCBrpIA8gBARITCgtlbmRwb2ludF9pZBgFIAEoCRIRCgl2ZW5kb3JfaWQYBiABKAkSDgoGZGlnZXN0GAcgASgJEgsKA3VybBgIIAEoCRIoCgdzdW1tYXJ5GAkgASgLMhcuZ29vZ2xlLnByb3RvYnVmLlN0cnVjdBIMCgR0YWdzGAogAygJQrYBChJjb20ucXBvaW50LnR5cGUudjFCDUFydGlmYWN0UHJvdG9QAVo3Z2l0aHViLmNvbS9xcG9pbnQtaW8vcHJvdG8vZ2VuL2dvL3Fwb2ludC90eXBlL3YxO3R5cGV2MaICA1FUWKoCDlFwb2ludC5UeXBlLlYxygIOUXBvaW50XFR5cGVcVjHiAhpRcG9pbnRcVHlwZVxWMVxHUEJNZXRhZGF0YeoCEFFwb2ludDo6VHlwZTo6VjFiBnByb3RvMw", [file_buf_validate_validate, file_google_protobuf_struct, file_google_protobuf_timestamp]);
 
 /**
  * @generated from message qpoint.type.v1.Artifact
@@ -63,6 +63,11 @@ export type Artifact = Message<"qpoint.type.v1.Artifact"> & {
    * @generated from field: google.protobuf.Struct summary = 9;
    */
   summary?: JsonObject;
+
+  /**
+   * @generated from field: repeated string tags = 10;
+   */
+  tags: string[];
 };
 
 /**
