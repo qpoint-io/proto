@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package qpoint.type.v1;
+
+import "buf/validate/validate.proto";
+import "google/protobuf/timestamp.proto";
+
+message DatabaseRequest {
+  // Standard metadata
+  string id = 1 [(buf.validate.field).required = true];
+  google.protobuf.Timestamp timestamp = 2 [(buf.validate.field).required = true];
+  string direction = 3 [(buf.validate.field).required = true];
+  string connection_id = 4 [(buf.validate.field).required = true];
+  string endpoint_id = 5;
+
+  // Database identification
+  string database_type = 6; // e.g., "redis", "mongodb", "postgresql", "mysql"
+
+  // Operation details
+  string statement = 9; // Raw query/command text
+
+  // Result details
+  string result_type = 13; // e.g., "string", "rows", "document", "error"
+  bool is_error = 14;
+  string error_msg = 15;
+  int64 affected_count = 16; // Rows affected, documents modified, etc.
+  int64 result_count = 17; // Number of results returned
+
+  // Timing and bytes
+  uint64 duration = 18; // Duration in milliseconds
+  uint64 bytes_received = 19;
+  uint64 bytes_sent = 20;
+
+  // Tags
+  repeated string tags = 21;
+}
