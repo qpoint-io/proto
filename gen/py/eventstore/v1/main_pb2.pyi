@@ -1,5 +1,6 @@
 from qpoint.type.v1 import artifact_pb2 as _artifact_pb2
 from qpoint.type.v1 import connection_pb2 as _connection_pb2
+from qpoint.type.v1 import database_request_pb2 as _database_request_pb2
 from qpoint.type.v1 import issue_pb2 as _issue_pb2
 from qpoint.type.v1 import pii_pb2 as _pii_pb2
 from qpoint.type.v1 import request_pb2 as _request_pb2
@@ -21,34 +22,38 @@ class PingResponse(_message.Message):
     def __init__(self, org_id: _Optional[str] = ...) -> None: ...
 
 class Event(_message.Message):
-    __slots__ = ["request", "issue", "artifact", "pii_entity", "connection"]
+    __slots__ = ["request", "issue", "artifact", "pii_entity", "connection", "database_request"]
     REQUEST_FIELD_NUMBER: _ClassVar[int]
     ISSUE_FIELD_NUMBER: _ClassVar[int]
     ARTIFACT_FIELD_NUMBER: _ClassVar[int]
     PII_ENTITY_FIELD_NUMBER: _ClassVar[int]
     CONNECTION_FIELD_NUMBER: _ClassVar[int]
+    DATABASE_REQUEST_FIELD_NUMBER: _ClassVar[int]
     request: _request_pb2.Request
     issue: _issue_pb2.Issue
     artifact: _artifact_pb2.Artifact
     pii_entity: _pii_pb2.PIIEntity
     connection: _connection_pb2.Connection
-    def __init__(self, request: _Optional[_Union[_request_pb2.Request, _Mapping]] = ..., issue: _Optional[_Union[_issue_pb2.Issue, _Mapping]] = ..., artifact: _Optional[_Union[_artifact_pb2.Artifact, _Mapping]] = ..., pii_entity: _Optional[_Union[_pii_pb2.PIIEntity, _Mapping]] = ..., connection: _Optional[_Union[_connection_pb2.Connection, _Mapping]] = ...) -> None: ...
+    database_request: _database_request_pb2.DatabaseRequest
+    def __init__(self, request: _Optional[_Union[_request_pb2.Request, _Mapping]] = ..., issue: _Optional[_Union[_issue_pb2.Issue, _Mapping]] = ..., artifact: _Optional[_Union[_artifact_pb2.Artifact, _Mapping]] = ..., pii_entity: _Optional[_Union[_pii_pb2.PIIEntity, _Mapping]] = ..., connection: _Optional[_Union[_connection_pb2.Connection, _Mapping]] = ..., database_request: _Optional[_Union[_database_request_pb2.DatabaseRequest, _Mapping]] = ...) -> None: ...
 
 class IngestRequest(_message.Message):
     __slots__ = ["events"]
     class Event(_message.Message):
-        __slots__ = ["request", "issue", "artifact", "pii_entity", "connection"]
+        __slots__ = ["request", "issue", "artifact", "pii_entity", "connection", "database_request"]
         REQUEST_FIELD_NUMBER: _ClassVar[int]
         ISSUE_FIELD_NUMBER: _ClassVar[int]
         ARTIFACT_FIELD_NUMBER: _ClassVar[int]
         PII_ENTITY_FIELD_NUMBER: _ClassVar[int]
         CONNECTION_FIELD_NUMBER: _ClassVar[int]
+        DATABASE_REQUEST_FIELD_NUMBER: _ClassVar[int]
         request: _request_pb2.Request
         issue: _issue_pb2.Issue
         artifact: _artifact_pb2.Artifact
         pii_entity: _pii_pb2.PIIEntity
         connection: _connection_pb2.Connection
-        def __init__(self, request: _Optional[_Union[_request_pb2.Request, _Mapping]] = ..., issue: _Optional[_Union[_issue_pb2.Issue, _Mapping]] = ..., artifact: _Optional[_Union[_artifact_pb2.Artifact, _Mapping]] = ..., pii_entity: _Optional[_Union[_pii_pb2.PIIEntity, _Mapping]] = ..., connection: _Optional[_Union[_connection_pb2.Connection, _Mapping]] = ...) -> None: ...
+        database_request: _database_request_pb2.DatabaseRequest
+        def __init__(self, request: _Optional[_Union[_request_pb2.Request, _Mapping]] = ..., issue: _Optional[_Union[_issue_pb2.Issue, _Mapping]] = ..., artifact: _Optional[_Union[_artifact_pb2.Artifact, _Mapping]] = ..., pii_entity: _Optional[_Union[_pii_pb2.PIIEntity, _Mapping]] = ..., connection: _Optional[_Union[_connection_pb2.Connection, _Mapping]] = ..., database_request: _Optional[_Union[_database_request_pb2.DatabaseRequest, _Mapping]] = ...) -> None: ...
     EVENTS_FIELD_NUMBER: _ClassVar[int]
     events: _containers.RepeatedCompositeFieldContainer[IngestRequest.Event]
     def __init__(self, events: _Optional[_Iterable[_Union[IngestRequest.Event, _Mapping]]] = ...) -> None: ...
