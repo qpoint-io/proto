@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package qpoint.type.v1;
+
+import "buf/validate/validate.proto";
+import "google/protobuf/timestamp.proto";
+
+message RedisRequest {
+  string id = 1 [(buf.validate.field).required = true];
+  google.protobuf.Timestamp timestamp = 2 [(buf.validate.field).required = true];
+  string direction = 3 [(buf.validate.field).required = true];
+  string connection_id = 4 [(buf.validate.field).required = true];
+  string endpoint_id = 5;
+
+  // Command details
+  string command = 6;           // e.g., "GET", "SET", "HGET"
+  repeated string args = 7;     // Command arguments (redacted for sensitive commands)
+  int32 arg_count = 8;          // Number of arguments
+
+  // Result details
+  string result_type = 9;       // e.g., "string", "integer", "array", "error"
+  bool is_error = 10;
+  string error_msg = 11;
+
+  // Timing
+  uint64 duration = 12;         // Duration in milliseconds
+
+  // Bytes
+  uint64 bytes_received = 13;
+  uint64 bytes_sent = 14;
+
+  // Key information
+  string key_pattern = 15;
+
+  // Tags
+  repeated string tags = 16;
+}

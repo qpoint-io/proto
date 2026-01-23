@@ -6,6 +6,7 @@ import "qpoint/type/v1/artifact.proto";
 import "qpoint/type/v1/connection.proto";
 import "qpoint/type/v1/issue.proto";
 import "qpoint/type/v1/pii.proto";
+import "qpoint/type/v1/redis_request.proto";
 import "qpoint/type/v1/request.proto";
 
 service EventStoreService {
@@ -28,6 +29,7 @@ message Event {
     qpoint.type.v1.Artifact artifact = 3;
     qpoint.type.v1.PIIEntity pii_entity = 4;
     qpoint.type.v1.Connection connection = 5;
+    qpoint.type.v1.RedisRequest redis_request = 6;
   }
 }
 
@@ -40,6 +42,7 @@ message IngestRequest {
       qpoint.type.v1.Artifact artifact = 3;
       qpoint.type.v1.PIIEntity pii_entity = 4;
       qpoint.type.v1.Connection connection = 5;
+      qpoint.type.v1.RedisRequest redis_request = 6;
     }
   }
 
