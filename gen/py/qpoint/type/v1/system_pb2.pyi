@@ -38,6 +38,11 @@ class L7Protocol(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     L7_PROTOCOL_DNS: _ClassVar[L7Protocol]
     L7_PROTOCOL_GRPC: _ClassVar[L7Protocol]
     L7_PROTOCOL_OTHER: _ClassVar[L7Protocol]
+    L7_PROTOCOL_REDIS: _ClassVar[L7Protocol]
+    L7_PROTOCOL_MYSQL: _ClassVar[L7Protocol]
+    L7_PROTOCOL_POSTGRESQL: _ClassVar[L7Protocol]
+    L7_PROTOCOL_KAFKA: _ClassVar[L7Protocol]
+    L7_PROTOCOL_MONGODB: _ClassVar[L7Protocol]
 DIRECTION_UNSPECIFIED: Direction
 DIRECTION_INGRESS: Direction
 DIRECTION_EGRESS: Direction
@@ -60,6 +65,11 @@ L7_PROTOCOL_HTTP3: L7Protocol
 L7_PROTOCOL_DNS: L7Protocol
 L7_PROTOCOL_GRPC: L7Protocol
 L7_PROTOCOL_OTHER: L7Protocol
+L7_PROTOCOL_REDIS: L7Protocol
+L7_PROTOCOL_MYSQL: L7Protocol
+L7_PROTOCOL_POSTGRESQL: L7Protocol
+L7_PROTOCOL_KAFKA: L7Protocol
+L7_PROTOCOL_MONGODB: L7Protocol
 
 class Pod(_message.Message):
     __slots__ = ["name", "namespace"]

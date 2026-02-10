@@ -180,18 +180,28 @@ const (
 	L7Protocol_L7_PROTOCOL_DNS         L7Protocol = 4
 	L7Protocol_L7_PROTOCOL_GRPC        L7Protocol = 5
 	L7Protocol_L7_PROTOCOL_OTHER       L7Protocol = 6
+	L7Protocol_L7_PROTOCOL_REDIS       L7Protocol = 7
+	L7Protocol_L7_PROTOCOL_MYSQL       L7Protocol = 8
+	L7Protocol_L7_PROTOCOL_POSTGRESQL  L7Protocol = 9
+	L7Protocol_L7_PROTOCOL_KAFKA       L7Protocol = 10
+	L7Protocol_L7_PROTOCOL_MONGODB     L7Protocol = 11
 )
 
 // Enum value maps for L7Protocol.
 var (
 	L7Protocol_name = map[int32]string{
-		0: "L7_PROTOCOL_UNSPECIFIED",
-		1: "L7_PROTOCOL_HTTP1",
-		2: "L7_PROTOCOL_HTTP2",
-		3: "L7_PROTOCOL_HTTP3",
-		4: "L7_PROTOCOL_DNS",
-		5: "L7_PROTOCOL_GRPC",
-		6: "L7_PROTOCOL_OTHER",
+		0:  "L7_PROTOCOL_UNSPECIFIED",
+		1:  "L7_PROTOCOL_HTTP1",
+		2:  "L7_PROTOCOL_HTTP2",
+		3:  "L7_PROTOCOL_HTTP3",
+		4:  "L7_PROTOCOL_DNS",
+		5:  "L7_PROTOCOL_GRPC",
+		6:  "L7_PROTOCOL_OTHER",
+		7:  "L7_PROTOCOL_REDIS",
+		8:  "L7_PROTOCOL_MYSQL",
+		9:  "L7_PROTOCOL_POSTGRESQL",
+		10: "L7_PROTOCOL_KAFKA",
+		11: "L7_PROTOCOL_MONGODB",
 	}
 	L7Protocol_value = map[string]int32{
 		"L7_PROTOCOL_UNSPECIFIED": 0,
@@ -201,6 +211,11 @@ var (
 		"L7_PROTOCOL_DNS":         4,
 		"L7_PROTOCOL_GRPC":        5,
 		"L7_PROTOCOL_OTHER":       6,
+		"L7_PROTOCOL_REDIS":       7,
+		"L7_PROTOCOL_MYSQL":       8,
+		"L7_PROTOCOL_POSTGRESQL":  9,
+		"L7_PROTOCOL_KAFKA":       10,
+		"L7_PROTOCOL_MONGODB":     11,
 	}
 )
 
@@ -512,7 +527,7 @@ const file_qpoint_type_v1_system_proto_rawDesc = "" +
 	"\x13SOCKET_PROTOCOL_TCP\x10\x01\x12\x17\n" +
 	"\x13SOCKET_PROTOCOL_UDP\x10\x02\x12\x18\n" +
 	"\x14SOCKET_PROTOCOL_ICMP\x10\x03\x12\x17\n" +
-	"\x13SOCKET_PROTOCOL_RAW\x10\x04*\xb0\x01\n" +
+	"\x13SOCKET_PROTOCOL_RAW\x10\x04*\xaa\x02\n" +
 	"\n" +
 	"L7Protocol\x12\x1b\n" +
 	"\x17L7_PROTOCOL_UNSPECIFIED\x10\x00\x12\x15\n" +
@@ -521,7 +536,13 @@ const file_qpoint_type_v1_system_proto_rawDesc = "" +
 	"\x11L7_PROTOCOL_HTTP3\x10\x03\x12\x13\n" +
 	"\x0fL7_PROTOCOL_DNS\x10\x04\x12\x14\n" +
 	"\x10L7_PROTOCOL_GRPC\x10\x05\x12\x15\n" +
-	"\x11L7_PROTOCOL_OTHER\x10\x06B\xb4\x01\n" +
+	"\x11L7_PROTOCOL_OTHER\x10\x06\x12\x15\n" +
+	"\x11L7_PROTOCOL_REDIS\x10\a\x12\x15\n" +
+	"\x11L7_PROTOCOL_MYSQL\x10\b\x12\x1a\n" +
+	"\x16L7_PROTOCOL_POSTGRESQL\x10\t\x12\x15\n" +
+	"\x11L7_PROTOCOL_KAFKA\x10\n" +
+	"\x12\x17\n" +
+	"\x13L7_PROTOCOL_MONGODB\x10\vB\xb4\x01\n" +
 	"\x12com.qpoint.type.v1B\vSystemProtoP\x01Z7github.com/qpoint-io/proto/gen/go/qpoint/type/v1;typev1\xa2\x02\x03QTX\xaa\x02\x0eQpoint.Type.V1\xca\x02\x0eQpoint\\Type\\V1\xe2\x02\x1aQpoint\\Type\\V1\\GPBMetadata\xea\x02\x10Qpoint::Type::V1b\x06proto3"
 
 var file_qpoint_type_v1_system_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
