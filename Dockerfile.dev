@@ -1,5 +1,5 @@
 FROM bufbuild/buf:1 AS buf
-FROM golang:1.24-alpine AS go
+FROM golang:1.26-alpine AS go
 
 RUN go install -mod=readonly google.golang.org/protobuf/cmd/protoc-gen-go@v1.36.6
 RUN go install -mod=readonly connectrpc.com/connect/cmd/protoc-gen-connect-go@v1.18.1

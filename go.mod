@@ -1,6 +1,6 @@
 module github.com/qpoint-io/proto
 
-go 1.24.1
+go 1.26.0
 
 require (
 	buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.36.6-20250307204501-0409229c3780.1
