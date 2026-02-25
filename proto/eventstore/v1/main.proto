@@ -5,6 +5,7 @@ package eventstore.v1;
 import "qpoint/type/v1/artifact.proto";
 import "qpoint/type/v1/connection.proto";
 import "qpoint/type/v1/database_request.proto";
+import "qpoint/type/v1/grpc_request.proto";
 import "qpoint/type/v1/issue.proto";
 import "qpoint/type/v1/pii.proto";
 import "qpoint/type/v1/request.proto";
@@ -30,6 +31,7 @@ message Event {
     qpoint.type.v1.PIIEntity pii_entity = 4;
     qpoint.type.v1.Connection connection = 5;
     qpoint.type.v1.DatabaseRequest database_request = 6;
+    qpoint.type.v1.GrpcRequest grpc_request = 7;
   }
 }
 
@@ -43,6 +45,7 @@ message IngestRequest {
       qpoint.type.v1.PIIEntity pii_entity = 4;
       qpoint.type.v1.Connection connection = 5;
       qpoint.type.v1.DatabaseRequest database_request = 6;
+      qpoint.type.v1.GrpcRequest grpc_request = 7;
     }
   }
 

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package qpoint.type.v1;
+
+import "qpoint/type/v1/request.proto";
+
+message GrpcRequest {
+  Request request = 1;
+
+  // gRPC-specific metadata
+  string grpc_service = 2; // e.g. "grpc.health.v1.Health"
+  string grpc_method = 3; // e.g. "Check"
+  string grpc_status = 4; // gRPC status code string, e.g. "0"
+  string grpc_status_name = 5; // e.g. "OK"
+  string grpc_message = 6; // gRPC error message from trailer headers
+}
